@@ -26,7 +26,7 @@ public class ColoredObjectActivator : MonoBehaviour
     private void SetActive()
     {
         Active = !Active;
-        activeState.SetActive(Active);
-        inactiveState.SetActive(!Active);
+        activeState.SetActive(!Active);
+        inactiveState.SetActive(Active);
     }
 }
