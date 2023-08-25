@@ -9,7 +9,7 @@ public class SetOutlineColor : MonoBehaviour
     private void Start()
     {
         outline = GetComponent<Outline>();
-        outline.OutlineColor = ColorDictionary.namesToColors[gameObject.tag];
+        outline.OutlineColor = ColorDictionary.namesToColors[transform.parent.gameObject.tag];
         outline.OutlineWidth = 10;
     }
 }

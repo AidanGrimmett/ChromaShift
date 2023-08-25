@@ -29,5 +29,9 @@ public class ColorController : MonoBehaviour
 
             CurrentColor.SetColor(colors[colorsIndex]);
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            CurrentColor.SetColor(Color.white);
+        }
     }
 }
