@@ -17,6 +17,14 @@ public class ColoredObjectActivator : MonoBehaviour
 
     private void Update()
     {
+        if (activeState.activeSelf && inactiveState.activeSelf)
+        {
+            if (ColorDictionary.namesToColors[gameObject.tag] == CurrentColor.currentColor)
+            {
+                SetActive();
+            }
+        }
+
         if (ColorDictionary.namesToColors[gameObject.tag] != CurrentColor.currentColor && Active || ColorDictionary.namesToColors[gameObject.tag] == CurrentColor.currentColor && !Active)
         {
             SetActive();

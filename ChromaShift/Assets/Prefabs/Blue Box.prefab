@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7868350944804649030}
   - component: {fileID: 4201099205128444207}
   - component: {fileID: 8046576458355507168}
-  - component: {fileID: 1724884280978384029}
   m_Layer: 0
   m_Name: Active
   m_TagString: Untagged
@@ -119,18 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ab218ccc363eb499a051465bd621fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1724884280978384029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578675794954789368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5f792d962df7234e9a11cb66360e501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3084822132855713180
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,13 +129,11 @@ GameObject:
   - component: {fileID: 1971295274000276444}
   - component: {fileID: 6440406260635953851}
   - component: {fileID: 4996206223675251525}
-  - component: {fileID: 7372748980069629644}
   - component: {fileID: 2184642528739297589}
   - component: {fileID: 6709928231010943676}
-  - component: {fileID: 4500311279991028976}
   m_Layer: 0
   m_Name: Inactive
-  m_TagString: Blue
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,27 +203,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7372748980069629644
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084822132855713180}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2184642528739297589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,18 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c320a9faa29ffc4fa9fd913829a0fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4500311279991028976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084822132855713180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5f792d962df7234e9a11cb66360e501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6689940098583421400
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +243,6 @@ GameObject:
   m_Component:
   - component: {fileID: 232527359860909573}
   - component: {fileID: 2332011207665649737}
-  - component: {fileID: 6027034420011126017}
-  - component: {fileID: 8745986995566518917}
   m_Layer: 0
   m_Name: Blue Box
   m_TagString: Blue
@@ -327,29 +277,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d0ca4ab0cf2f1d45b1f798d2deae935, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6027034420011126017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6689940098583421400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 355fa794db84f4e4a8eae68c3765e734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8745986995566518917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6689940098583421400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5f792d962df7234e9a11cb66360e501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
