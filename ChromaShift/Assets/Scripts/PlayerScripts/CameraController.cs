@@ -6,22 +6,37 @@ public class CameraController : MonoBehaviour
 {
     private float mouseSensitivity;
     private float xRotation;
+    private float yRotation;
+    private float vertRotation;
+    private float horiRotation;
+
+    public Transform orientation;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        mouseSensitivity = GetComponentInParent<PlayerMovementController>().mouseSensitivity;
+        mouseSensitivity = 5;// GameObject.Find("Player").GetComponent<PlayerMovementController>().mouseSensitivity;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
 
-        float vertRotation = -mouseY * mouseSensitivity;
+
+        vertRotation = -mouseY;
+        horiRotation = mouseX;
+
         xRotation += vertRotation;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+        yRotation += horiRotation;
 
-        transform.rotation = Quaternion.Euler(xRotation, transform.eulerAngles.y, 0f);
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+
+        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

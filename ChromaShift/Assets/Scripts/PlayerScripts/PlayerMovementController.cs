@@ -6,6 +6,7 @@ public class PlayerMovementController : MonoBehaviour
 {
     private Rigidbody worldRB;
     private Rigidbody rb;
+    private CustomGravity gravityController;
 
     //Inputs
     private float xInput;
@@ -24,7 +25,6 @@ public class PlayerMovementController : MonoBehaviour
     private float targetSpeed;
     private float speedDif;
     private float accel;
-    private float movement;
 
     //jumping
     [Header("Jump Params")]
@@ -32,8 +32,6 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float jumpHangTimeThreshold;
     [SerializeField] private float jumpBufferTime;
-    [SerializeField] private float jumpHangTimeAccelMult;
-    [SerializeField] private float jumpHangTimeSpeedMult;
     [SerializeField] private float maxFallSpeed;
 
     //Gravity
@@ -42,6 +40,13 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float jumpHangTimeGravity;
     [SerializeField] private float jumpFallGravity;
     [SerializeField] private float jumpCutGravity;
+    [SerializeField] private float wallRunGravity;
+
+    //Drag
+    [Header("Drag")]
+    [SerializeField] private float groundDrag;
+    [SerializeField] private float airDrag;
+    [SerializeField] private float wallDrag;
 
     //collisions
     [Header("Collisions")]
@@ -51,9 +56,9 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private Vector3 wallCheckSize;
     [SerializeField] private Vector3 wallCheckOffset;
 
-    public bool isJumping { get; private set; }
+    private bool isJumping;
     private bool isJumpCut;
-    public bool isJumpFalling { get; private set; }
+    private bool isJumpFalling;
 
     //Timers
     private float lastOnGround;
@@ -88,17 +93,18 @@ public class PlayerMovementController : MonoBehaviour
         worldRB = GameObject.Find("World").GetComponent<Rigidbody>();
 
         rb = GetComponent<Rigidbody>();
-
-        //set up the cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        mouseSensitivity *= 0.1f;
+        gravityController = GetComponent<CustomGravity>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //Timers
+        lastOnGround -= Time.deltaTime;
+        lastOnWall -= Time.deltaTime;
+        lastPressedJump -= Time.deltaTime;
+
+        //check terrain collisions
         if (Physics.OverlapBox(groundCheckPoint.position, groundCheckSize, Quaternion.identity, groundLayer).Length > 0)
         {
             lastOnGround = CoyoteTime;
@@ -111,32 +117,132 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         //get inputs
-        float mouseX = Input.GetAxis("Mouse X");
-
         zInput = Input.GetAxisRaw("Vertical");
         xInput = Input.GetAxisRaw("Horizontal");
-        float jumpInput = Input.GetAxisRaw("Jump");
 
-        //rotate character with mouse movement
-        transform.Rotate(new Vector3(0f, mouseX * mouseSensitivity, 0f));
-       
-        if (jumpInput > 0)
+        //Jump inputs
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(0, 0.2f, 0, ForceMode.Impulse);
+            OnJumpInput();
         }
-    }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            onJumpReleaseInput();
+        }
 
-    private void UpdateInputs()
-    {
+        //jump rules
 
+        //Jump triggers
+        if (CanJump() && lastPressedJump > 0)
+        {
+            isJumping = true;
+            isJumpCut = false;
+            isJumpFalling = false;
+            Jump();
+        }
+        else if (CanWallJump() && lastPressedJump > 0)
+        {
+            isJumping = true;
+            isJumpCut = false;
+            isJumpFalling = false;
+            WallJump();
+        }
+        
+        //peak of jump / starting to fall
+        if (isJumping && rb.velocity.y < 0)
+        {
+            isJumping = false;
+            isJumpFalling = true;
+        }
+
+        //On the ground / not jumping
+        if (lastOnGround > 0 && !isJumping)
+        {
+            isJumpCut = false;
+            isJumpFalling = false;
+        }
+
+        //gravity rules
+        if ((isJumping || isJumpFalling) && Mathf.Abs(rb.velocity.y) < jumpHangTimeThreshold) //hangtime (light gravity)
+        {
+            SetGravityScale(jumpHangTimeGravity);
+            Debug.Log("Hangning~");
+        }
+        else if (isJumpFalling)//falling from a jump (bit stronger)
+        {
+            SetGravityScale(jumpFallGravity);
+            Debug.Log("Falling!");
+        }
+        else if (isJumpCut)//very strong to cancel out upwards momentum
+        {
+            SetGravityScale(jumpCutGravity);
+            Debug.Log("Cutting!");
+        }
+        else if (lastOnWall > 0)
+        {
+            SetGravityScale(wallRunGravity);
+            Debug.Log("Walling!");
+        }
+        else
+        {
+            SetGravityScale(defaultGravity); //normal gravity
+        }
+
+        //enforce max speeds
+        //fall speed
+        rb.velocity = new Vector3(rb.velocity.x, Mathf.Max(rb.velocity.y), rb.velocity.z);
+
+        //horizontal
+        Vector3 flatVel = new Vector3(worldRB.velocity.x, 0, worldRB.velocity.z);
+
+        if (flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            worldRB.velocity = new Vector3(limitedVel.x, worldRB.velocity.y, limitedVel.z);
+        }
     }
 
     private void Run()
     {
+        //if (zInput != 0 || xInput != 0)
+        //{
+        //    Vector3 normalForward = transform.forward.normalized;
 
+        //    Vector3 moveForce = normalForward * zInput + transform.right * xInput;
+
+        //    worldRB.AddForce(-moveForce * moveSpeed);
+        //}
+
+        accel = 0;
+        Vector3 flatVel = new Vector3(worldRB.velocity.x, 0, worldRB.velocity.z);
+
+        targetSpeed = new Vector3(xInput, 0, zInput).magnitude * moveSpeed;
+        if (lastOnGround > 0)
+        {
+            accel = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
+        }
+        else
+        {
+            accel = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration * inAirAccelerationMultiplyer : deceleration * inAirDecelerationMultiplyer;
+        }
+
+        speedDif = (targetSpeed - flatVel.magnitude) * 2;
+        Vector3 movement = (transform.right * xInput + transform.forward * zInput) * speedDif * accel;
+        rb.AddForce(-movement);
     }
 
     private void Jump()
+    {
+        lastPressedJump = 0;
+        lastOnGround = 0;
+
+        float force = jumpForce;
+        force += rb.velocity.y;
+
+        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+    }
+
+    private void WallJump()
     {
 
     }
@@ -150,17 +256,14 @@ public class PlayerMovementController : MonoBehaviour
     {
 
     }
+    private void SetGravityScale(float scale)
+    {
+        gravityController.SetGravityScale(scale);
+    }
 
     private void FixedUpdate()
     {
-        if (zInput != 0 || xInput != 0)
-        {
-            Vector3 normalForward = transform.forward.normalized;
-
-            Vector3 moveForce = normalForward * zInput + transform.right * xInput;
-
-            worldRB.AddForce(-moveForce * moveSpeed);
-        }
+        Run();
     }
 
     private void OnJumpInput()
