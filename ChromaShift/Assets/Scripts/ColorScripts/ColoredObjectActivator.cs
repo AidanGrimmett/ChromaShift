@@ -17,6 +17,7 @@ public class ColoredObjectActivator : MonoBehaviour
 
     private void Update()
     {
+        //Check the game to see which object should be active at the start of the game
         if (activeState.activeSelf && inactiveState.activeSelf)
         {
             if (ColorDictionary.namesToColors[gameObject.tag] == CurrentColor.currentColor)
@@ -25,6 +26,7 @@ public class ColoredObjectActivator : MonoBehaviour
             }
         }
 
+        //Check to see if the game state has been updated and switches the active and inactive object's state
         if (ColorDictionary.namesToColors[gameObject.tag] != CurrentColor.currentColor && Active || ColorDictionary.namesToColors[gameObject.tag] == CurrentColor.currentColor && !Active)
         {
             SetActive();
@@ -33,6 +35,7 @@ public class ColoredObjectActivator : MonoBehaviour
 
     private void SetActive()
     {
+        //Switches which child object is currenty active
         Active = !Active;
         activeState.SetActive(!Active);
         inactiveState.SetActive(Active);

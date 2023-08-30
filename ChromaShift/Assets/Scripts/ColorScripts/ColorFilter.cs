@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ColorChanger : MonoBehaviour
+public class ColorFilter : MonoBehaviour
 {
-    private Renderer rend;
+    private Image img;
 
     //Allows the opacity to be set (useful for the filter object)
     [SerializeField] private float opacity = 1f;
 
     private void Start()
     {
-        rend = GetComponent<Renderer>();
+        img = GetComponent<Image>();
     }
 
     private void Update()
     {
         //Checks if the colour matches the current colour set by the player.
-        if (rend.material.color != CurrentColor.currentColor)
+        if (img.color != CurrentColor.currentColor)
         {
-            rend.material.color = new Color(CurrentColor.currentColor.r, CurrentColor.currentColor.g, CurrentColor.currentColor.b, opacity);
+            img.color = new Color(CurrentColor.currentColor.r, CurrentColor.currentColor.g, CurrentColor.currentColor.b, opacity);
         }
     }
 }
