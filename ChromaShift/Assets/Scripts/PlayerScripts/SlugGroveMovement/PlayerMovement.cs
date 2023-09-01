@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody PlayerRB;
     private CapsuleCollider Cap;
 
+    private float XMove;
+    private float YMove;
+
     [Header("Physics")]
     public float MaxSpeed; //how fast we run forward
     public float BackwardsSpeed; //how fast we run backwards
@@ -44,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public float JumpHeight; //how high we jump
+    public float WallJumpVerticalHeight;
+    public float WallJumpHorizontalStrength;
 
     [Header("Wall Runs")]
     public float WallRunTime = 2f; //how long we can run on walls
@@ -62,12 +67,6 @@ public class PlayerMovement : MonoBehaviour
     public float SlideAmt; //how far we slide when pressing crouch
     public float SlideSpeedLimit; //how fast we have to be traveling before a crouch will trigger a slide
     public float SlideControl; //how much we adjust to our slide speed and regain player control
-
-    [Header("WallGrabbing")]
-    public float PullUpTime; //the time it takes to pull onto a ledge
-    private float ActPullTm; //the actual time it takes to pull up a ledge
-    private Vector3 OrigPos; //the original Position before grabbing a ledge
-    private Vector3 LedgePos; //the ledge position to move to
 
     [Header("FOV")]
     public float MaxFov;
@@ -93,8 +92,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float XMove = Input.GetAxisRaw("Horizontal");
-        float YMove = Input.GetAxisRaw("Vertical");
+        XMove = Input.GetAxisRaw("Horizontal");
+        YMove = Input.GetAxisRaw("Vertical");
 
         if (CurrentState == PlayerStates.Grounded)
         {
@@ -404,14 +403,14 @@ public class PlayerMovement : MonoBehaviour
     void WallMove(float Ver, float D)
     {
         //get the direction to run up this wall if we press forward (keep in mind this only works if the wall is infront or to the side of the player as we run along on, on walls to our immediate right or left we slide down
-        Vector3 MovementDirection = transform.up * Ver;
+        Vector3 MovementDirection = transform.up;
         MovementDirection = MovementDirection * WallRunUpwardsMovement;
 
         //our x z velocity are our momentum applied to our forward direction
         MovementDirection += transform.forward * ActSpeed;
 
-        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, WallRunSpeedAcceleration * D);
-        Rigid.velocity = LerpVelocity;
+        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, MovementDirection, WallRunSpeedAcceleration * D);
+        PlayerRB.velocity = LerpVelocity;
     }
 
     void JumpUp()
@@ -435,7 +434,16 @@ public class PlayerMovement : MonoBehaviour
             VelAmt.y = 0;
             PlayerRB.velocity = VelAmt;
             //add our jump force
-            PlayerRB.AddForce(transform.up * (JumpHeight / 2), ForceMode.Impulse);
+            Vector3 forceToAdd = transform.up * WallJumpVerticalHeight;
+            if (XMove > 0)
+            {
+                forceToAdd += transform.right * WallJumpHorizontalStrength;
+            }
+            else if (XMove < 0)
+            {
+                forceToAdd += -transform.right * WallJumpHorizontalStrength;
+            }
+            PlayerRB.AddForce(forceToAdd, ForceMode.Impulse);
             //we are now in the air
             SetInAir();
         }

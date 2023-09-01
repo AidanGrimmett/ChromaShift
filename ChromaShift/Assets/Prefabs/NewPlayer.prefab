@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 200533857691086286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.431, z: 0.357}
+  m_LocalPosition: {x: 0, y: 0.431, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,10 +217,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloorCheckRadius: 0.3
   bottomOffset: 0.8
-  WallCheckRadius: 0.85
-  frontOffset: 0.5
-  RoofCheckRadius: 0.4
-  upOffset: 0.7
+  WallCheckRadius: 0.6
+  frontOffset: 0.1
+  RoofCheckRadius: 0.3
+  upOffset: 0.8
   FloorLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -244,29 +244,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxSpeed: 16
   BackwardsSpeed: 6
-  InAirControl: 1
-  Acceleration: 0.3
-  Decceleration: 4
-  DirectionControl: 8
+  InAirControl: 0.5
+  Acceleration: 5
+  Decceleration: 2
+  DirectionControl: 1
   CurrentState: 0
-  TurnSpeed: 60
-  TurnSpeedInAir: 60
-  TurnSpeedOnWalls: 30
-  LookUpSpeed: 45
+  TurnSpeed: 80
+  TurnSpeedInAir: 80
+  TurnSpeedOnWalls: 40
+  LookUpSpeed: 80
   Head: {fileID: 1790336006976643092}
   MaxLookAngle: 65
   MinLookAngle: -30
-  JumpHeight: 8
-  WallRunTime: 1
+  JumpHeight: 6
+  WallJumpVerticalHeight: 6
+  WallJumpHorizontalStrength: 5
+  WallRunTime: 2
   TimeBeforeWallRun: 0.2
-  WallRunUpwardsMovement: 4
-  WallRunSpeedAcceleration: 2
+  WallRunUpwardsMovement: 10
+  WallRunSpeedAcceleration: 10
   CrouchSpeed: 10
   CrouchHeight: 1.3
   SlideAmt: 15
   SlideSpeedLimit: 5
   SlideControl: 0.5
-  PullUpTime: 0
   MaxFov: 90
   FOVSpeed: 10
 --- !u!54 &8459679747425711833
