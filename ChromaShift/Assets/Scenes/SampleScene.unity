@@ -529,6 +529,10 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6907950866324802399, guid: 538763ef106ddb348835f3df3beba565, type: 3}
+      propertyPath: Acceleration
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907950866324802399, guid: 538763ef106ddb348835f3df3beba565, type: 3}
       propertyPath: TurnSpeedInAir
       value: 300
       objectReference: {fileID: 0}
