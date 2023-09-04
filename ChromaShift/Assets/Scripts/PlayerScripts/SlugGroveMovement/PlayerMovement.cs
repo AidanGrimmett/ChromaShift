@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class PlayerMovement : MonoBehaviour
 {
     public enum PlayerStates
@@ -53,8 +53,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public float JumpHeight; //how high we jump
-    public float WallJumpVerticalHeight;
-    public float WallJumpHorizontalStrength;
+    public float WallJumpVerticalHeight; //jump power in the y axis
+    public float WallJumpHorizontalStrength; //jump power in the x axis
+    private string[] lastWalls; //reference to the last walls we jumped from, so that we can block the player from running or jumping on that wall until they touch ground or a different wall
 
     [Header("Wall Runs")]
     public float WallRunTime = 2f; //how long we can run on walls
@@ -62,8 +63,8 @@ public class PlayerMovement : MonoBehaviour
     public float TimeBeforeWallRun = 0.2f; //how long we have to be in the air before we can wallrun
     public float WallRunUpwardsMovement = 2f; //how much we move up a wall when running on it (make this 0 to just slightly move down a wall we run on
     public float WallRunSpeedAcceleration = 2f; //how quickly we build speed to run up walls
-    public float cameraTiltAmount = 30;
-    public float tiltLerpTime = 0.5f;
+    public float cameraTiltAmount = 15; //how much the camera tilts when on a wall
+    public float tiltLerpTime = 0.15f; //how fast the transition is
     private float currentTiltAngle = 0;
 
     [Header("Crouching")]
@@ -117,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (CurrentState == PlayerStates.Grounded)
         {
+            lastWalls = new string[1] { "" };
             //if we press jump
             if (Input.GetButtonDown("Jump"))
             {
@@ -153,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
             //if we press jump
             if (Input.GetButtonDown("Jump"))
             {
+                lastWalls = Coli.GetWallNames();
                 //jump upwards
                 JumpUp();
             }
@@ -355,9 +358,12 @@ public class PlayerMovement : MonoBehaviour
 
     void SetOnWall()
     {
-        OnGroundTimer = 0; //remove the on ground timer
-        InAirTimer = 0; //remove the in air timer
-        CurrentState = PlayerStates.OnWalls;
+        if (!Coli.GetWallNames().Intersect(lastWalls).Any())
+        {
+            OnGroundTimer = 0; //remove the on ground timer
+            InAirTimer = 0; //remove the in air timer
+            CurrentState = PlayerStates.OnWalls;
+        }
     }
 
     void StartCrouch()

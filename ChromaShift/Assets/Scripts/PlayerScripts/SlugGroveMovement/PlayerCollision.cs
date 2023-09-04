@@ -71,6 +71,23 @@ public class PlayerCollision : MonoBehaviour
         return (Physics.Raycast(transform.position, transform.right, checkWallLength, WallLayers));
     }
 
+    public string[] GetWallNames()
+    {
+        Vector3 Pos = transform.position;
+        Collider[] hitColliders = Physics.OverlapSphere(Pos, WallCheckRadius, WallLayers);
+        if (hitColliders.Length > 0)
+        {
+            //we are on the ground
+            string[] returnStrings = new string[hitColliders.Length];
+            for (int i = 0; i < hitColliders.Length; i++)
+            {
+                returnStrings[i] = hitColliders[i].gameObject.name;
+            }
+            return returnStrings;
+        }
+        return new string[1] { "" };
+    }
+
     //public Vector3 CheckLedges()
     //{
     //    Vector3 RayPos = transform.position + (transform.forward * LedgeGrabForwardPos) + (transform.up * LedgeGrabUpwardsPos);
