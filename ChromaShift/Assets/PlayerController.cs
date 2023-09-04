@@ -47,18 +47,18 @@ public class PlayerController : MonoBehaviour
 
         GetInput();
 
-        if (isGrounded)
-        {
-            worldRB.drag = groundDrag;
-        }
-        else if (false)
-        {
-            worldRB.drag = wallDrag;
-        }
-        else
-        {
-            worldRB.drag = airDrag;
-        }
+        //if (isGrounded)
+        //{
+        //    worldRB.drag = groundDrag;
+        //}
+        //else if (false)
+        //{
+        //    worldRB.drag = wallDrag;
+        //}
+        //else
+        //{
+        //    worldRB.drag = airDrag;
+        //}
     }
 
     private void FixedUpdate()

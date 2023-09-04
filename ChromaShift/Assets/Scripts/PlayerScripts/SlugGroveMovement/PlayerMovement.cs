@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody Rigid;
     private Rigidbody PlayerRB;
     private CapsuleCollider Cap;
+    private CustomGravity gravityController;
 
     private float XMove;
     private float YMove;
@@ -32,6 +33,11 @@ public class PlayerMovement : MonoBehaviour
     private float InAirTimer; //how long we are in the air for (this is for use when wall running or falling off the ground
     private float OnGroundTimer;
     private float AdjustmentAmt; //the amount added to our player acceleration, this is used for adjusting to new speeds such as when we slide
+
+    [Header("Gravity")]
+    public float defaultGravity = 1;
+    public float wallGravity = 0.5f;
+    public float fallGravity = 1.5f;
 
 
     [Header("Turning")]
@@ -56,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
     public float TimeBeforeWallRun = 0.2f; //how long we have to be in the air before we can wallrun
     public float WallRunUpwardsMovement = 2f; //how much we move up a wall when running on it (make this 0 to just slightly move down a wall we run on
     public float WallRunSpeedAcceleration = 2f; //how quickly we build speed to run up walls
+    public float cameraTiltAmount = 30;
+    public float tiltLerpTime = 0.5f;
+    private float currentTiltAngle = 0;
 
     [Header("Crouching")]
     public float CrouchSpeed = 10; //how fast we move when crouching
@@ -82,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         MinFov = Head.fieldOfView;
         Cap = GetComponent<CapsuleCollider>();
         StandingHeight = Cap.height;
+        gravityController = GetComponent<CustomGravity>();
 
         AdjustmentAmt = 1;
 
@@ -94,6 +104,16 @@ public class PlayerMovement : MonoBehaviour
     {
         XMove = Input.GetAxisRaw("Horizontal");
         YMove = Input.GetAxisRaw("Vertical");
+
+        //tilt head
+        Transform camTrans = Head.transform;
+        float targetAngle;
+        if (CurrentState == PlayerStates.OnWalls)
+             targetAngle = Coli.CheckLeftWall() ? -cameraTiltAmount : Coli.CheckRightWall() ? cameraTiltAmount : 0f;
+        else 
+            targetAngle = 0f;
+        
+        currentTiltAngle = Mathf.Lerp(currentTiltAngle, targetAngle, Time.deltaTime * tiltLerpTime);
 
         if (CurrentState == PlayerStates.Grounded)
         {
@@ -239,10 +259,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 //we are on the ground to remove any increase in the air timer
                 InAirTimer = 0;
+                SetGravity(defaultGravity);
             }
         }
         else if(CurrentState == PlayerStates.InAir)
         {
+            //Debug.Log("In Air!!");
             //tick our Air timer
             if (InAirTimer < 10)
                 InAirTimer += Del;
@@ -251,17 +273,27 @@ public class PlayerMovement : MonoBehaviour
 
             //turn our player with the in air modifier
             TurnPlayer(CamX, Del, TurnSpeedInAir);
+            if (PlayerRB.velocity.y < 0)
+            {
+                SetGravity(fallGravity);
+            }
+            else
+            {
+                SetGravity(defaultGravity);
+            }
         }
         else if (CurrentState == PlayerStates.OnWalls)
         {
             //tick our wall run timer
             ActWallRunTime += Del;
-            Debug.Log(ActWallRunTime);
+            //Debug.Log("On Wall!");
             //turn our player with the in air modifier
             TurnPlayer(CamX, Del, TurnSpeedOnWalls);
 
             //move our player when on a wall
-            WallMove(verInput, Del);
+            //WallMove(verInput, Del);
+
+            SetGravity(wallGravity);
         }
     }
 
@@ -357,7 +389,7 @@ public class PlayerMovement : MonoBehaviour
         XTurn -= (Ver * D) * LookUpSpeed;
         XTurn = Mathf.Clamp(XTurn, MinLookAngle, MaxLookAngle);
         //look up and down
-        Head.transform.localRotation = Quaternion.Euler(XTurn, 0, 0);
+        Head.transform.localRotation = Quaternion.Euler(XTurn, 0, currentTiltAngle);
     }
 
     void MovePlayer(float Hor, float Ver, float D)
@@ -476,5 +508,10 @@ public class PlayerMovement : MonoBehaviour
 
         //slide in direction
         Rigid.AddForce(-transform.forward * SlideAmt, ForceMode.Impulse);
+    }
+
+    void SetGravity(float gravScale)
+    {
+        gravityController.SetGravityScale(gravScale);
     }
 }

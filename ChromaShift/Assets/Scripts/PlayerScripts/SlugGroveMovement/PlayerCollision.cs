@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour
     public float frontOffset; //offset from the players centre 
     public float RoofCheckRadius; //the amount we check before standing up 
     public float upOffset; //offset upwards
+    public float checkWallLength;
 
     //public float LedgeGrabForwardPos; //the position in front of the player where we check for ledges
     //public float LedgeGrabUpwardsPos;//the position in above of the player where we check for ledges
@@ -58,6 +59,16 @@ public class PlayerCollision : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool CheckLeftWall()
+    {
+        return (Physics.Raycast(transform.position, transform.right * -1, checkWallLength, WallLayers));
+    }
+
+    public bool CheckRightWall()
+    {
+        return (Physics.Raycast(transform.position, transform.right, checkWallLength, WallLayers));
     }
 
     //public Vector3 CheckLedges()
