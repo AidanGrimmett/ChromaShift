@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     public float JumpHeight; //how high we jump
     public float WallJumpVerticalHeight; //jump power in the y axis
     public float WallJumpHorizontalStrength; //jump power in the x axis
+    public float WallJumpForwardBoost;
     private string[] lastWalls; //reference to the last walls we jumped from, so that we can block the player from running or jumping on that wall until they touch ground or a different wall
 
     [Header("Wall Runs")]
@@ -469,18 +470,20 @@ public class PlayerMovement : MonoBehaviour
         {
             //reduce our velocity on the y axis so our jump force can be added
             Vector3 VelAmt = PlayerRB.velocity;
+            //Vector3 flatVelNorm = new Vector3(PlayerRB.velocity.x, 0, PlayerRB.velocity.z).normalized;
             VelAmt.y = 0;
             PlayerRB.velocity = VelAmt;
             //add our jump force
             Vector3 forceToAdd = transform.up * WallJumpVerticalHeight;
-            if (XMove > 0)
-            {
-                forceToAdd += transform.right * WallJumpHorizontalStrength;
-            }
-            else if (XMove < 0)
+            if (Coli.CheckLeftWall() )
             {
                 forceToAdd += -transform.right * WallJumpHorizontalStrength;
             }
+            else if (Coli.CheckRightWall())
+            {
+                forceToAdd += transform.right * WallJumpHorizontalStrength;
+            }
+            forceToAdd += -transform.forward * YMove * WallJumpForwardBoost;
             PlayerRB.AddForce(forceToAdd, ForceMode.Impulse);
             //we are now in the air
             SetInAir();

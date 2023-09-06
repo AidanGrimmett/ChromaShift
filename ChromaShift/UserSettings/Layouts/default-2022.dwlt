@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,8 +120,8 @@ MonoBehaviour:
     y: 0
     width: 264
     height: 985
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -445,7 +445,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/PlayerScripts/SlugGroveMovement
+    - Assets/Materials/Physic
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -453,16 +453,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/PlayerScripts/SlugGroveMovement
+  - Assets/Materials/Physic
   m_LastFoldersGridSize: -1
   m_LastProjectPath: S:\Repos\GamePrototypingLab\ColourParkourGame\ChromaShift\ChromaShift
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 7}
-    m_SelectedIDs: 905a0000
-    m_LastClickedID: 23184
-    m_ExpandedIDs: 00000000705a0000725a00008e5a0000925a000000ca9a3b
+    m_SelectedIDs: 0e670000
+    m_LastClickedID: 26382
+    m_ExpandedIDs: 00000000aa5a0000ac5a0000b65a0000c45a0000c85a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,7 +490,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000705a0000725a0000
+    m_ExpandedIDs: 00000000aa5a0000ac5a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -587,7 +587,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 270
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -630,9 +630,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4e830000
-      m_LastClickedID: 33614
-      m_ExpandedIDs: 0e4fffff104fffff5262ffff526effffe66fffff3e71fffff472ffff2a79ffff7079fffffe7affff7a81ffff30f1ffff2efbffff6e5e00004c6b00005e6b0000e4780000527c0000fe830000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2efbffff3a5a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -986,9 +986,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.4, y: 1.5463867, z: -110.63}
+    m_Target: {x: -22.387218, y: -2.790001, z: -97.19469}
     speed: 2
-    m_Value: {x: 5.4, y: 1.5463867, z: -110.63}
+    m_Value: {x: -22.387218, y: -2.790001, z: -97.19469}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1034,13 +1034,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.22115147, y: -0.6488095, z: 0.20542865, w: 0.6985973}
+    m_Target: {x: -0.23389599, y: 0.50349844, z: -0.14378206, w: -0.8192883}
     speed: 2
-    m_Value: {x: 0.22114033, y: -0.64877677, z: 0.20541829, w: 0.6985621}
+    m_Value: {x: -0.23366548, y: 0.50469536, z: -0.14412376, w: -0.81848115}
   m_Size:
-    m_Target: 9.596428
+    m_Target: 48.746964
     speed: 2
-    m_Value: 9.183185
+    m_Value: 48.746964
   m_Ortho:
     m_Target: 0
     speed: 2

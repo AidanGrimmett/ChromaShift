@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1155661540314757050}
   - component: {fileID: 1068302266784410824}
   - component: {fileID: 4132568971901407843}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ MonoBehaviour:
   frontOffset: 0
   RoofCheckRadius: 0.3
   upOffset: 0.8
-  checkWallLength: 0.6
+  checkWallLength: 0.75
   FloorLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -458,16 +458,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83377d9c4dfba8d4dbfad04d0308e3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 16
-  BackwardsSpeed: 6
-  InAirControl: 0.6
+  MaxSpeed: 14
+  BackwardsSpeed: 12
+  InAirControl: 0.4
   Acceleration: 50
-  Decceleration: 4
-  DirectionControl: 1
+  Decceleration: 3
+  DirectionControl: 3
   CurrentState: 0
-  defaultGravity: 1
-  wallGravity: 0.5
-  fallGravity: 1.5
+  defaultGravity: 1.3
+  wallGravity: 0.2
+  fallGravity: 2
   TurnSpeed: 300
   TurnSpeedInAir: 300
   TurnSpeedOnWalls: 150
@@ -476,9 +476,9 @@ MonoBehaviour:
   MaxLookAngle: 80
   MinLookAngle: -70
   JumpHeight: 7
-  WallJumpVerticalHeight: 6
+  WallJumpVerticalHeight: 7
   WallJumpHorizontalStrength: 5
-  WallJumpSpeedBoostStrength: 2
+  WallJumpForwardBoost: 2
   WallRunTime: 2
   TimeBeforeWallRun: 0.2
   WallRunUpwardsMovement: 10
@@ -487,11 +487,11 @@ MonoBehaviour:
   tiltLerpTime: 15
   CrouchSpeed: 10
   CrouchHeight: 1.3
-  SlideAmt: 12
+  SlideAmt: 8
   SlideSpeedLimit: 5
   SlideControl: 0.5
-  MaxFov: 100
-  FOVSpeed: 5
+  MaxFov: 83
+  FOVSpeed: 1
 --- !u!54 &7046931709468139615
 Rigidbody:
   m_ObjectHideFlags: 0
