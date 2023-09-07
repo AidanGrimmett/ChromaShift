@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class HoloframeGenerator : MonoBehaviour
 {
-    [SerializeField] private string directory = "Assets/Prefabs/HoloframeParts";
+    [SerializeField] private string directory = "HoloframeParts";
     [SerializeField] private Vector3[] coOrdinates;
 
     private GameObject[] prefabArray;
@@ -16,9 +16,7 @@ public class HoloframeGenerator : MonoBehaviour
 
     private void Start()
     {
-        string[] prefabPaths = Directory.GetFiles(directory, "*.prefab");
-
-        prefabArray = prefabPaths.Select(path => AssetDatabase.LoadAssetAtPath<GameObject>(path)).ToArray();
+        prefabArray = Resources.LoadAll<GameObject>(directory);
 
         GenerateSegments();
 

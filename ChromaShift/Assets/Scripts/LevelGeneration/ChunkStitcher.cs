@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using UnityEngine;
-using UnityEditor;
 
 public class ChunkStitcher : MonoBehaviour
 {
-    [SerializeField] private string directory = "Assets/Prefabs/Chunks";
+    [SerializeField] private string directory = "Chunks";
 
     private static GameObject[] prefabArray;
 
@@ -17,55 +16,49 @@ public class ChunkStitcher : MonoBehaviour
 
     private void Start()
     {
+        prefabArray = Resources.LoadAll<GameObject>(directory);
 
-        string[] prefabPaths = Directory.GetFiles(directory, "*.prefab");
-
-        prefabArray = prefabPaths.Select(path => AssetDatabase.LoadAssetAtPath<GameObject>(path)).ToArray();
-
-        //Generates the first chunk
+        //Generates the first two chunks
         GenerateChunk();
-
-        //Generates the next chunk
         GenerateChunk();
     }
 
     public void GenerateChunk()
     {
+        //Chooses a random index in the list of chunks
         int index = Random.Range(0, prefabArray.Length);
 
+        //Creates the new chunk
         GameObject generated = Instantiate(prefabArray[index], GameObject.Find("World").transform);
 
         Vector3 exit;
 
         if (previousChunkPosition != null)
         {
-            exit = previousChunkPosition.transform.Find("Exit").position;
+            exit = previousChunkPosition.transform.Find("Exit").position; //Determines the starting point of the next chunk
         }
         else
         {
-            exit = Vector3.zero;
+            exit = Vector3.zero; //Starts from (0,0,0) if first chunk
         }
 
         Vector3 entry = generated.transform.Find("Entry").position;
 
-        Debug.Log(exit);
-        Debug.Log(entry);
+        generated.transform.localPosition = exit - entry; //Calculates where the chunk should be
 
-        generated.transform.localPosition = exit - entry;
+        generatedChunks.Add(generated); //Keeps a record of what chunks are currently active
 
-        generatedChunks.Add(generated);
-
-        previousChunkPosition = generated;
+        previousChunkPosition = generated; //Sets the last chunk position to be the newly generated chunk
     }
 
     public void DeleteChunk()
     {
-        Debug.Log(generatedChunks.Count);
         if (generatedChunks.Count > 3)
         {
             Destroy(generatedChunks[0]);
 
             generatedChunks.RemoveAt(0);
         }
+        //Deletes chunks so we only have 3 generated at one time
     }
 }
