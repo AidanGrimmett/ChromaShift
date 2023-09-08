@@ -82,7 +82,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("FOV")]
     public float MaxFov;
     private float MinFov;
-    public float FOVSpeed; //how fast we must go before we reach max fov
+    public float FOVSpeed; //how fast we must go before we reach max fov'
+
+
+    //Debug things
+    private Vector3 savePosPlayer = Vector3.zero;
+    private Vector3 savePosWorld = Vector3.zero;
+
 
     // Start is called before the first frame update
     void Start()
@@ -107,13 +113,14 @@ public class PlayerMovement : MonoBehaviour
         XMove = Input.GetAxisRaw("Horizontal");
         YMove = Input.GetAxisRaw("Vertical");
 
+        //
+        DebugControls();
+
         //tilt head
         Transform camTrans = Head.transform;
-        float targetAngle;
+        float targetAngle = 0;
         if (CurrentState == PlayerStates.OnWalls)
              targetAngle = Coli.CheckLeftWall() ? -cameraTiltAmount : Coli.CheckRightWall() ? cameraTiltAmount : 0f;
-        else 
-            targetAngle = 0f;
         
         currentTiltAngle = Mathf.Lerp(currentTiltAngle, targetAngle, Time.deltaTime * tiltLerpTime);
 
@@ -168,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
             if (!Wall)
             {
                 SetInAir();
+                Debug.Log("Falling");
                 return;
             }
 
@@ -331,8 +339,8 @@ public class PlayerMovement : MonoBehaviour
             return false;
 
         //check the collision direction for any walls
-        float ClampedY = Mathf.Clamp(Y, 0, 1);
-        Vector3 Dir = transform.forward * ClampedY + transform.right * X;
+        //float ClampedY = Mathf.Clamp(Y, 0, 1);
+        Vector3 Dir = transform.forward * Y + transform.right * X;
 
         bool WallCol = Coli.CheckWall(Dir);
 
@@ -522,5 +530,23 @@ public class PlayerMovement : MonoBehaviour
     void SetGravity(float gravScale)
     {
         gravityController.SetGravityScale(gravScale);
+    }
+
+    void DebugControls()
+    {
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            savePosPlayer = transform.position;
+            savePosWorld = Rigid.transform.position;
+            Debug.Log("Position saved");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            transform.position = savePosPlayer;
+            Rigid.transform.position = savePosWorld;
+            PlayerRB.velocity = Vector3.zero;
+            Rigid.velocity = Vector3.zero;
+        }
     }
 }

@@ -37,11 +37,11 @@ public class PlayerCollision : MonoBehaviour
     //check if there is a wall in the direction we are pressing
     public bool CheckWall(Vector3 Direction)
     {
-        Vector3 Pos = transform.position + (Direction * frontOffset);
+        Vector3 Pos = transform.position;// + (Direction * frontOffset);
         Collider[] hitColliders = Physics.OverlapSphere(Pos, WallCheckRadius, WallLayers);
         if (hitColliders.Length > 0)
         {
-            //we are on the ground
+            //we are on the wall
             return true;
         }
 
@@ -116,6 +116,11 @@ public class PlayerCollision : MonoBehaviour
         Gizmos.DrawSphere(Pos3, RoofCheckRadius);
         //Ledge check
         Gizmos.color = Color.black;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * checkWallLength);
+        Gizmos.DrawLine(transform.position, transform.position + -transform.right * checkWallLength);
+
         //Vector3 Pos4 = transform.position + (transform.forward * LedgeGrabForwardPos) + (transform.up * LedgeGrabUpwardsPos);
         //Gizmos.DrawLine(Pos4, Pos4 + (-transform.up * LedgeGrabDistance));
     }

@@ -368,6 +368,7 @@
 "Assets/Scripts/LevelGeneration/ChunkTrigger.cs"
 "Assets/Scripts/LevelGeneration/HoloframeGenerator.cs"
 "Assets/Scripts/LevelGeneration/RandomTagGeneration.cs"
+"Assets/Scripts/LevelGeneration/Reload.cs"
 "Assets/Scripts/LevelGeneration/Trigger.cs"
 "Assets/Scripts/PlayerScripts/CameraController.cs"
 "Assets/Scripts/PlayerScripts/PlayerMovementController.cs"
