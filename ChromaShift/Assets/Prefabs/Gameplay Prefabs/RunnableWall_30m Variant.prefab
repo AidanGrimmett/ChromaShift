@@ -58,13 +58,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811526757357662306, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
       propertyPath: m_Name
-      value: RunnableWall_30m_LOD0
+      value: Active
       objectReference: {fileID: 0}
     - target: {fileID: 3811526757357662306, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4434662876550311399, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6748564561819368950, guid: 97c58524f178be14180d529c6bee2259, type: 3}
+    - target: {fileID: 7762473306522382719, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -6748564561819368950, guid: 97c58524f178be14180d529c6bee2259, type: 3}

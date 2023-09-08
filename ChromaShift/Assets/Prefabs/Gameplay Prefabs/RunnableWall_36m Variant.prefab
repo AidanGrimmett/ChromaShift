@@ -58,8 +58,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3291852443357210520, guid: 03df82ab175dd9a42aed8fe7cfa2b1d6, type: 3}
       propertyPath: m_Name
-      value: RunnableWall_36m_LOD0
+      value: Active
       objectReference: {fileID: 0}
+    - target: {fileID: 8283132808512808581, guid: 03df82ab175dd9a42aed8fe7cfa2b1d6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8996287165252426630, guid: 97c58524f178be14180d529c6bee2259, type: 3}
     m_RemovedComponents:
     - {fileID: 5835913209262167213, guid: 03df82ab175dd9a42aed8fe7cfa2b1d6, type: 3}
     m_RemovedGameObjects: []
