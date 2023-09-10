@@ -10,7 +10,19 @@ public class SetOutlineColor : MonoBehaviour
     {
         //Sets up the outline of each of the inacitve objects
         outline = GetComponent<Outline>();
-        outline.OutlineColor = ColorDictionary.namesToColors[transform.parent.gameObject.tag];
+        outline.OutlineColor = ColorDictionary.namesToColors[GetParent().tag];
         outline.OutlineWidth = 10;
+    }
+
+    private GameObject GetParent()
+    {
+        Transform parent;
+        parent = transform.parent;
+        while (parent.transform.tag == "Untagged")
+        {
+            parent = parent.transform.parent;
+        }
+
+        return parent.gameObject;
     }
 }

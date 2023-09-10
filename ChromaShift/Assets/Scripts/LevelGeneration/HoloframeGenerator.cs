@@ -10,6 +10,8 @@ public class HoloframeGenerator : MonoBehaviour
     [SerializeField] private string directory = "HoloframeParts";
     [SerializeField] private Vector3[] coOrdinates;
 
+    [SerializeField] Material invisible;
+
     private GameObject[] prefabArray;
 
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -40,6 +42,35 @@ public class HoloframeGenerator : MonoBehaviour
         int childIndex = Random.Range(0, children.Length);
 
         GameObject chosen = children[childIndex].gameObject;
-        chosen.AddComponent<SetColorFromTag>();
+
+        children = chosen.GetComponentsInChildren<Transform>();
+
+        childIndex = Random.Range(0, children.Length);
+
+        chosen = children[childIndex].gameObject;
+
+        GameObject active = Instantiate(chosen, chosen.transform);
+        GameObject inactive = Instantiate(active, chosen.transform);
+
+        Destroy(GetComponent<BoxCollider>());
+        Destroy(GetComponent<MeshRenderer>());
+
+        active.AddComponent<SetColorFromTag>();
+        active.name = "Active";
+        active.transform.localPosition = Vector3.zero;
+        active.transform.localScale = Vector3.one;
+
+        inactive.name = "Inactive";
+        inactive.transform.localPosition = Vector3.zero;
+        active.transform.localScale = Vector3.one;
+        inactive.AddComponent<Outline>();
+        inactive.AddComponent<SetOutlineColor>();
+        inactive.GetComponent<MeshRenderer>().enabled = false;
+        Destroy(inactive.GetComponent<BoxCollider>());
+
+        chosen.AddComponent<RandomTagGeneration>();
+        chosen.AddComponent<ColoredObjectActivator>();
+        Destroy(chosen.GetComponent<MeshRenderer>());
+        Destroy(chosen.GetComponent<BoxCollider>());
     }
 }
