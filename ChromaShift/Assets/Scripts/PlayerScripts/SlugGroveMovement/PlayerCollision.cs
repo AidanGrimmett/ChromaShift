@@ -37,7 +37,7 @@ public class PlayerCollision : MonoBehaviour
     //check if there is a wall in the direction we are pressing
     public bool CheckWall(Vector3 Direction)
     {
-        Vector3 Pos = transform.position;// + (Direction * frontOffset);
+        Vector3 Pos = transform.position + (Direction * frontOffset);
         Collider[] hitColliders = Physics.OverlapSphere(Pos, WallCheckRadius, WallLayers);
         if (hitColliders.Length > 0)
         {

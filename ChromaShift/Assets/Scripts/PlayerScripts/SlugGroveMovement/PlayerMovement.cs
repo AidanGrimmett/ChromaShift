@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private float YMove;
 
     [Header("Physics")]
-    public float MaxSpeed; //how fast we run forward
-    public float BackwardsSpeed; //how fast we run backwards
-    public float InAirControl; //how much control you have over your movement direction when in air
+    public float maxSpeed; //how fast we run forward
+    public float backwardsSpeed; //how fast we run backwards
+    public float inAirControl; //how much control you have over your movement direction when in air
 
     private float ActSpeed; //how much speed is applied to the rigidbody
     public float Acceleration; //how fast we build speed
@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     public float WallJumpHorizontalStrength; //jump power in the x axis
     public float WallJumpForwardBoost;
     private string[] lastWalls; //reference to the last walls we jumped from, so that we can block the player from running or jumping on that wall until they touch ground or a different wall
+    public float coyoteTime = 0.15f;
 
     [Header("Wall Runs")]
     public float WallRunTime = 2f; //how long we can run on walls
@@ -105,6 +106,8 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        SavePos();
     }
 
     // Update is called once per frame
@@ -136,6 +139,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (CurrentState == PlayerStates.InAir)
         {
+            //if we press jump
+            if (Input.GetButtonDown("Jump") && InAirTimer < coyoteTime)
+            {
+                lastWalls = Coli.GetWallNames();
+                //jump upwards
+                JumpUp();
+            }
+
             //Check if there is a wall to run on
             bool Wall = CheckWalls(XMove, YMove);
 
@@ -175,7 +186,6 @@ public class PlayerMovement : MonoBehaviour
             if (!Wall)
             {
                 SetInAir();
-                Debug.Log("Falling");
                 return;
             }
 
@@ -218,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
             //get magnituded of our inputs
             float InputMagnitude = new Vector2(horInput, verInput).normalized.magnitude;
             //get the amount of speed, based on if we press forwards or backwards
-            float TargetSpd = Mathf.Lerp(BackwardsSpeed, MaxSpeed, verInput); //using the vertical input as a lerp from if forward is being pressed
+            float TargetSpd = Mathf.Lerp(backwardsSpeed, maxSpeed, verInput); //using the vertical input as a lerp from if forward is being pressed
             //if we are crouching our target speed is our crouch speed
             if (Crouch)
                 TargetSpd = CrouchSpeed;
@@ -340,7 +350,7 @@ public class PlayerMovement : MonoBehaviour
 
         //check the collision direction for any walls
         //float ClampedY = Mathf.Clamp(Y, 0, 1);
-        Vector3 Dir = transform.forward * Y + transform.right * X;
+        Vector3 Dir = transform.right * X;
 
         bool WallCol = Coli.CheckWall(Dir);
 
@@ -369,10 +379,26 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!Coli.GetWallNames().Intersect(lastWalls).Any())
         {
+            Debug.Log("-----");
+            Debug.Log("Current");
+            PrintStrings(Coli.GetWallNames());
+            Debug.Log("Last");
+            PrintStrings(lastWalls);
+            
             OnGroundTimer = 0; //remove the on ground timer
             InAirTimer = 0; //remove the in air timer
             CurrentState = PlayerStates.OnWalls;
         }
+    }
+    void PrintStrings(string[] strs)
+    {
+        string output = "";
+        foreach (string s in strs)
+        {
+            output += s + "\n";
+        }
+
+        Debug.Log(output);
     }
 
     void StartCrouch()
@@ -442,7 +468,7 @@ public class PlayerMovement : MonoBehaviour
         MovementDirection.y = Rigid.velocity.y;
 
         //lerp to our movement direction based on how much airal control we have
-        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, InAirControl * D);
+        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, inAirControl * D);
         Rigid.velocity = LerpVelocity;
 
     }
@@ -474,7 +500,7 @@ public class PlayerMovement : MonoBehaviour
             //we are now in the air
             SetInAir();
         }
-        else if (CurrentState == PlayerStates.OnWalls)
+        else if (CurrentState == PlayerStates.OnWalls || (CurrentState == PlayerStates.InAir && InAirTimer < coyoteTime))
         {
             //reduce our velocity on the y axis so our jump force can be added
             Vector3 VelAmt = PlayerRB.velocity;
@@ -532,21 +558,34 @@ public class PlayerMovement : MonoBehaviour
         gravityController.SetGravityScale(gravScale);
     }
 
+    //------------------------------------ Debug and testing features
+
     void DebugControls()
     {
         if (Input.GetKeyDown(KeyCode.Comma))
         {
-            savePosPlayer = transform.position;
-            savePosWorld = Rigid.transform.position;
-            Debug.Log("Position saved");
+            SavePos();
         }
 
         if (Input.GetKeyDown(KeyCode.Period))
         {
-            transform.position = savePosPlayer;
-            Rigid.transform.position = savePosWorld;
-            PlayerRB.velocity = Vector3.zero;
-            Rigid.velocity = Vector3.zero;
+            SetPos();
         }
     }
+
+    void SavePos()
+    {
+        savePosPlayer = transform.position;
+        savePosWorld = Rigid.transform.position;
+        Debug.Log("Position saved");
+    }
+
+    void SetPos()
+    {
+        transform.position = savePosPlayer;
+        Rigid.transform.position = savePosWorld;
+        PlayerRB.velocity = Vector3.zero;
+        Rigid.velocity = Vector3.zero;
+    }
+
 }
