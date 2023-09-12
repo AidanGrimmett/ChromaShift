@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public float defaultGravity = 1;
     public float wallGravity = 0.5f;
     public float fallGravity = 1.5f;
+    public float maxFallSpeed = 10f;
 
 
     [Header("Turning")]
@@ -116,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         XMove = Input.GetAxisRaw("Horizontal");
         YMove = Input.GetAxisRaw("Vertical");
 
-        //
+        
         DebugControls();
 
         //tilt head
@@ -167,6 +168,11 @@ public class PlayerMovement : MonoBehaviour
             if (Grounded && InAirTimer > 0.25f)
             {
                 SetOnGround();
+            }
+
+            if (PlayerRB.velocity.y < -maxFallSpeed)
+            {
+                PlayerRB.velocity = new Vector3(PlayerRB.velocity.x, -maxFallSpeed, PlayerRB.velocity.z);
             }
         }
         else if (CurrentState == PlayerStates.OnWalls)
@@ -223,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
             //tick our ground timer
             if (OnGroundTimer < 10)
                 OnGroundTimer += Del;
-           
+
 
             //get magnituded of our inputs
             float InputMagnitude = new Vector2(horInput, verInput).normalized.magnitude;
@@ -239,10 +245,10 @@ public class PlayerMovement : MonoBehaviour
             TurnPlayer(CamX, Del, TurnSpeed);
 
             //check for crouching 
-            if(Input.GetButton("Crouching"))
-            { 
+            if (Input.GetButton("Crouching"))
+            {
                 //start crouching
-                if(!Crouch)
+                if (!Crouch)
                 {
                     StartCrouch();
                 }
@@ -284,7 +290,7 @@ public class PlayerMovement : MonoBehaviour
                 SetGravity(defaultGravity);
             }
         }
-        else if(CurrentState == PlayerStates.InAir)
+        else if (CurrentState == PlayerStates.InAir)
         {
             //Debug.Log("In Air!!");
             //tick our Air timer
@@ -315,10 +321,16 @@ public class PlayerMovement : MonoBehaviour
             //move our player when on a wall
             //WallMove(verInput, Del);
 
-            SetGravity(wallGravity);
+            if (PlayerRB.velocity.y > 0)
+            {
+                SetGravity(wallGravity);
+            }
+            else
+            {
+                SetGravity(wallGravity * 0.1f);
+            }
         }
     }
-
 
     //lerp our current speed to our set max speed, by how much we are pressing the horizontal and vertical input
     void LerpSpeed(float InputMag, float D, float TargetSpeed)
@@ -509,7 +521,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerRB.velocity = VelAmt;
             //add our jump force
             Vector3 forceToAdd = transform.up * WallJumpVerticalHeight;
-            if (Coli.CheckLeftWall() )
+            if (Coli.CheckLeftWall())
             {
                 forceToAdd += -transform.right * WallJumpHorizontalStrength;
             }
@@ -521,6 +533,15 @@ public class PlayerMovement : MonoBehaviour
             PlayerRB.AddForce(forceToAdd, ForceMode.Impulse);
             //we are now in the air
             SetInAir();
+
+            //Vector3 VelAmt = PlayerRB.velocity;
+            //VelAmt.y = 0;
+            //PlayerRB.velocity = VelAmt;
+
+            //Transform camTrans = Head.transform;
+            //Vector3 lookDir = camTrans.forward.normalized;
+            //PlayerRB.AddForce(new Vector3(-lookDir.x, lookDir.y, -lookDir.z) * WallJumpVerticalHeight, ForceMode.Impulse);
+            //SetInAir();
         }
     }
 
