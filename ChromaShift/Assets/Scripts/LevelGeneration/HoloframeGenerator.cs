@@ -37,40 +37,48 @@ public class HoloframeGenerator : MonoBehaviour
 
     private void ColorObject()
     {
-        Transform[] children = GetComponentsInChildren<Transform>();
+        int index = Random.Range(0, gameObjects.Count);
 
-        int childIndex = Random.Range(0, children.Length);
+        Transform[] children = gameObjects[index].GetComponentsInChildren<Transform>();
 
-        GameObject chosen = children[childIndex].gameObject;
+        List<Transform> validChildren = new List<Transform>();
 
-        children = chosen.GetComponentsInChildren<Transform>();
+        foreach (Transform child in children)
+        {
+            if (child != gameObjects[index].transform)
+            {
+                validChildren.Add(child);
+            }
+        }
 
-        childIndex = Random.Range(0, children.Length);
+        index = Random.Range(0, validChildren.Count);
 
-        chosen = children[childIndex].gameObject;
-
-        GameObject active = Instantiate(chosen, chosen.transform);
-        GameObject inactive = Instantiate(active, chosen.transform);
-
-        Destroy(GetComponent<BoxCollider>());
-        Destroy(GetComponent<MeshRenderer>());
-
-        active.AddComponent<SetColorFromTag>();
-        active.name = "Active";
-        active.transform.localPosition = Vector3.zero;
-        active.transform.localScale = Vector3.one;
-
-        inactive.name = "Inactive";
-        inactive.transform.localPosition = Vector3.zero;
-        active.transform.localScale = Vector3.one;
-        inactive.AddComponent<Outline>();
-        inactive.AddComponent<SetOutlineColor>();
-        inactive.GetComponent<MeshRenderer>().enabled = false;
-        Destroy(inactive.GetComponent<BoxCollider>());
+        GameObject chosen = validChildren[index].gameObject;
 
         chosen.AddComponent<RandomTagGeneration>();
         chosen.AddComponent<ColoredObjectActivator>();
-        Destroy(chosen.GetComponent<MeshRenderer>());
-        Destroy(chosen.GetComponent<BoxCollider>());
+
+        SpriteRenderer rend = chosen.GetComponent<SpriteRenderer>();
+
+        GameObject active = new GameObject("Active");
+        active.transform.parent = chosen.transform;
+        active.transform.position = chosen.transform.position;
+        active.transform.localScale = chosen.transform.localScale;
+        active.transform.rotation = chosen.transform.rotation;
+        SpriteRenderer activeRend = active.AddComponent<SpriteRenderer>();
+        activeRend.sprite = rend.sprite;
+        active.AddComponent<SetColorFromTag>();
+        active.AddComponent<BoxCollider>();
+
+        GameObject inactive = new GameObject("Inactive");
+        inactive.transform.parent = chosen.transform;
+        inactive.transform.position = chosen.transform.position;
+        inactive.transform.localScale = chosen.transform.localScale;
+        inactive.transform.rotation = chosen.transform.rotation;
+        SpriteRenderer inactiveRend = inactive.AddComponent<SpriteRenderer>();
+        inactiveRend.sprite = rend.sprite;
+        inactiveRend.color = new Color(0, 0, 0, 0);
+
+        Destroy(chosen.GetComponent<SpriteRenderer>());
     }
 }

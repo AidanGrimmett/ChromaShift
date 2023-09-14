@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorChanger : MonoBehaviour
+public class ColorChangerSprite : MonoBehaviour
 {
-    private Renderer rend;
+    private SpriteRenderer rend;
 
     //Allows the opacity to be set (useful for the filter object)
     [SerializeField] private float opacity = 1f;
 
     private void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
     private void Update()

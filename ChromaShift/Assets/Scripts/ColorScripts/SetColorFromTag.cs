@@ -5,12 +5,22 @@ using UnityEngine;
 public class SetColorFromTag : MonoBehaviour
 {
     private Renderer rend;
+    private SpriteRenderer sRend;
 
     private void Start()
     {
         //Reads the tag of the parent object, then uses the dictionary to convert the string into a usable colour
-        rend = GetComponent<Renderer>();
-        rend.material.color = ColorDictionary.namesToColors[GetParent().tag];
+
+        if (GetComponent<Renderer>())
+        {
+            rend = GetComponent<Renderer>();
+            rend.material.color = ColorDictionary.namesToColors[GetParent().tag];
+        }
+        else
+        {
+            sRend = GetComponent<SpriteRenderer>();
+            sRend.material.color = ColorDictionary.namesToColors[GetParent().tag];
+        }
     }
 
     private GameObject GetParent()

@@ -7,11 +7,15 @@ public class ColorController : MonoBehaviour
     [SerializeField] Color[] colors = { Color.white };
     private int colorsIndex = 0;
 
+    private bool inputPressed;
+
     private void Update()
     {
+        float input = Input.GetAxisRaw("ChangeColor");
         //When the player presses Q, it cycles to the next colour
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (input < 0 && !inputPressed)
         {
+            inputPressed = true;
             colorsIndex--;
             if (colorsIndex < 0 )
             {
@@ -21,8 +25,9 @@ public class ColorController : MonoBehaviour
             CurrentColor.SetColor(colors[colorsIndex]);
         }
         //When the player presses E, it cycles to the previous colour
-        if (Input.GetKeyDown(KeyCode.E))
+        if (input > 0 && !inputPressed)
         {
+            inputPressed = true;
             colorsIndex++;
             if (colorsIndex == colors.Length)
             {
@@ -31,10 +36,10 @@ public class ColorController : MonoBehaviour
 
             CurrentColor.SetColor(colors[colorsIndex]);
         }
-        //When the player presses F, it resets back to the default colour(white)
-        if (Input.GetKeyDown(KeyCode.F))
+        
+        if (input < 0.05 && input > -0.05 && inputPressed)
         {
-            CurrentColor.SetColor(Color.white);
+            inputPressed = false;
         }
     }
 }
