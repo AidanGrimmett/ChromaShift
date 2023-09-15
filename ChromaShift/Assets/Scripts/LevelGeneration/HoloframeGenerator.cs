@@ -81,4 +81,10 @@ public class HoloframeGenerator : MonoBehaviour
 
         Destroy(chosen.GetComponent<SpriteRenderer>());
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(transform.position, new Vector3(coOrdinates[1].x * 2f, coOrdinates[1].x, 0.1f));
+    }
 }

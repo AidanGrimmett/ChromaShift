@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     public float cameraTiltAmount = 15; //how much the camera tilts when on a wall
     public float tiltLerpTime = 0.15f; //how fast the transition is
     private float currentTiltAngle = 0;
+    public float wallRunLerpTimeToFlat;
 
     [Header("Crouching")]
     public float CrouchSpeed = 10; //how fast we move when crouching
@@ -328,7 +329,9 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                SetGravity(wallGravity * 0.1f);
+                SetGravity(0);
+                Vector3 LerpVelocity = Vector3.Lerp(PlayerRB.velocity, Vector3.zero, wallRunLerpTimeToFlat);
+                PlayerRB.velocity = LerpVelocity;
             }
         }
     }
@@ -485,7 +488,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void WallMove(float Ver, float D)
+    void WallMove(float D)
     {
         //get the direction to run up this wall if we press forward (keep in mind this only works if the wall is infront or to the side of the player as we run along on, on walls to our immediate right or left we slide down
         Vector3 MovementDirection = transform.up;
@@ -495,6 +498,7 @@ public class PlayerMovement : MonoBehaviour
         MovementDirection += transform.forward * ActSpeed;
 
         Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, MovementDirection, WallRunSpeedAcceleration * D);
+        Debug.Log(LerpVelocity);
         PlayerRB.velocity = LerpVelocity;
     }
 
