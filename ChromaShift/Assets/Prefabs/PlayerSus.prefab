@@ -434,7 +434,7 @@ MonoBehaviour:
   FloorCheckRadius: 0.3
   bottomOffset: 0.8
   WallCheckRadius: 0.65
-  frontOffset: 0.1
+  frontOffset: 0.2
   RoofCheckRadius: 0.3
   upOffset: 0.8
   checkWallLength: 1.5
@@ -459,16 +459,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83377d9c4dfba8d4dbfad04d0308e3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 14
-  BackwardsSpeed: 12
-  InAirControl: 0.4
-  Acceleration: 50
-  Decceleration: 3
-  DirectionControl: 3
+  maxSpeed: 15
+  backwardsSpeed: 12
+  inAirControl: 0.5
+  Acceleration: 2.5
+  Decceleration: 20
+  DirectionControl: 6
   CurrentState: 0
-  defaultGravity: 1.3
-  wallGravity: 0.2
-  fallGravity: 2
+  defaultGravity: 1.8
+  wallGravity: 0.35
+  fallGravity: 2.5
+  maxFallSpeed: 25
   TurnSpeed: 300
   TurnSpeedInAir: 300
   TurnSpeedOnWalls: 150
@@ -476,23 +477,26 @@ MonoBehaviour:
   Head: {fileID: 724794844238005344}
   MaxLookAngle: 80
   MinLookAngle: -70
-  JumpHeight: 7
-  WallJumpVerticalHeight: 7
-  WallJumpHorizontalStrength: 5
+  JumpHeight: 9.2
+  WallJumpVerticalHeight: 8
+  WallJumpHorizontalStrength: 8
   WallJumpForwardBoost: 2
-  WallRunTime: 2
+  coyoteTime: 0.2
+  WallRunTime: 2.4
   TimeBeforeWallRun: 0.2
   WallRunUpwardsMovement: 10
   WallRunSpeedAcceleration: 10
   cameraTiltAmount: 13
   tiltLerpTime: 15
+  wallRunLerpTimeToFlat: 0
   CrouchSpeed: 10
   CrouchHeight: 1.3
   SlideAmt: 8
-  SlideSpeedLimit: 5
+  SlideSpeedLimit: 11
   SlideControl: 0.5
-  MaxFov: 83
-  FOVSpeed: 1
+  MaxFov: 88
+  FOVSpeed: 10
+  jumpAtLook: 0
 --- !u!54 &7046931709468139615
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -393,11 +393,6 @@ public class PlayerMovement : MonoBehaviour
 
     void SetOnWall()
     {
-        Debug.Log("-----");
-        Debug.Log("Current");
-        PrintStrings(Coli.GetWallNames());
-        Debug.Log("Last");
-        PrintStrings(lastWalls);
         if (!Coli.GetWallNames().Intersect(lastWalls).Any())
         {   
             OnGroundTimer = 0; //remove the on ground timer
