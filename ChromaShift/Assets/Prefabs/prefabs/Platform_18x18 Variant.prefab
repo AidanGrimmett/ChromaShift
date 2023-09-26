@@ -32,6 +32,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_18x18_LOD0
       objectReference: {fileID: 0}
+    - target: {fileID: 7425798138770921110, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a09c7f7ea01e24345814762b4bc490af, type: 2}
+    - target: {fileID: 7425798138770921110, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8800e96c65b66746b175c33d62b9dd4, type: 2}
     - target: {fileID: 8198623294099337447, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Name
       value: Platform_18x18 Variant
