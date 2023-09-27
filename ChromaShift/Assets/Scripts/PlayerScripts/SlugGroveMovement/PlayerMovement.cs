@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
             //if we press jump
             if (Input.GetButtonDown("Jump"))
             {
-                lastWalls = Coli.GetWallNames();
+                //lastWalls = Coli.GetWallNames();
                 //jump upwards
                 JumpUp();
             }
@@ -393,12 +393,13 @@ public class PlayerMovement : MonoBehaviour
 
     void SetOnWall()
     {
-        if (!Coli.GetWallNames().Intersect(lastWalls).Any())
-        {   
-            OnGroundTimer = 0; //remove the on ground timer
-            InAirTimer = 0; //remove the in air timer
-            CurrentState = PlayerStates.OnWalls;
-        }
+        //if (!Coli.GetWallNames().Intersect(lastWalls).Any()) //stop running on wall of same tag after wall jump - no longer necessary
+        //{   
+        //    OnGroundTimer = 0; //remove the on ground timer
+        //    InAirTimer = 0; //remove the in air timer
+        //    CurrentState = PlayerStates.OnWalls;
+        //}
+        CurrentState = PlayerStates.OnWalls;
     }
     void PrintStrings(string[] strs)
     {
