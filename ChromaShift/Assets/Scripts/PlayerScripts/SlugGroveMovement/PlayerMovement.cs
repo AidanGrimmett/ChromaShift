@@ -81,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
     public float SlideAmt; //how far we slide when pressing crouch
     public float SlideSpeedLimit; //how fast we have to be traveling before a crouch will trigger a slide
     public float SlideControl; //how much we adjust to our slide speed and regain player control
+    public float SlideTimer = 0.4f;
+    private float lastSlide = 0;
 
     [Header("FOV")]
     public float MaxFov;
@@ -566,18 +568,23 @@ public class PlayerMovement : MonoBehaviour
     //slide our character forwards
     void SlideSelf()
     {
-        //reduce our speed
-        ActSpeed = SlideSpeedLimit;
+        if (lastSlide - Time.time < -SlideTimer)
+        {
+            //Debug.Log("lastSlide: " + lastSlide + " | currentTime: " + Time.time + "\ndifference: " + (lastSlide - Time.time));
+            //reduce our speed
+            ActSpeed = SlideSpeedLimit;
 
-        //remove any control from player 
-        AdjustmentAmt = 0;
+            //remove any control from player 
+            AdjustmentAmt = 0;
 
-        //find direction
-        Vector3 Dir = Rigid.velocity.normalized;
-        Dir.y = 0;
+            //find direction
+            Vector3 Dir = Rigid.velocity.normalized;
+            Dir.y = 0;
 
-        //slide in direction
-        Rigid.AddForce(-transform.forward * SlideAmt, ForceMode.Impulse);
+            //slide in direction
+            Rigid.AddForce(-transform.forward * SlideAmt, ForceMode.Impulse);
+            lastSlide = Time.time;
+        }
     }
 
     void SetGravity(float gravScale)
