@@ -17,8 +17,6 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         mouseSensitivity = 5;// GameObject.Find("Player").GetComponent<PlayerMovementController>().mouseSensitivity;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     // Update is called once per frame

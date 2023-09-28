@@ -62,4 +62,21 @@ public class ChunkStitcher : MonoBehaviour
 
         generatedChunks.RemoveAt(0);
     }
+
+    public void ResetChunks()
+    {
+        Transform wld = GameObject.Find("World").transform;
+        Transform plr = GameObject.Find("Player").transform;
+
+        float xOffset = wld.position.x;
+        float yOffset = generatedChunks[0].transform.position.y;
+
+        foreach (GameObject chunk in  generatedChunks)
+        {
+            chunk.transform.localPosition = new Vector3(chunk.transform.localPosition.x + xOffset, chunk.transform.localPosition.y - yOffset, chunk.transform.localPosition.z);
+        }
+
+        plr.transform.position = new Vector3(plr.position.x , plr.position.y - yOffset, plr.transform.position.z);
+        wld.transform.position = new Vector3(0, wld.transform.position.y, wld.transform.position.z);
+    }
 }
