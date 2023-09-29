@@ -82,8 +82,14 @@ public class ChunkStitcher : MonoBehaviour
 
     public GameObject GetCurrentChunk()
     {
-        Debug.Log(generatedChunks[0].name);
-        return generatedChunks[0];
+        if (generatedChunks.Count != 0)
+        {
+            return generatedChunks[0];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public static void EmptyGeneratedChunks()

@@ -68,7 +68,9 @@ public class HoloframeGenerator : MonoBehaviour
         SpriteRenderer activeRend = active.AddComponent<SpriteRenderer>();
         activeRend.sprite = rend.sprite;
         active.AddComponent<SetColorFromTag>();
-        active.AddComponent<BoxCollider>();
+        BoxCollider col = active.AddComponent<BoxCollider>();
+        col.isTrigger = true;
+        active.AddComponent<KillPlayerOnTrigger>();
 
         GameObject inactive = new GameObject("Inactive");
         inactive.transform.parent = chosen.transform;

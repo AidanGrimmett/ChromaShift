@@ -80,6 +80,7 @@ public class MenuManager : MonoBehaviour
         gameState = GameState.Play;
         player.GetComponent<Rigidbody>().constraints = unFrozenPlayer;
         world.GetComponent<Rigidbody>().constraints = unFrozenWorld;
+        ScoreCounter.ResetScore();
     }
 
     public void GameOver()
@@ -87,6 +88,7 @@ public class MenuManager : MonoBehaviour
         gameState = GameState.End;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
     }
 
     public void Quit()

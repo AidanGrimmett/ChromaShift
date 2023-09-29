@@ -14,6 +14,9 @@ public class StayBelowPlatforms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(0, chunks.GetCurrentChunk().transform.Find("MinHeight").localPosition.z * 100, 0);
+        if (chunks.GetCurrentChunk() != null)
+        {
+            transform.position = new Vector3(0, chunks.GetCurrentChunk().transform.Find("MinHeight").localPosition.z * 100, 0);
+        }
     }
 }
