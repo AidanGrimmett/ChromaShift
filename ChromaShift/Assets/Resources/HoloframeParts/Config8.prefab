@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3133390557119334427}
   - component: {fileID: 8108552065599832213}
   - component: {fileID: 6613752932854299897}
+  - component: {fileID: 3051797597466365081}
   m_Layer: 0
   m_Name: 1x2_bush
   m_TagString: Untagged
@@ -133,12 +134,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3051797597466365081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799423833248084555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8585487300238104903
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +163,7 @@ GameObject:
   - component: {fileID: 1636266917408092623}
   - component: {fileID: 5192730312386755344}
   - component: {fileID: 5266743832355470512}
+  - component: {fileID: 593622451946728468}
   m_Layer: 0
   m_Name: 1x2_car
   m_TagString: Untagged
@@ -239,9 +253,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &593622451946728468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585487300238104903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

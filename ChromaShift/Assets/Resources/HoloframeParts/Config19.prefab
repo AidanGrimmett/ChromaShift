@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2776143425177696149}
   - component: {fileID: 7806246070306447686}
   - component: {fileID: 5607921445988451711}
+  - component: {fileID: 6135961465149140007}
   m_Layer: 0
   m_Name: 1x1_plastic_chair
   m_TagString: Untagged
@@ -100,12 +101,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6135961465149140007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328055045904339077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4280917328114362455
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +130,7 @@ GameObject:
   - component: {fileID: 6788175620830833709}
   - component: {fileID: 8502487410931677496}
   - component: {fileID: 1938687076023534214}
+  - component: {fileID: 8394477413333187901}
   m_Layer: 0
   m_Name: 1x1_trash
   m_TagString: Untagged
@@ -206,12 +220,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8394477413333187901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280917328114362455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4778526911205644288
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +249,7 @@ GameObject:
   - component: {fileID: 1691750312424593831}
   - component: {fileID: 7190302627757251781}
   - component: {fileID: 7503851006687348748}
+  - component: {fileID: 1375654266659454854}
   m_Layer: 0
   m_Name: 2x1_street_lamp
   m_TagString: Untagged
@@ -312,12 +339,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 10, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1375654266659454854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778526911205644288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5970800459271766159
 GameObject:
   m_ObjectHideFlags: 0

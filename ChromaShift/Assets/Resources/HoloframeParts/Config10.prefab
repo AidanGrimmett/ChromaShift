@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1601558415154828171}
   - component: {fileID: 6166195373412543522}
   - component: {fileID: 3240515976373512036}
+  - component: {fileID: 1533684578668951153}
   m_Layer: 0
   m_Name: 2x1_street_lamp
   m_TagString: Untagged
@@ -134,12 +135,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 10, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1533684578668951153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786236748432088520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4204996519797314107
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +164,7 @@ GameObject:
   - component: {fileID: 7931254270300165662}
   - component: {fileID: 6882270815220168982}
   - component: {fileID: 4029584581740397722}
+  - component: {fileID: 3229729164798450501}
   m_Layer: 0
   m_Name: 1x1_mail_box
   m_TagString: Untagged
@@ -240,12 +254,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3229729164798450501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204996519797314107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8745444698809598311
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +283,7 @@ GameObject:
   - component: {fileID: 3630759106848555198}
   - component: {fileID: 4977256355790331956}
   - component: {fileID: 143258402381042473}
+  - component: {fileID: 5792393294200025262}
   m_Layer: 0
   m_Name: 1x1_crate
   m_TagString: Untagged
@@ -346,9 +373,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5792393294200025262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8745444698809598311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

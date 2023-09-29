@@ -103,6 +103,7 @@ public class MenuManager : MonoBehaviour
 
     private void ReloadWorld()
     {
+        ChunkStitcher.EmptyGeneratedChunks();
         world.transform.position = Vector3.zero;
         Destroy(world.GetComponent<ChunkStitcher>());
         List<GameObject> toDelete = new List<GameObject>();

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 901736113404408876}
   - component: {fileID: 7547840805925229909}
   - component: {fileID: 1889486168145282594}
+  - component: {fileID: 304878812325312428}
   m_Layer: 0
   m_Name: 2x1_tree
   m_TagString: Untagged
@@ -100,12 +101,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 10, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &304878812325312428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836425655057075120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6945645968873707568
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +163,7 @@ GameObject:
   - component: {fileID: 7832353548931904482}
   - component: {fileID: 3882239534998389207}
   - component: {fileID: 1897804900243404653}
+  - component: {fileID: 1205429171871043195}
   m_Layer: 0
   m_Name: 2x1_street_sign
   m_TagString: Untagged
@@ -239,9 +253,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 5, y: 10, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1205429171871043195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474204195409453266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

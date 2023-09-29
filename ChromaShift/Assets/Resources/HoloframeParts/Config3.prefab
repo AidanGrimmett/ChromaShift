@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7374884696453814890}
   - component: {fileID: 8904516400557302432}
   - component: {fileID: 8569449787767902963}
+  - component: {fileID: 7620026271039181290}
   m_Layer: 0
   m_Name: 1x2_fence
   m_TagString: Untagged
@@ -133,12 +134,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7620026271039181290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912860605293781861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4543555713182645909
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +163,7 @@ GameObject:
   - component: {fileID: 8095036522358081374}
   - component: {fileID: 3905803273072456999}
   - component: {fileID: 9024914721403151959}
+  - component: {fileID: 8329701948551053427}
   m_Layer: 0
   m_Name: 1x2_bike
   m_TagString: Untagged
@@ -239,9 +253,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8329701948551053427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543555713182645909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d5680c31762f74eb5939b30438404b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

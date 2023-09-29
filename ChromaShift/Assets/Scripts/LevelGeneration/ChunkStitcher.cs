@@ -79,4 +79,15 @@ public class ChunkStitcher : MonoBehaviour
         plr.transform.position = new Vector3(plr.position.x , plr.position.y - yOffset, plr.transform.position.z);
         wld.transform.position = new Vector3(0, wld.transform.position.y, wld.transform.position.z);
     }
+
+    public GameObject GetCurrentChunk()
+    {
+        Debug.Log(generatedChunks[0].name);
+        return generatedChunks[0];
+    }
+
+    public static void EmptyGeneratedChunks()
+    {
+        generatedChunks.Clear();
+    }
 }
