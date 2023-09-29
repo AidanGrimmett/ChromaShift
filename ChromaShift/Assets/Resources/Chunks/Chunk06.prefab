@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5710773643088701715}
   m_Layer: 7
-  m_Name: Chunk6
+  m_Name: Chunk06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
