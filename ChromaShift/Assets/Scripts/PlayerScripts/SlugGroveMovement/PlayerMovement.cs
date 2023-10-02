@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
     public float tiltLerpTime = 0.15f; //how fast the transition is
     private float currentTiltAngle = 0;
     public float wallRunLerpTimeToFlat;
+    public float wallRunSpeed = 13;
+    public float lerpTimeToSpeed = 0.05f;
 
     [Header("Crouching")]
     public float CrouchSpeed = 10; //how fast we move when crouching
@@ -303,6 +305,8 @@ public class PlayerMovement : MonoBehaviour
 
             MoveInAir(horInput, verInput, Del);
 
+            AdjustmentAmt = 1;
+
             //turn our player with the in air modifier
             TurnPlayer(CamX, Del, TurnSpeedInAir);
             if (PlayerRB.velocity.y < 0)
@@ -322,19 +326,12 @@ public class PlayerMovement : MonoBehaviour
             //turn our player with the in air modifier
             TurnPlayer(CamX, Del, TurnSpeedOnWalls);
 
-            //move our player when on a wall
-            //WallMove(verInput, Del);
+            SetGravity(0);
+            Vector3 LerpVelocity = Vector3.Lerp(PlayerRB.velocity, Vector3.zero, wallRunLerpTimeToFlat);
+            Vector3 LerpWorldVelocity = Vector3.Lerp(Rigid.velocity, Rigid.velocity.normalized * wallRunSpeed, lerpTimeToSpeed);
+            Rigid.velocity = LerpWorldVelocity;
+            PlayerRB.velocity = LerpVelocity;
 
-            if (PlayerRB.velocity.y > 0)
-            {
-                SetGravity(wallGravity);
-            }
-            else
-            {
-                SetGravity(0);
-                Vector3 LerpVelocity = Vector3.Lerp(PlayerRB.velocity, Vector3.zero, wallRunLerpTimeToFlat);
-                PlayerRB.velocity = LerpVelocity;
-            }
         }
     }
 

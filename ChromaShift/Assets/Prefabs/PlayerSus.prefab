@@ -466,7 +466,7 @@ MonoBehaviour:
   Decceleration: 5
   DirectionControl: 6
   CurrentState: 0
-  defaultGravity: 1.8
+  defaultGravity: 1.85
   wallGravity: 0.35
   fallGravity: 2.5
   maxFallSpeed: 25
@@ -479,7 +479,7 @@ MonoBehaviour:
   MinLookAngle: -70
   JumpHeight: 9
   WallJumpVerticalHeight: 8
-  WallJumpHorizontalStrength: 8
+  WallJumpHorizontalStrength: 10
   WallJumpForwardBoost: 2
   coyoteTime: 0.2
   WallRunTime: 2.4
@@ -489,6 +489,8 @@ MonoBehaviour:
   cameraTiltAmount: 13
   tiltLerpTime: 15
   wallRunLerpTimeToFlat: 0.15
+  wallRunSpeed: 13
+  lerpTimeToSpeed: 0.05
   CrouchSpeed: 10
   CrouchHeight: 1.3
   SlideAmt: 8
