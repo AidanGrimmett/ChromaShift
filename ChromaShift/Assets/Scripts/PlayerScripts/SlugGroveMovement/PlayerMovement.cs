@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
     public float WallJumpVerticalHeight; //jump power in the y axis
     public float WallJumpHorizontalStrength; //jump power in the x axis
     public float WallJumpForwardBoost;
-    private string[] lastWalls; //reference to the last walls we jumped from, so that we can block the player from running or jumping on that wall until they touch ground or a different wall
     public float coyoteTime = 0.15f;
 
     [Header("Wall Runs")]
@@ -136,7 +135,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (CurrentState == PlayerStates.Grounded)
         {
-            lastWalls = new string[1] { "" };
+            if (new Vector2(XMove, YMove).magnitude == 0) //Rigid.velocity.magnitude <= Mathf.Abs(1f) && 
+            {
+                gravityController.SetGravityScale(0);
+                PlayerRB.velocity = Vector3.zero;
+            }
+            else
+            {
+                gravityController.SetGravityScale(defaultGravity);
+            }
+
             //if we press jump
             if (Input.GetButtonDown("Jump"))
             {
@@ -149,7 +157,6 @@ public class PlayerMovement : MonoBehaviour
             //if we press jump
             if (Input.GetButtonDown("Jump") && InAirTimer < coyoteTime)
             {
-                lastWalls = Coli.GetWallNames();
                 //jump upwards
                 JumpUp();
             }
@@ -328,8 +335,20 @@ public class PlayerMovement : MonoBehaviour
 
             SetGravity(0);
             Vector3 LerpVelocity = Vector3.Lerp(PlayerRB.velocity, Vector3.zero, wallRunLerpTimeToFlat);
-            Vector3 LerpWorldVelocity = Vector3.Lerp(Rigid.velocity, Rigid.velocity.normalized * wallRunSpeed, lerpTimeToSpeed);
-            Rigid.velocity = LerpWorldVelocity;
+            if (Coli.CheckLeftWall() || Coli.CheckRightWall())
+            {
+                Vector3 normalizedVelocity = Rigid.velocity.normalized;
+
+                // Check if the velocity direction is opposite to the transform.forward
+                if (Vector3.Dot(normalizedVelocity, transform.forward) > 0)
+                {
+                    // Reverse the direction of the velocity
+                    Rigid.velocity = -Rigid.velocity;
+                }
+
+                Vector3 LerpWorldVelocity = Vector3.Lerp(Rigid.velocity, Rigid.velocity.normalized * wallRunSpeed, lerpTimeToSpeed);
+                Rigid.velocity = LerpWorldVelocity;
+            }
             PlayerRB.velocity = LerpVelocity;
 
         }
@@ -523,6 +542,11 @@ public class PlayerMovement : MonoBehaviour
                 PlayerRB.velocity = VelAmt;
                 //add our jump force
                 Vector3 forceToAdd = transform.up * WallJumpVerticalHeight;
+
+                //extra height if looking up
+                Transform camTrans = Head.transform;
+                Vector3 lookDir = camTrans.forward.normalized;
+                forceToAdd +=  Vector3.up * 3 * (1 * Mathf.Clamp(lookDir.y, 0f, 1f)); 
                 if (Coli.CheckLeftWall())
                 {
                     forceToAdd += -transform.right * WallJumpHorizontalStrength;
