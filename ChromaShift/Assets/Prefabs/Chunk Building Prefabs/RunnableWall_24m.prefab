@@ -63,6 +63,8 @@ GameObject:
   - component: {fileID: 4434662876550311399}
   - component: {fileID: 3627142636176687188}
   - component: {fileID: 6880416666700070768}
+  - component: {fileID: 7566664469296263740}
+  - component: {fileID: 4744397110829752466}
   m_Layer: 7
   m_Name: RunnableWall_24m
   m_TagString: Untagged
@@ -156,3 +158,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23999998, y: 0.015000003, z: 0.060000014}
   m_Center: {x: 0, y: 0.007499999, z: 0.025000006}
+--- !u!114 &7566664469296263740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811526757357662306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baec3637212f1da46948d56f38d7f44e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateTagsForChildren: 0
+  children: []
+--- !u!114 &4744397110829752466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811526757357662306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d378611aba8a62045ada2713d423c683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

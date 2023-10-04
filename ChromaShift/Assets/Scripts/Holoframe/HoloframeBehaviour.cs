@@ -18,7 +18,8 @@ public class HoloframeBehaviour : MonoBehaviour
     [SerializeField] private Sprite boosterIcon;
 
     //The boost force given to the player!
-    [SerializeField] private float boostForce = 1f;
+    [SerializeField] private float boostForce = 1;
+
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class HoloframeBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (!border.activeInHierarchy)
+        if (ColorDictionary.StringToColorConversion[border.tag] == ColorController.currentColor)
         {
             iconRend.sprite = boosterIcon;
 
@@ -60,9 +61,19 @@ public class HoloframeBehaviour : MonoBehaviour
 
     public void Boost()
     {
-        Vector3 rotation = transform.localEulerAngles;
-        Vector3 launchDir = new Vector3(-Mathf.Sin(Mathf.Deg2Rad * rotation.y), 0, -Mathf.Cos(Mathf.Deg2Rad * rotation.y));
+        StartCoroutine(Blink(10, transform.forward, boostForce));
+        Vector3 yOffset = new Vector3(0, GameObject.Find("World").transform.position.y, 0);
+        GameObject.Find("World").transform.position -= yOffset;
+        GameObject.Find("Player").transform.position -= yOffset;
+    }
 
-        GameObject.Find("World").GetComponent<Rigidbody>().velocity = launchDir * boostForce;
+    private IEnumerator Blink(int blinks, Vector3 dir, float force)
+    {
+        for (int i = 0; i < blinks; i++)
+        {
+            GameObject.Find("World").transform.position -= new Vector3(dir.x, 0, dir.z) * force;
+            GameObject.Find("Player").transform.position += new Vector3(0, dir.y, 0) * force;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
