@@ -487,6 +487,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1453408052964406916, guid: d76a7bb872cc2bb449c85cfe43a548e8, type: 3}
+      propertyPath: MaxFov
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453408052964406916, guid: d76a7bb872cc2bb449c85cfe43a548e8, type: 3}
+      propertyPath: FOVSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453408052964406916, guid: d76a7bb872cc2bb449c85cfe43a548e8, type: 3}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453408052964406916, guid: d76a7bb872cc2bb449c85cfe43a548e8, type: 3}
+      propertyPath: inAirControl
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453408052964406916, guid: d76a7bb872cc2bb449c85cfe43a548e8, type: 3}
       propertyPath: wallRunLerpTimeToFlat
       value: 0.2
       objectReference: {fileID: 0}

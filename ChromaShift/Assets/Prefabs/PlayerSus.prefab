@@ -459,9 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83377d9c4dfba8d4dbfad04d0308e3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 14
+  maxSpeed: 15
   backwardsSpeed: 12
-  inAirControl: 0.5
+  inAirControl: 0.08
   Acceleration: 10
   Decceleration: 5
   DirectionControl: 6
@@ -497,8 +497,8 @@ MonoBehaviour:
   SlideSpeedLimit: 11
   SlideControl: 0.5
   SlideTimer: 0.5
-  MaxFov: 88
-  FOVSpeed: 10
+  MaxFov: 85
+  FOVSpeed: 13
   jumpAtLook: 0
 --- !u!54 &7046931709468139615
 Rigidbody:

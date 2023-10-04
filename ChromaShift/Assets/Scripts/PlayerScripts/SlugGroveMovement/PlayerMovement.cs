@@ -493,13 +493,14 @@ public class PlayerMovement : MonoBehaviour
 
         MovementDirection = MovementDirection * ActSpeed;
 
+        Vector2 flatInputs = new Vector2(Hor, Ver).normalized;
+
         //apply Gravity and Y velocity to the movement direction 
         MovementDirection.y = Rigid.velocity.y;
 
         //lerp to our movement direction based on how much airal control we have
-        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, inAirControl * D);
+        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, flatInputs.magnitude > 0.1f ? inAirControl : 0.5f * D);
         Rigid.velocity = LerpVelocity;
-
     }
 
     void WallMove(float D)
