@@ -4,42 +4,79 @@ using UnityEngine;
 
 public class ColorController : MonoBehaviour
 {
-    [SerializeField] Color[] colors = { Color.white };
+    //This class is to give the player the ability to cycle through the colors they have access to.
+
+    //Accessible value that stores the color value of the current color the player is on.
+    public static Color currentColor;
+
+    //Stores the available colors and the current index.
+    private List<Color> colors = new List<Color>();
     private int colorsIndex = 0;
 
-    private bool inputPressed;
+    //Stops the colors from cycling if the player holds down the color input buttons.
+    private bool inputPressed = false;
+
+    //Records whether or not the player has pressed the corresponding color changing control.
+    private float colorInput;
+
+    private void Awake()
+    {
+        //Fill the colors list with available colors.
+        PopulateColorList();
+
+        //Sets the current color to be the first color in the list.
+        currentColor = colors[colorsIndex];
+    }
 
     private void Update()
     {
-        float input = Input.GetAxisRaw("ChangeColor");
-        //When the player presses Q, it cycles to the next colour
-        if (input < 0 && !inputPressed)
-        {
-            inputPressed = true;
-            colorsIndex--;
-            if (colorsIndex < 0 )
-            {
-                colorsIndex = colors.Length-1;
-            }
+        //Changeable input axis read from the project settings -> inputAxes.
+        colorInput = Input.GetAxisRaw("Color");
 
-            CurrentColor.SetColor(colors[colorsIndex]);
-        }
-        //When the player presses E, it cycles to the previous colour
-        if (input > 0 && !inputPressed)
+        //When the positive input is pressed, cycle to the next color in the list.
+        if (!inputPressed && colorInput > 0.05)
         {
             inputPressed = true;
+
             colorsIndex++;
-            if (colorsIndex == colors.Length)
+
+            if (colorsIndex == colors.Count)
             {
                 colorsIndex = 0;
             }
 
-            CurrentColor.SetColor(colors[colorsIndex]);
+            currentColor = colors[colorsIndex];
         }
-        
-        if (input < 0.05 && input > -0.05 && inputPressed)
+
+        //When the negative input is pressed, cycle to the previous color in the list.
+        if (!inputPressed && colorInput < -0.05)
+        {
+            inputPressed = true;
+
+            colorsIndex--;
+
+            if (colorsIndex == -1)
+            {
+                colorsIndex = colors.Count-1;
+            }
+
+            currentColor = colors[colorsIndex];
+        }
+
+
+        //When the player stops pressing any input, it resets the player's ability to press the button again
+        if (inputPressed && -0.05 < colorInput && 0.05 > colorInput)
         {
             inputPressed = false;
+        }
+    }
+
+    //Called at the start of the game. Fills the colors list with the useable color values stored in the dictionary.
+    private void PopulateColorList()
+    {
+        foreach (KeyValuePair<string, Color> entry in ColorDictionary.StringToColorConversion)
+        {
+            colors.Add(entry.Value);
         }
     }
 }

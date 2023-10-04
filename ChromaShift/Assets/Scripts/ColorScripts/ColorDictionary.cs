@@ -1,23 +1,25 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ColorDictionary : MonoBehaviour
 {
-    //Used to convert colour to string
-    public static Dictionary<Color, string> colorToName = new Dictionary<Color, string>()
+    //This class is used to store the color to name conversion dictionaries.
+    //All other classes will refer to these static dictionaries in order to convert between the color values and the names of the color.
+
+    public static Dictionary<string, Color> StringToColorConversion = new Dictionary<string, Color>()
     {
-        {Color.red, "Red"},
-        {Color.green, "Green" },
-        {Color.blue, "Blue" },
-        {Color.white, "White" }
+        { "Red", Color.red },
+        { "Green", Color.green },
+        { "Blue", Color.blue }
     };
-    public static Dictionary<string, Color> namesToColors = new Dictionary<string, Color>()
+
+    public static Dictionary<Color, string> ColorToStringConversion = new Dictionary<Color, string>()
     {
-        //Used to convert string to colour
-        {"Red", Color.red},
-        {"Green", Color.green},
-        {"Blue", Color.blue},
-        {"White", Color.white }
+        { Color.red, "Red" },
+        { Color.green, "Green" },
+        { Color.blue, "Blue" }
+
     };
 }

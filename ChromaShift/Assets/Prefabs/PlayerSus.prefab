@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 1453408052964406916}
   - component: {fileID: 7046931709468139615}
   - component: {fileID: 8934121520482611037}
-  - component: {fileID: 7738285299766862214}
+  - component: {fileID: 2678362753429771814}
   m_Layer: 0
   m_Name: PlayerSus
   m_TagString: Untagged
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d145a16e0f95f54b8ba44c268563de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7738285299766862214
+--- !u!114 &2678362753429771814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -548,10 +548,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8814305175995423145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce96aea2fd868444b84c7b2f74fa9afb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dbae4e93e6ab5949af0540e1738d8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}

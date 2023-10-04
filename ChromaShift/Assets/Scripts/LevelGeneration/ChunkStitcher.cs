@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class ChunkStitcher : MonoBehaviour
 {
+    //The folder in Resources that contains the chunk prefabs.
     [SerializeField] private string directory = "Chunks";
 
+    //Array that is loaded up with the chunks.
     private static GameObject[] prefabArray;
 
+    //Keeps track of the last loaded chunk. Useful for keeping track of the end point.
     private static GameObject previousChunk;
 
+    //Allows the current generated chunks to be interacted with such as resetting of the position.
     private static List<GameObject> generatedChunks = new List<GameObject>();
 
     private void Start()
     {
         prefabArray = Resources.LoadAll<GameObject>(directory);
 
+        //Generates the first 3 chunks of the game.
         GenerateChunk(Vector3.zero);
         GenerateChunk();
         GenerateChunk();
@@ -58,11 +63,13 @@ public class ChunkStitcher : MonoBehaviour
 
     public void DeleteChunk()
     {
+        //Deletes the oldest chunk.
         Destroy(generatedChunks[0]);
 
         generatedChunks.RemoveAt(0);
     }
 
+    //To stop the world object heading towards negtive infinity.
     public void ResetChunks()
     {
         Transform wld = GameObject.Find("World").transform;
@@ -71,15 +78,16 @@ public class ChunkStitcher : MonoBehaviour
         float xOffset = wld.position.x;
         float yOffset = generatedChunks[0].transform.position.y;
 
-        foreach (GameObject chunk in  generatedChunks)
+        foreach (GameObject chunk in generatedChunks)
         {
             chunk.transform.localPosition = new Vector3(chunk.transform.localPosition.x + xOffset, chunk.transform.localPosition.y - yOffset, chunk.transform.localPosition.z);
         }
 
-        plr.transform.position = new Vector3(plr.position.x , plr.position.y - yOffset, plr.transform.position.z);
+        plr.transform.position = new Vector3(plr.position.x, plr.position.y - yOffset, plr.transform.position.z);
         wld.transform.position = new Vector3(0, wld.transform.position.y, wld.transform.position.z);
     }
 
+    //Useful for grabbing the oldest generated chunk. That is the one the player is currently in.
     public GameObject GetCurrentChunk()
     {
         if (generatedChunks.Count != 0)
@@ -92,6 +100,7 @@ public class ChunkStitcher : MonoBehaviour
         }
     }
 
+    //Useful for restarting the game.
     public static void EmptyGeneratedChunks()
     {
         generatedChunks.Clear();
