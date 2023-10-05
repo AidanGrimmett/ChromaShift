@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject end;
 
     private GameObject player;
+    private PlayerHealthBarScript playerHealthScript;
     private GameObject world;
 
     [SerializeField] GameObject worldPrefab;
@@ -31,6 +32,7 @@ public class MenuManager : MonoBehaviour
         gameState = GameState.Start;
 
         player = GameObject.Find("Player");
+        playerHealthScript = player.GetComponent<PlayerHealthBarScript>();
         world = GameObject.Find("World");
 
         unFrozenPlayer = player.GetComponent<Rigidbody>().constraints;
@@ -78,6 +80,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         gameState = GameState.Play;
+        playerHealthScript.SetHealth(float.MaxValue);
         player.GetComponent<Rigidbody>().constraints = unFrozenPlayer;
         world.GetComponent<Rigidbody>().constraints = unFrozenWorld;
     }

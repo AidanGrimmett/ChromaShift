@@ -19,6 +19,8 @@ public class ColorController : MonoBehaviour
     //Records whether or not the player has pressed the corresponding color changing control.
     private float colorInput;
 
+    private PlayerHealthBarScript playerHealthBar;
+
     private void Awake()
     {
         //Fill the colors list with available colors.
@@ -26,10 +28,15 @@ public class ColorController : MonoBehaviour
 
         //Sets the current color to be the first color in the list.
         currentColor = colors[colorsIndex];
+
+        playerHealthBar = GetComponent<PlayerHealthBarScript>();
     }
 
     private void Update()
     {
+        //if we have no colour juice, disable colour changing
+        if (playerHealthBar.GetHealth() <= 0) return;
+
         //Changeable input axis read from the project settings -> inputAxes.
         colorInput = Input.GetAxisRaw("Color");
 

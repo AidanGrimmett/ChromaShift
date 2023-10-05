@@ -338,7 +338,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
-  fill: {fileID: 0}
+  fill: {fileID: 1112953692}
 --- !u!114 &33845945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1892,6 +1892,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e8a2fce151bb845bdf713db6c63f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 33845942}
+  decayRate: 5
+  holoframeAdjustment: 40
+  chunkEndAdjustment: 80
 --- !u!1 &1519126348
 GameObject:
   m_ObjectHideFlags: 0
