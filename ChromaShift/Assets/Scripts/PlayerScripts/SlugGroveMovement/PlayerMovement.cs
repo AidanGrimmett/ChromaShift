@@ -493,7 +493,7 @@ public class PlayerMovement : MonoBehaviour
 
         MovementDirection = MovementDirection * ActSpeed;
 
-        Vector2 flatInputs = new Vector2(Hor, Ver).normalized;
+        Vector2 flatInputs = new Vector2(Hor, 0).normalized;
 
         //apply Gravity and Y velocity to the movement direction 
         MovementDirection.y = Rigid.velocity.y;

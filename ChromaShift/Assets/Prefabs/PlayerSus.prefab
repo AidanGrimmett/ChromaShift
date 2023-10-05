@@ -256,7 +256,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 7046931709468139615}
   - component: {fileID: 8934121520482611037}
   - component: {fileID: 2678362753429771814}
+  - component: {fileID: 4730932830094094436}
   m_Layer: 0
   m_Name: PlayerSus
   m_TagString: Untagged
@@ -488,7 +489,7 @@ MonoBehaviour:
   WallRunSpeedAcceleration: 10
   cameraTiltAmount: 13
   tiltLerpTime: 15
-  wallRunLerpTimeToFlat: 0.15
+  wallRunLerpTimeToFlat: 0.2
   wallRunSpeed: 13
   lerpTimeToSpeed: 0.05
   CrouchSpeed: 10
@@ -551,3 +552,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbae4e93e6ab5949af0540e1738d8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4730932830094094436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8814305175995423145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e8a2fce151bb845bdf713db6c63f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  decayRate: 5
+  holoframeAdjustment: 40
+  chunkEndAdjustment: 80
