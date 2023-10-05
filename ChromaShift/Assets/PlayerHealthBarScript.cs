@@ -21,7 +21,6 @@ public class PlayerHealthBarScript : MonoBehaviour
     private void Update()
     {
         currentHealth += -decayRate * Time.deltaTime;
-        Debug.Log(currentHealth);
         hbs.SetHealth(currentHealth);
     }
 

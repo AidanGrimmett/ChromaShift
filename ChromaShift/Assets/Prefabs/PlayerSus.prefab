@@ -567,4 +567,4 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   decayRate: 5
   holoframeAdjustment: 40
-  chunkEndAdjustment: 80
+  chunkEndAdjustment: 100
