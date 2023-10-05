@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8354722010279372416}
   m_Layer: 8
   m_Name: Holoframe
-  m_TagString: Untagged
+  m_TagString: Holoframe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
