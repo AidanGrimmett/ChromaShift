@@ -39,14 +39,20 @@ public class HoloframeBehaviour : MonoBehaviour
         {
             iconRend.sprite = boosterIcon;
 
-            booster.enabled = true;
+            if (booster)
+            {
+                booster.enabled = true;
+            }
 
         }
         else
         {
             iconRend.sprite = chosenIcon;
 
-            booster.enabled = false;
+            if (booster)
+            {
+                booster.enabled = false;
+            }
         }
     }
 
@@ -75,5 +81,10 @@ public class HoloframeBehaviour : MonoBehaviour
             GameObject.Find("Player").transform.position += new Vector3(0, dir.y, 0) * force;
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    public void Delete_Collider()
+    {
+        Destroy(GetComponent<BoxCollider>());
     }
 }

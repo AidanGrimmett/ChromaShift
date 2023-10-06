@@ -72,6 +72,7 @@ Transform:
   - {fileID: 7122003388251891469}
   - {fileID: 7707056143248636023}
   - {fileID: 6574291311476070916}
+  - {fileID: 1688622666840198222}
   - {fileID: 3210211172730998901}
   - {fileID: 6633784189093318739}
   - {fileID: 2647584449731565099}
@@ -79,7 +80,6 @@ Transform:
   - {fileID: 482861952262631839}
   - {fileID: 2374721592961651493}
   - {fileID: 3436751364712767038}
-  - {fileID: 1688622666840198222}
   m_Father: {fileID: 3394880144892525409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &161457505817004528
@@ -1004,6 +1004,18 @@ PrefabInstance:
       propertyPath: generateTagsForChildren
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8007765580547604576, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
+      propertyPath: children.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007765580547604576, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
+      propertyPath: children.Array.data[0]
+      value: 
+      objectReference: {fileID: 2996539435678922845}
+    - target: {fileID: 8007765580547604576, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
+      propertyPath: generateTagsForChildren
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1078,7 +1090,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 856663755610751433, guid: fe51d003b02a89d45b6858d6f59c1aa9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1086,6 +1099,11 @@ PrefabInstance:
 --- !u!4 &1688622666840198222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5556760010825527998, guid: fe51d003b02a89d45b6858d6f59c1aa9, type: 3}
+  m_PrefabInstance: {fileID: 6517450382798962416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2996539435678922845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8351778355072222893, guid: fe51d003b02a89d45b6858d6f59c1aa9, type: 3}
   m_PrefabInstance: {fileID: 6517450382798962416}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6528776927623966799
@@ -1418,11 +1436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981565752376296855, guid: ba9bf174ce2554b429527bcbf92854e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.035
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2981565752376296855, guid: ba9bf174ce2554b429527bcbf92854e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05
+      value: -0.035
       objectReference: {fileID: 0}
     - target: {fileID: 2981565752376296855, guid: ba9bf174ce2554b429527bcbf92854e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1474,6 +1492,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2497600434435966772}
     m_Modifications:
+    - target: {fileID: 2184328143389116663, guid: 7cac1af2c4f279644a9e8c3f69385c48, type: 3}
+      propertyPath: boostForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3905705876922601615, guid: 7cac1af2c4f279644a9e8c3f69385c48, type: 3}
       propertyPath: m_Name
       value: Holoframe
@@ -1538,6 +1560,18 @@ PrefabInstance:
       propertyPath: coOrdinates.Array.data[1].x
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8354722010279372416, guid: 7cac1af2c4f279644a9e8c3f69385c48, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7195513968182918615}
+    - target: {fileID: 8354722010279372416, guid: 7cac1af2c4f279644a9e8c3f69385c48, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Delete_Collider
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354722010279372416, guid: 7cac1af2c4f279644a9e8c3f69385c48, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HoloframeBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1548,3 +1582,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6428271696765428491, guid: 7cac1af2c4f279644a9e8c3f69385c48, type: 3}
   m_PrefabInstance: {fileID: 9046556321549104416}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7195513968182918615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2184328143389116663, guid: 7cac1af2c4f279644a9e8c3f69385c48, type: 3}
+  m_PrefabInstance: {fileID: 9046556321549104416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2319c8350e46c4ea641b9d8f39911c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
