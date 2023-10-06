@@ -16,6 +16,7 @@ public class HoloframeBehaviour : MonoBehaviour
     //This is a trigger collider that boosts the player when touched.
     [SerializeField] private BoxCollider booster;
     [SerializeField] private Sprite boosterIcon;
+    [SerializeField] private Transform anim;
 
     //The boost force given to the player!
     [SerializeField] private float boostForce = 1;
@@ -31,7 +32,10 @@ public class HoloframeBehaviour : MonoBehaviour
 
         //Instantiate the border attributes
         border = transform.Find("Holoframe Border").gameObject;
+
+        anim.Find(border.tag).gameObject.SetActive(true);
     }
+
 
     private void Update()
     {
@@ -68,17 +72,17 @@ public class HoloframeBehaviour : MonoBehaviour
     public void Boost()
     {
         StartCoroutine(Blink(10, transform.forward, boostForce));
-        Vector3 yOffset = new Vector3(0, GameObject.Find("World").transform.position.y, 0);
-        GameObject.Find("World").transform.position -= yOffset;
-        GameObject.Find("Player").transform.position -= yOffset;
     }
 
     private IEnumerator Blink(int blinks, Vector3 dir, float force)
     {
         for (int i = 0; i < blinks; i++)
         {
-            GameObject.Find("World").transform.position -= new Vector3(dir.x, 0, dir.z) * force;
-            GameObject.Find("Player").transform.position += new Vector3(0, dir.y, 0) * force;
+            if (!Physics.Raycast(transform.position, dir, force))
+            {
+                GameObject.Find("World").transform.position -= new Vector3(dir.x, 0, dir.z) * force;
+                GameObject.Find("Player").transform.position += new Vector3(0, dir.y, 0) * force;
+            }
             yield return new WaitForSeconds(0.01f);
         }
     }
