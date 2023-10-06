@@ -6,6 +6,7 @@ public class PlayerHealthBarScript : MonoBehaviour
 {
     public GameObject healthBar;
     private HealthBarScript hbs;
+    private PlayerMovement pms;
 
     private float currentHealth;
 
@@ -13,13 +14,25 @@ public class PlayerHealthBarScript : MonoBehaviour
     public float holoframeAdjustment;
     public float chunkEndAdjustment;
 
+    private float delay;
+
     private void Start()
     {
         hbs = healthBar.GetComponent<HealthBarScript>();
+        pms = GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
+        if (pms.CurrentState == PlayerMovement.PlayerStates.OnWalls)
+        {
+            delay = 1.05f;
+            return;
+        }
+        
+        delay -= Time.deltaTime;
+        if (delay > 0) return;
+
         currentHealth += -decayRate * Time.deltaTime;
         hbs.SetHealth(currentHealth);
     }
@@ -40,10 +53,12 @@ public class PlayerHealthBarScript : MonoBehaviour
         if (other.gameObject.CompareTag("Holoframe"))
         {
             currentHealth += holoframeAdjustment;
+            delay = 1.5f;
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
             currentHealth += chunkEndAdjustment;
+            delay = 1.5f;
         }
         currentHealth = Mathf.Clamp(currentHealth, hbs.slider.minValue, hbs.slider.maxValue);
     }
