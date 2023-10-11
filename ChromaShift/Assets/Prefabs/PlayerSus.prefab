@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83377d9c4dfba8d4dbfad04d0308e3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 15
+  maxSpeed: 17
   backwardsSpeed: 12
   inAirControl: 0.08
   Acceleration: 10
@@ -569,12 +569,12 @@ MonoBehaviour:
   cameraTiltAmount: 13
   tiltLerpTime: 15
   wallRunLerpTimeToFlat: 0.2
-  wallRunSpeed: 13
+  wallRunSpeed: 15
   lerpTimeToSpeed: 0.05
   CrouchSpeed: 10
   CrouchHeight: 1.3
-  SlideAmt: 8
-  SlideSpeedLimit: 11
+  SlideAmt: 20
+  SlideSpeedLimit: 10
   SlideControl: 0.5
   SlideTimer: 0.5
   MaxFov: 85
@@ -645,5 +645,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   decayRate: 5
-  holoframeAdjustment: 40
-  chunkEndAdjustment: 100
+  holoframeAdjustment: 25
+  chunkEndAdjustment: 70

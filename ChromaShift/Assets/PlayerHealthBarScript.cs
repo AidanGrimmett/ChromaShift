@@ -26,7 +26,7 @@ public class PlayerHealthBarScript : MonoBehaviour
     {
         if (pms.CurrentState == PlayerMovement.PlayerStates.OnWalls)
         {
-            delay = 1.05f;
+            delay = 0.90f;
             return;
         }
         
@@ -53,7 +53,7 @@ public class PlayerHealthBarScript : MonoBehaviour
         if (other.gameObject.CompareTag("Holoframe"))
         {
             currentHealth += holoframeAdjustment;
-            delay = 1.5f;
+            delay = 0.85f;
         }
         else if (other.gameObject.CompareTag("Finish"))
         {

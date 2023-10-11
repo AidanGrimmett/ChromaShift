@@ -249,11 +249,18 @@ public class PlayerMovement : MonoBehaviour
             //get the amount of speed, based on if we press forwards or backwards
             float TargetSpd = Mathf.Lerp(backwardsSpeed, maxSpeed, verInput); //using the vertical input as a lerp from if forward is being pressed
             //if we are crouching our target speed is our crouch speed
-            if (Crouch)
+            if (Crouch && !(lastSlide - Time.time < -SlideTimer))
                 TargetSpd = CrouchSpeed;
 
-            LerpSpeed(InputMagnitude, Del, TargetSpd);
-
+            if (verInput > 0 && Rigid.velocity.magnitude > TargetSpd)
+            {
+                //LerpSpeed(InputMagnitude, Del, Rigid.velocity.magnitude);
+            }
+            else
+            {
+                LerpSpeed(InputMagnitude, Del, TargetSpd);
+            }
+               
             MovePlayer(horInput, verInput, Del);
             TurnPlayer(CamX, Del, TurnSpeed);
 
@@ -493,13 +500,13 @@ public class PlayerMovement : MonoBehaviour
 
         MovementDirection = MovementDirection * ActSpeed;
 
-        Vector2 flatInputs = new Vector2(Hor, 0).normalized;
+        Vector2 strafeInputs = new Vector2(Hor, 0).normalized;
 
         //apply Gravity and Y velocity to the movement direction 
         MovementDirection.y = Rigid.velocity.y;
 
         //lerp to our movement direction based on how much airal control we have
-        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, flatInputs.magnitude > 0.1f ? inAirControl : 0.5f * D);
+        Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, strafeInputs.magnitude > 0.1f ? inAirControl : 0.5f * D);
         Rigid.velocity = LerpVelocity;
     }
 
@@ -594,14 +601,10 @@ public class PlayerMovement : MonoBehaviour
         {
             //Debug.Log("lastSlide: " + lastSlide + " | currentTime: " + Time.time + "\ndifference: " + (lastSlide - Time.time));
             //reduce our speed
-            ActSpeed = SlideSpeedLimit;
+            //ActSpeed = SlideSpeedLimit;
 
             //remove any control from player 
             AdjustmentAmt = 0;
-
-            //find direction
-            Vector3 Dir = Rigid.velocity.normalized;
-            Dir.y = 0;
 
             //slide in direction
             Rigid.AddForce(-transform.forward * SlideAmt, ForceMode.Impulse);
@@ -627,6 +630,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SetPos();
         }
+        Debug.Log("Speed: " + Rigid.velocity.magnitude);
     }
 
     void SavePos()
