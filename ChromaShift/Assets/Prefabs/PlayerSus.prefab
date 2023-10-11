@@ -559,10 +559,10 @@ MonoBehaviour:
   MinLookAngle: -70
   JumpHeight: 9
   WallJumpVerticalHeight: 8
-  WallJumpHorizontalStrength: 10
+  WallJumpHorizontalStrength: 14
   WallJumpForwardBoost: 2
   coyoteTime: 0.2
-  WallRunTime: 2.4
+  WallRunTime: 600
   TimeBeforeWallRun: 0.2
   WallRunUpwardsMovement: 10
   WallRunSpeedAcceleration: 10
