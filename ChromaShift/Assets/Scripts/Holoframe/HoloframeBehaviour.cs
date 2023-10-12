@@ -19,7 +19,9 @@ public class HoloframeBehaviour : MonoBehaviour
     [SerializeField] private Transform anim;
 
     //The boost force given to the player!
-    [SerializeField] private float boostForce = 1;
+    [SerializeField] private float airBoost = 25;
+    [SerializeField] private float groundBoost = 100;
+
 
     [SerializeField] private bool alwaysActive;
 
@@ -77,6 +79,17 @@ public class HoloframeBehaviour : MonoBehaviour
 
     public void Boost()
     {
+        float boostForce;
+
+        if (GameObject.Find("Player").GetComponent<PlayerMovement>().CurrentState == PlayerMovement.PlayerStates.InAir)
+        {
+            boostForce = airBoost;
+        }
+        else
+        {
+            boostForce = groundBoost;
+        }
+
         GameObject.Find("World").GetComponent<Rigidbody>().AddForce(-1 * transform.forward * boostForce, ForceMode.Impulse);
     }
 
