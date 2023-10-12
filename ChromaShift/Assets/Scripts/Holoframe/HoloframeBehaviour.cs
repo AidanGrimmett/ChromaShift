@@ -21,6 +21,8 @@ public class HoloframeBehaviour : MonoBehaviour
     //The boost force given to the player!
     [SerializeField] private float boostForce = 1;
 
+    [SerializeField] private bool alwaysActive;
+
 
     private void Start()
     {
@@ -28,7 +30,11 @@ public class HoloframeBehaviour : MonoBehaviour
         icon = transform.Find("Icon").gameObject;
         iconSprites = Resources.LoadAll<Sprite>("HoloframeIcons");
         iconRend = icon.GetComponent<SpriteRenderer>();
-        iconRend.sprite = ChooseRandomSprite();
+        if (!alwaysActive)
+        {
+            iconRend.sprite = ChooseRandomSprite();
+
+        }
 
         //Instantiate the border attributes
         border = transform.Find("Holoframe Border").gameObject;
@@ -71,7 +77,7 @@ public class HoloframeBehaviour : MonoBehaviour
 
     public void Boost()
     {
-        StartCoroutine(Blink(10, transform.forward, boostForce));
+        GameObject.Find("World").GetComponent<Rigidbody>().AddForce(-1 * transform.forward * boostForce, ForceMode.Impulse);
     }
 
     private IEnumerator Blink(int blinks, Vector3 dir, float force)

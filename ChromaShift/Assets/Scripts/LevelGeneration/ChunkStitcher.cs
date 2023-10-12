@@ -23,7 +23,6 @@ public class ChunkStitcher : MonoBehaviour
         //Generates the first 3 chunks of the game.
         GenerateChunk(Vector3.zero);
         GenerateChunk();
-        GenerateChunk();
     }
 
     public void GenerateChunk()
@@ -63,10 +62,13 @@ public class ChunkStitcher : MonoBehaviour
 
     public void DeleteChunk()
     {
-        //Deletes the oldest chunk.
-        Destroy(generatedChunks[0]);
+        if (generatedChunks.Count > 3)
+        {
+            //Deletes the oldest chunk.
+            Destroy(generatedChunks[0]);
 
-        generatedChunks.RemoveAt(0);
+            generatedChunks.RemoveAt(0);
+        }
     }
 
     //To stop the world object heading towards negtive infinity.
@@ -76,7 +78,7 @@ public class ChunkStitcher : MonoBehaviour
         Transform plr = GameObject.Find("Player").transform;
 
         float xOffset = wld.position.x;
-        float yOffset = generatedChunks[0].transform.position.y;
+        float yOffset = generatedChunks[1].transform.localPosition.y;
 
         foreach (GameObject chunk in generatedChunks)
         {

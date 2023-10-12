@@ -39,7 +39,15 @@ public class SetColor : MonoBehaviour
 
         foreach ( Material mat in materials )
         {
-            mat.color = ColorDictionary.StringToColorConversion[transform.tag];
+            Debug.Log(mat.name);
+            if (mat.name == "Laser (Instance)")
+            {
+                mat.SetColor("_EmissionColor", ColorDictionary.StringToColorConversion[transform.tag] * 20);
+            }
+            else
+            {
+                mat.color = ColorDictionary.StringToColorConversion[transform.tag];
+            }
         }
     }
 
