@@ -131,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
         if (CurrentState == PlayerStates.OnWalls)
             targetAngle = Coli.CheckLeftWall() ? -cameraTiltAmount : Coli.CheckRightWall() ? cameraTiltAmount : 0f;
 
+        if (Mathf.Approximately(ActSpeed, 0)) ActSpeed = 0;
+
         currentTiltAngle = Mathf.Lerp(currentTiltAngle, targetAngle, Time.deltaTime * tiltLerpTime);
 
         if (CurrentState == PlayerStates.Grounded)
