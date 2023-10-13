@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Coli = GetComponent<PlayerCollision>();      
+        Coli = GetComponent<PlayerCollision>();
         Rigid = GameObject.Find("World").GetComponent<Rigidbody>();
         PlayerRB = GetComponent<Rigidbody>();
         MinFov = Head.fieldOfView;
@@ -122,15 +122,15 @@ public class PlayerMovement : MonoBehaviour
         XMove = Input.GetAxisRaw("Horizontal");
         YMove = Input.GetAxisRaw("Vertical");
 
-        
+
         DebugControls();
 
         //tilt head
         Transform camTrans = Head.transform;
         float targetAngle = 0;
         if (CurrentState == PlayerStates.OnWalls)
-             targetAngle = Coli.CheckLeftWall() ? -cameraTiltAmount : Coli.CheckRightWall() ? cameraTiltAmount : 0f;
-        
+            targetAngle = Coli.CheckLeftWall() ? -cameraTiltAmount : Coli.CheckRightWall() ? cameraTiltAmount : 0f;
+
         currentTiltAngle = Mathf.Lerp(currentTiltAngle, targetAngle, Time.deltaTime * tiltLerpTime);
 
         if (CurrentState == PlayerStates.Grounded)
@@ -260,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 LerpSpeed(InputMagnitude, Del, TargetSpd);
             }
-               
+
             MovePlayer(horInput, verInput, Del);
             TurnPlayer(CamX, Del, TurnSpeed);
 
@@ -455,7 +455,7 @@ public class PlayerMovement : MonoBehaviour
     void TurnPlayer(float Hor, float D, float turn)
     {
         //add our inputs to our turn value
-        YTurn += (Hor * D) * turn; 
+        YTurn += (Hor * D) * turn;
         //turn our character
         transform.rotation = Quaternion.Euler(0, YTurn, 0);
     }
@@ -486,7 +486,7 @@ public class PlayerMovement : MonoBehaviour
         //apply adjustment to acceleration
         float Acel = DirectionControl * AdjustmentAmt;
         Vector3 LerpVelocity = Vector3.Lerp(Rigid.velocity, -MovementDirection, Acel * D);
-        Rigid.velocity = LerpVelocity;          
+        Rigid.velocity = LerpVelocity;
     }
 
     void MoveInAir(float Hor, float Ver, float D)
@@ -540,45 +540,30 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (CurrentState == PlayerStates.OnWalls || (CurrentState == PlayerStates.InAir && InAirTimer < coyoteTime))
         {
+            //reduce our velocity on the y axis so our jump force can be added
+            Vector3 VelAmt = PlayerRB.velocity;
+            //Vector3 flatVelNorm = new Vector3(PlayerRB.velocity.x, 0, PlayerRB.velocity.z).normalized;
+            VelAmt.y = 0;
+            PlayerRB.velocity = VelAmt;
+            //add our jump force
+            Vector3 forceToAdd = transform.up * WallJumpVerticalHeight;
 
-            if (!jumpAtLook)
+            //extra height if looking up
+            Transform camTrans = Head.transform;
+            Vector3 lookDir = camTrans.forward.normalized;
+            forceToAdd += Vector3.up * 3 * (1 * Mathf.Clamp(lookDir.y, 0f, 1f));
+            if (Coli.CheckLeftWall())
             {
-                //reduce our velocity on the y axis so our jump force can be added
-                Vector3 VelAmt = PlayerRB.velocity;
-                //Vector3 flatVelNorm = new Vector3(PlayerRB.velocity.x, 0, PlayerRB.velocity.z).normalized;
-                VelAmt.y = 0;
-                PlayerRB.velocity = VelAmt;
-                //add our jump force
-                Vector3 forceToAdd = transform.up * WallJumpVerticalHeight;
-
-                //extra height if looking up
-                Transform camTrans = Head.transform;
-                Vector3 lookDir = camTrans.forward.normalized;
-                forceToAdd +=  Vector3.up * 3 * (1 * Mathf.Clamp(lookDir.y, 0f, 1f)); 
-                if (Coli.CheckLeftWall())
-                {
-                    forceToAdd += -transform.right * WallJumpHorizontalStrength;
-                }
-                else if (Coli.CheckRightWall())
-                {
-                    forceToAdd += transform.right * WallJumpHorizontalStrength;
-                }
-                forceToAdd += -transform.forward * YMove * WallJumpForwardBoost;
-                PlayerRB.AddForce(forceToAdd, ForceMode.Impulse);
-                //we are now in the air
-                SetInAir();
+                forceToAdd += -transform.right * WallJumpHorizontalStrength;
             }
-            else 
+            else if (Coli.CheckRightWall())
             {
-                Vector3 VelAmt = PlayerRB.velocity;
-                VelAmt.y = 0;
-                PlayerRB.velocity = VelAmt;
-
-                Transform camTrans = Head.transform;
-                Vector3 lookDir = camTrans.forward.normalized;
-                PlayerRB.AddForce(new Vector3(-lookDir.x, lookDir.y, -lookDir.z) * WallJumpVerticalHeight, ForceMode.Impulse);
-                SetInAir();
+                forceToAdd += transform.right * WallJumpHorizontalStrength;
             }
+            forceToAdd += -transform.forward * YMove * WallJumpForwardBoost;
+            PlayerRB.AddForce(forceToAdd, ForceMode.Impulse);
+            //we are now in the air
+            SetInAir();
         }
     }
 

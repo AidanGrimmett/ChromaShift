@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 4243863255743286022}
   - component: {fileID: 2391124581337365492}
   - component: {fileID: 8532313399668798960}
+  - component: {fileID: 9034627979534285481}
   m_Layer: 11
   m_Name: MainCamera
   m_TagString: Untagged
@@ -384,6 +385,23 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &9034627979534285481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640847240567487041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: dcca1f2641b268d4f9275101e3d54b19, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &8814305175995423145
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloorCheckRadius: 0.3
   bottomOffset: 0.8
-  WallCheckRadius: 0.65
+  WallCheckRadius: 0.7
   frontOffset: 0.2
   RoofCheckRadius: 0.3
   upOffset: 0.8
@@ -542,8 +560,8 @@ MonoBehaviour:
   maxSpeed: 17
   backwardsSpeed: 12
   inAirControl: 0.08
-  Acceleration: 10
-  Decceleration: 5
+  Acceleration: 2.5
+  Decceleration: 3
   DirectionControl: 6
   CurrentState: 0
   defaultGravity: 1.85
@@ -569,8 +587,8 @@ MonoBehaviour:
   cameraTiltAmount: 13
   tiltLerpTime: 15
   wallRunLerpTimeToFlat: 0.2
-  wallRunSpeed: 15
-  lerpTimeToSpeed: 0.05
+  wallRunSpeed: 20
+  lerpTimeToSpeed: 0.01
   CrouchSpeed: 10
   CrouchHeight: 1.3
   SlideAmt: 20
