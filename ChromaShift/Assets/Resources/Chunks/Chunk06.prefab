@@ -1049,6 +1049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Holoframe_Static
       objectReference: {fileID: 0}
+    - target: {fileID: 6766053182503877486, guid: 6588563e620c94747a5a1cfdcd67858c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8336087277219528382, guid: 6588563e620c94747a5a1cfdcd67858c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.66666645
@@ -1133,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 778330946626125366, guid: 73ad05fe2be024f489da067cb699624f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 778330946626125366, guid: 73ad05fe2be024f489da067cb699624f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2161,7 +2165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 778330946626125366, guid: 73ad05fe2be024f489da067cb699624f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 778330946626125366, guid: 73ad05fe2be024f489da067cb699624f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2451,6 +2455,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6838186422289670336}
     m_Modifications:
+    - target: {fileID: 4361858424988312532, guid: 6588563e620c94747a5a1cfdcd67858c, type: 3}
+      propertyPath: airBoost
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361858424988312532, guid: 6588563e620c94747a5a1cfdcd67858c, type: 3}
+      propertyPath: groundBoost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6766053182503877486, guid: 6588563e620c94747a5a1cfdcd67858c, type: 3}
       propertyPath: m_Name
       value: Holoframe_Static (1)
