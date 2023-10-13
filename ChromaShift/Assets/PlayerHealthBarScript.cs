@@ -61,5 +61,6 @@ public class PlayerHealthBarScript : MonoBehaviour
             delay = 1.5f;
         }
         currentHealth = Mathf.Clamp(currentHealth, hbs.slider.minValue, hbs.slider.maxValue);
+        hbs.SetHealth(currentHealth);
     }
 }
