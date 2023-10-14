@@ -617,7 +617,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SetPos();
         }
-        Debug.Log("Speed: " + Rigid.velocity.magnitude);
+        //Debug.Log("Speed: " + Rigid.velocity.magnitude);
     }
 
     void SavePos()
