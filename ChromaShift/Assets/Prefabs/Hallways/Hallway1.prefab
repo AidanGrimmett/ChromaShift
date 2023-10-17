@@ -105,6 +105,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5159724986734456716}
     m_Modifications:
+    - target: {fileID: 1121994670897522592, guid: 7a843c83b503cf84493231553008954d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ca3d639d617ff0449fc381602f6d742, type: 2}
+    - target: {fileID: 1121994670897522592, guid: 7a843c83b503cf84493231553008954d, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8800e96c65b66746b175c33d62b9dd4, type: 2}
     - target: {fileID: 6209542665853708172, guid: 7a843c83b503cf84493231553008954d, type: 3}
       propertyPath: m_Name
       value: HallwayWall6x6 (1)
@@ -229,6 +237,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5159724986734456716}
     m_Modifications:
+    - target: {fileID: 1121994670897522592, guid: 7a843c83b503cf84493231553008954d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ca3d639d617ff0449fc381602f6d742, type: 2}
+    - target: {fileID: 1121994670897522592, guid: 7a843c83b503cf84493231553008954d, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8800e96c65b66746b175c33d62b9dd4, type: 2}
     - target: {fileID: 6209542665853708172, guid: 7a843c83b503cf84493231553008954d, type: 3}
       propertyPath: m_Name
       value: HallwayWall6x6
