@@ -80,7 +80,7 @@ public class HoloframeBehaviour : MonoBehaviour
     public void Boost()
     {
         float boostForce;
-
+        //GameObject.Find("World").GetComponent<Rigidbody>().velocity = Vector3.zero;
         if (GameObject.Find("Player").GetComponent<PlayerMovement>().CurrentState == PlayerMovement.PlayerStates.InAir)
         {
             boostForce = airBoost;

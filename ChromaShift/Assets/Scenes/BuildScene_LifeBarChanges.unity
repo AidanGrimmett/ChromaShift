@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213174438784822893, guid: d76a7bb872cc2bb449c85cfe43a548e8, type: 3}
+      propertyPath: FloorCheckRadius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4730932830094094436, guid: d76a7bb872cc2bb449c85cfe43a548e8, type: 3}
       propertyPath: healthBar
       value: 

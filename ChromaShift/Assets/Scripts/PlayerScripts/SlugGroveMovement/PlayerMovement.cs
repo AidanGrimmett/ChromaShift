@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Physics")]
     public float maxSpeed; //how fast we run forward
+    public float speedCap;
     public float backwardsSpeed; //how fast we run backwards
     public float inAirControl; //how much control you have over your movement direction when in air
 
@@ -132,6 +133,11 @@ public class PlayerMovement : MonoBehaviour
             targetAngle = Coli.CheckLeftWall() ? -cameraTiltAmount : Coli.CheckRightWall() ? cameraTiltAmount : 0f;
 
         if (Mathf.Approximately(ActSpeed, 0)) ActSpeed = 0;
+
+        if (ActSpeed > speedCap)
+        {
+            ActSpeed = speedCap;
+        }
 
         currentTiltAngle = Mathf.Lerp(currentTiltAngle, targetAngle, Time.deltaTime * tiltLerpTime);
 
