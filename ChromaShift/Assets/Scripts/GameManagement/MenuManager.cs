@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
     private GameObject player;
     private PlayerHealthBarScript playerHealthScript;
     private GameObject world;
+    [SerializeField]private GameObject cam;
 
     [SerializeField] GameObject worldPrefab;
 
@@ -83,12 +84,14 @@ public class MenuManager : MonoBehaviour
         playerHealthScript.SetHealth(float.MaxValue);
         player.GetComponent<Rigidbody>().constraints = unFrozenPlayer;
         world.GetComponent<Rigidbody>().constraints = unFrozenWorld;
+        player.transform.rotation = Quaternion.identity;
     }
 
     public void GameOver()
     {
         gameState = GameState.End;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
     }
@@ -101,8 +104,7 @@ public class MenuManager : MonoBehaviour
     public void Reload()
     {
         ReloadWorld();
-        player.transform.position = new Vector3(0, 1, 0);
-        StartGame();
+        player.transform.position = new Vector3(1.5f, 1, 0);
     }
 
     private void ReloadWorld()

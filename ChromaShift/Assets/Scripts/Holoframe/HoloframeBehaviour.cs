@@ -41,12 +41,17 @@ public class HoloframeBehaviour : MonoBehaviour
         //Instantiate the border attributes
         border = transform.Find("Holoframe Border").gameObject;
 
-        anim.Find(border.tag).gameObject.SetActive(true);
+        //anim.Find(border.tag).gameObject.SetActive(true);
     }
 
 
     private void Update()
     {
+        if(alwaysActive)
+        {
+            return;
+        }
+
         if (ColorDictionary.StringToColorConversion[border.tag] == ColorController.currentColor)
         {
             iconRend.sprite = boosterIcon;
