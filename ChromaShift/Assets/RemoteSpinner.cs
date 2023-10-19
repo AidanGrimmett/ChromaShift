@@ -4,53 +4,10 @@ using UnityEngine;
 
 public class RemoteSpinner : MonoBehaviour
 {
-    //private Quaternion targetRotation;
-
-    //private Vector3 currentRotation;
-    //private Vector3 newRotation;
-
-    //private bool isRotating;
-
     public float rotationSpeed = 60.0f; // Adjust the speed of rotation
 
     private bool isRotating = false;
     private float targetRotation = 0.0f;
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        AddRotation(120);
-    //        Debug.Log("MB 1");
-    //    }
-    //    else if (Input.GetMouseButtonDown(1))
-    //    {
-    //        AddRotation(-120);
-    //    }
-
-    //    if (isRotating)
-    //    {
-    //        Debug.Log("Is rotating");
-    //        Debug.Log("Local rotation: " + transform.localRotation + "target: " + targetRotation);
-    //        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, 0.5f);
-
-    //        if (Quaternion.Angle(transform.localRotation, targetRotation) < 1f)
-    //        {
-    //            transform.localRotation = targetRotation;
-    //            isRotating = false;
-    //            Debug.Log("Stopped");
-    //        }
-    //    }
-    //}
-
-    void AddRotation(float rotationAmount)
-    {
-        // Calculate the new rotation by adding the rotationAmount to the current rotation
-        //targetRotation = Quaternion.Euler(transform.localRotation.x, transform.localRotation.y + rotationAmount, transform.localRotation.z);
-        //isRotating = true;
-    }
-
 
     private void Update()
     {
@@ -80,6 +37,7 @@ public class RemoteSpinner : MonoBehaviour
             }
         }
     }
+
     IEnumerator RotateSmoothly(float degrees)
     {
         isRotating = true;
@@ -96,7 +54,6 @@ public class RemoteSpinner : MonoBehaviour
 
             yield return null;
         }
-
         isRotating = false;
     }
 

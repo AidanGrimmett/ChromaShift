@@ -47,25 +47,25 @@ public class HoloframeBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (ColorDictionary.StringToColorConversion[border.tag] == ColorController.currentColor)
-        {
-            iconRend.sprite = boosterIcon;
+        //if (ColorDictionary.StringToColorConversion[border.tag] == ColorController.currentColor)
+        //{
+        //    iconRend.sprite = boosterIcon;
 
-            if (booster)
-            {
-                booster.enabled = true;
-            }
+        //    if (booster)
+        //    {
+        //        booster.enabled = true;
+        //    }
 
-        }
-        else
-        {
-            iconRend.sprite = chosenIcon;
+        //}
+        //else
+        //{
+        //    iconRend.sprite = chosenIcon;
 
-            if (booster)
-            {
-                booster.enabled = false;
-            }
-        }
+        //    if (booster)
+        //    {
+        //        booster.enabled = false;
+        //    }
+        //}
     }
 
     private Sprite ChooseRandomSprite()

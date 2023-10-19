@@ -641,4 +641,19 @@ public class PlayerMovement : MonoBehaviour
         Rigid.velocity = Vector3.zero;
     }
 
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    bool wall = CheckWalls(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+    //    //we are on the wall
+    //    if (wall)
+    //    {
+    //        if (InAirTimer > TimeBeforeWallRun)
+    //        {
+    //            SetOnWall();
+    //            return;
+    //        }
+    //    }
+    //}
+
 }
