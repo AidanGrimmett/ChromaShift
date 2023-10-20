@@ -53,6 +53,7 @@ public class ColorController : MonoBehaviour
             }
 
             currentColor = colors[colorsIndex];
+            Debug.Log("ColorController Current Index: " + colorsIndex);
         }
 
         //When the negative input is pressed, cycle to the previous color in the list.
@@ -68,6 +69,7 @@ public class ColorController : MonoBehaviour
             }
 
             currentColor = colors[colorsIndex];
+            Debug.Log("ColorController Current Index: " + colorsIndex);
         }
 
 
@@ -77,6 +79,11 @@ public class ColorController : MonoBehaviour
             inputPressed = false;
         }
     }
+
+    public int GetColorInt()
+    {
+        return colorsIndex;
+    }    
 
     //Called at the start of the game. Fills the colors list with the useable color values stored in the dictionary.
     private void PopulateColorList()

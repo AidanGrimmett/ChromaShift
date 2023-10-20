@@ -4,61 +4,51 @@ using UnityEngine;
 
 public class RemoteSpinner : MonoBehaviour
 {
-    public float rotationSpeed = 60.0f; // Adjust the speed of rotation
+    public ColorController cc;
 
-    private bool isRotating = false;
-    private float targetRotation = 0.0f;
+    private List<float> positionList = new List<float> {0, 120, 240};
 
-    private void Update()
+    bool isRotating;
+    private Quaternion targetRotation;
+
+    public float rotationSpeed;
+    public float rotationThreshold;
+
+    private void LateUpdate()
     {
         // Check for user input or some condition to trigger rotation
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            if (!isRotating)
-            {
-                StartCoroutine(RotateSmoothly(120.0f)); // Rotate by 120 degrees
-            }
-            else 
+            if (isRotating)
             {
                 QuickSetRotation();
-                StartCoroutine(RotateSmoothly(120.0f));
-            }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!isRotating)
-            {
-                StartCoroutine(RotateSmoothly(-120.0f)); // Rotate by 120 degrees
+                isRotating = false;
             }
             else
             {
-                QuickSetRotation();
-                StartCoroutine(RotateSmoothly(-120.0f));
+                targetRotation = Quaternion.Euler(-90, positionList[cc.GetColorInt()], 0);
+                Debug.Log("Spinner Color index:  " + cc.GetColorInt());
+                isRotating = true;
             }
         }
-    }
 
-    IEnumerator RotateSmoothly(float degrees)
-    {
-        isRotating = true;
-        float startRotation = transform.eulerAngles.z;
-        targetRotation = startRotation + degrees;
-        float t = 0;
-
-        while (t < 1)
+        if (isRotating)
         {
-            t += Time.deltaTime * (rotationSpeed / 60.0f); // Adjust for frame rate independence
+            // Perform smooth rotation towards the target rotation
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            // Perform the rotation
-            transform.localRotation = Quaternion.Euler(-90, Mathf.Lerp(startRotation, targetRotation, t), 0);
-
-            yield return null;
-        }
-        isRotating = false;
+            // Check if the rotation is close enough to the target
+            if (Quaternion.Angle(transform.localRotation, targetRotation) < rotationThreshold)
+            {
+                // Rotation is considered finished
+                transform.localRotation = targetRotation;
+                isRotating = false;
+            }
     }
 
     void QuickSetRotation()
     {
-        transform.localRotation = Quaternion.Euler(-90, targetRotation, 0);
+        transform.localRotation = targetRotation;
     }
+}
 }
