@@ -139,8 +139,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.23999998, y: 0.015000003, z: 0.060000014}
-  m_Center: {x: 0, y: 0.007499999, z: 0.025000006}
+  m_Size: {x: 0.24266331, y: 0.015000002, z: 0.099728286}
+  m_Center: {x: 0.0015536738, y: 0.0074999984, z: 0.024941044}
 --- !u!1 &4505586277959586372
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -318,7 +318,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

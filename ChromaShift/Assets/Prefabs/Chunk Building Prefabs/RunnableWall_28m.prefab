@@ -50,7 +50,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -6748564561819368950, guid: 97c58524f178be14180d529c6bee2259, type: 3}
+    - target: {fileID: 8913999931105061036, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7636005431804703582, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
     - {fileID: 7478278835003897850, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
@@ -279,8 +283,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.29999998, y: 0.005000006, z: 0.060000014}
-  m_Center: {x: -0.0000000018626451, y: 0.0025000006, z: 0.025000006}
+  m_Size: {x: 0.28130406, y: 0.0050000055, z: 0.10008408}
+  m_Center: {x: 0.002921233, y: 0.002500001, z: 0.02481616}
 --- !u!4 &4113230893318081186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2332689283864780120, guid: c674298e62e0a254d92b39d9ff954862, type: 3}
