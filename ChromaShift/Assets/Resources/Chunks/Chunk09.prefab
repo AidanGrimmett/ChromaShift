@@ -1761,6 +1761,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4620494829733829276, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 431e73b6b0e462a4ca4f26fe772c7f80, type: 2}
     - target: {fileID: 6830198411228219778, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
       propertyPath: m_Name
       value: Chunk_Wall
@@ -2131,6 +2135,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4620494829733829276, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 431e73b6b0e462a4ca4f26fe772c7f80, type: 2}
     - target: {fileID: 6830198411228219778, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
       propertyPath: m_Name
       value: Chunk_Wall

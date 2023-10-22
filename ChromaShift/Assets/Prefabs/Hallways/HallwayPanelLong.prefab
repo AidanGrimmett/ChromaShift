@@ -46,6 +46,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallwayExteriorPanel6x6 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8836654620586164531, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -108,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallwayExteriorPanel6x6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8836654620586164531, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -169,6 +177,30 @@ PrefabInstance:
     - target: {fileID: 6209542665853708172, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
       propertyPath: m_Name
       value: HallwayExteriorPanel6x6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.17906043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.003814252
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Size.z
+      value: 0.06000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Center.x
+      value: 0.00001700878
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737685965616597890, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
+      propertyPath: m_Center.z
+      value: 0.030000009
       objectReference: {fileID: 0}
     - target: {fileID: 8836654620586164531, guid: 67c1ee230eaa04043a787fc0775ef09b, type: 3}
       propertyPath: m_LocalPosition.x

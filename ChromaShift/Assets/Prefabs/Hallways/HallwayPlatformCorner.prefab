@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1204369868439815528}
   - component: {fileID: 1971553813728458679}
   - component: {fileID: 6055616638576898451}
-  - component: {fileID: 6312410893816889672}
+  - component: {fileID: 4241240978380577562}
   m_Layer: 7
   m_Name: HallwayPlatformCorner
   m_TagString: Untagged
@@ -63,6 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a09c7f7ea01e24345814762b4bc490af, type: 2}
+  - {fileID: 2100000, guid: a8800e96c65b66746b175c33d62b9dd4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,14 +85,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6312410893816889672
+--- !u!65 &4241240978380577562
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555853898150143414}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02948ebda63c7d94ebdb22566b0c53b5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -103,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06, y: 0.060000014, z: 8.677854e-16}
-  m_Center: {x: 0.000000007450581, y: -0.00000011920929, z: 0}
+  m_Size: {x: 0.062, y: 0.062000014, z: 0.0050000013}
+  m_Center: {x: -0.0010000011, y: 0.0010000013, z: -0.0025000006}
 --- !u!1 &4313085674136282433
 GameObject:
   m_ObjectHideFlags: 0
