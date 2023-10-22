@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RemoteSpinner : MonoBehaviour
@@ -17,7 +18,7 @@ public class RemoteSpinner : MonoBehaviour
     private void LateUpdate()
     {
         // Check for user input or some condition to trigger rotation
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetButtonDown("Color"))
         {
             if (isRotating)
             {

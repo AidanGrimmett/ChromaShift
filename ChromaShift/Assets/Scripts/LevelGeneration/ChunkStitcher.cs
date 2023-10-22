@@ -47,9 +47,7 @@ public class ChunkStitcher : MonoBehaviour
     private void GenerateChunk(Vector3 exit)
     {
         //This is for the special case where we don't have a previous generated chunk. Will only be run once.
-        int index = Random.Range(0, prefabArray.Length);
-
-        GameObject generated = Instantiate(prefabArray[index], GameObject.Find("World").transform);
+        GameObject generated = Instantiate(prefabArray[0], GameObject.Find("World").transform);
 
         Vector3 entry = generated.transform.Find("Entry").position;
 
