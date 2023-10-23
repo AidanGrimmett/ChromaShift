@@ -25,10 +25,10 @@ public class RemoteSpinner : MonoBehaviour
                 QuickSetRotation();
                 isRotating = false;
             }
-            else
+            
+            if (!isRotating)
             {
                 targetRotation = Quaternion.Euler(-90, positionList[cc.GetColorInt()], 0);
-                Debug.Log("Spinner Color index:  " + cc.GetColorInt());
                 isRotating = true;
             }
         }
@@ -45,11 +45,11 @@ public class RemoteSpinner : MonoBehaviour
                 transform.localRotation = targetRotation;
                 isRotating = false;
             }
+        }
     }
 
     void QuickSetRotation()
     {
         transform.localRotation = targetRotation;
     }
-}
 }

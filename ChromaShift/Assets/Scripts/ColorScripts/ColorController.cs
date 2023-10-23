@@ -69,7 +69,6 @@ public class ColorController : MonoBehaviour
             }
 
             currentColor = colors[colorsIndex];
-            Debug.Log("ColorController Current Index: " + colorsIndex);
         }
 
 

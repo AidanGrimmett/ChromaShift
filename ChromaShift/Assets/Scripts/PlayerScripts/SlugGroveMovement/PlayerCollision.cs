@@ -12,10 +12,6 @@ public class PlayerCollision : MonoBehaviour
     public float upOffset; //offset upwards
     public float checkWallLength;
 
-    //public float LedgeGrabForwardPos; //the position in front of the player where we check for ledges
-    //public float LedgeGrabUpwardsPos;//the position in above of the player where we check for ledges
-    //public float LedgeGrabDistance; //the distance the ledge can be from our raycast before we grab it (this is projects from the top of the wall grab position, downwards
-
     public LayerMask FloorLayers; //what layers we can stand on
     public LayerMask WallLayers;  //what layers we can wall run on
     public LayerMask RoofLayers; //what layers we cannot stand up under (for crouching
@@ -37,7 +33,7 @@ public class PlayerCollision : MonoBehaviour
     //check if there is a wall in the direction we are pressing
     public bool CheckWall(Vector3 Direction)
     {
-        Vector3 Pos = transform.position + (Direction * frontOffset);
+        Vector3 Pos = transform.position;// + (Direction * frontOffset);
         Collider[] hitColliders = Physics.OverlapSphere(Pos, WallCheckRadius, WallLayers);
         if (hitColliders.Length > 0)
         {
@@ -88,18 +84,6 @@ public class PlayerCollision : MonoBehaviour
         return new string[1] { "" };
     }
 
-    //public Vector3 CheckLedges()
-    //{
-    //    Vector3 RayPos = transform.position + (transform.forward * LedgeGrabForwardPos) + (transform.up * LedgeGrabUpwardsPos);
-
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(RayPos, -transform.up, out hit, LedgeGrabDistance, LedgeGrabLayers))
-    //        return hit.point;
-
-
-    //    return Vector3.zero;
-    //}
-
     void OnDrawGizmosSelected()
     {
         //floor check
@@ -120,8 +104,5 @@ public class PlayerCollision : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + transform.right * checkWallLength);
         Gizmos.DrawLine(transform.position, transform.position + -transform.right * checkWallLength);
-
-        //Vector3 Pos4 = transform.position + (transform.forward * LedgeGrabForwardPos) + (transform.up * LedgeGrabUpwardsPos);
-        //Gizmos.DrawLine(Pos4, Pos4 + (-transform.up * LedgeGrabDistance));
     }
 }

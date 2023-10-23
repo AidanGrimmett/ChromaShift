@@ -365,7 +365,6 @@ public class PlayerMovement : MonoBehaviour
                 Rigid.velocity = LerpWorldVelocity;
             }
             PlayerRB.velocity = LerpVelocity;
-
         }
     }
 
@@ -398,7 +397,6 @@ public class PlayerMovement : MonoBehaviour
             return false;
 
         //check the collision direction for any walls
-        //float ClampedY = Mathf.Clamp(Y, 0, 1);
         Vector3 Dir = transform.right * X;
 
         bool WallCol = Coli.CheckWall(Dir);
@@ -426,14 +424,9 @@ public class PlayerMovement : MonoBehaviour
 
     void SetOnWall()
     {
-        //if (!Coli.GetWallNames().Intersect(lastWalls).Any()) //stop running on wall of same tag after wall jump - no longer necessary
-        //{   
-        //    OnGroundTimer = 0; //remove the on ground timer
-        //    InAirTimer = 0; //remove the in air timer
-        //    CurrentState = PlayerStates.OnWalls;
-        //}
         CurrentState = PlayerStates.OnWalls;
     }
+
     void PrintStrings(string[] strs)
     {
         string output = "";
@@ -592,10 +585,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (lastSlide - Time.time < -SlideTimer)
         {
-            //Debug.Log("lastSlide: " + lastSlide + " | currentTime: " + Time.time + "\ndifference: " + (lastSlide - Time.time));
-            //reduce our speed
-            //ActSpeed = SlideSpeedLimit;
-
             //remove any control from player 
             AdjustmentAmt = 0;
 
@@ -640,20 +629,4 @@ public class PlayerMovement : MonoBehaviour
         PlayerRB.velocity = Vector3.zero;
         Rigid.velocity = Vector3.zero;
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    bool wall = CheckWalls(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-    //    //we are on the wall
-    //    if (wall)
-    //    {
-    //        if (InAirTimer > TimeBeforeWallRun)
-    //        {
-    //            SetOnWall();
-    //            return;
-    //        }
-    //    }
-    //}
-
 }

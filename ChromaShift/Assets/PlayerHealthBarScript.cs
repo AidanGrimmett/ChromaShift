@@ -53,12 +53,12 @@ public class PlayerHealthBarScript : MonoBehaviour
         if (other.gameObject.CompareTag("Holoframe"))
         {
             currentHealth += holoframeAdjustment;
-            delay = 0.85f;
+            delay = 0.25f;
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
             currentHealth += chunkEndAdjustment;
-            delay = 1.5f;
+            delay = 0.5f;
         }
         currentHealth = Mathf.Clamp(currentHealth, hbs.slider.minValue, hbs.slider.maxValue);
         hbs.SetHealth(currentHealth);
