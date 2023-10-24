@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1907442674080191593}
   - component: {fileID: 8618364296340735726}
   - component: {fileID: 8542631658493121342}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GateBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8069153061320524802}
   - component: {fileID: 6471595433762487301}
   - component: {fileID: 8873176302860219815}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GateBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 6126859358464222596}
   - component: {fileID: 7106542096948324767}
   - component: {fileID: 8593948890567895058}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GateBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -420,7 +420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1823636095231142071}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gate Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
