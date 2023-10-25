@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum GameState
 {
     Start,
     Play,
-    End
+    End,
+    Leaderboard,
+    Options,
+    Controls
 }
 
 public class MenuManager : MonoBehaviour
@@ -17,6 +21,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject play;
     [SerializeField] private GameObject end;
+    [SerializeField] private GameObject leaderboard;
+    [SerializeField] private GameObject options;
+    [SerializeField] private GameObject controls;
 
     private GameObject player;
     private PlayerHealthBarScript playerHealthScript;
@@ -31,6 +38,8 @@ public class MenuManager : MonoBehaviour
     public void Start()
     {
         gameState = GameState.Start;
+
+        Debug.Log(leaderboard.name);
 
         player = GameObject.Find("Player");
         playerHealthScript = player.GetComponent<PlayerHealthBarScript>();
@@ -50,6 +59,9 @@ public class MenuManager : MonoBehaviour
                 start.SetActive(true);
                 play.SetActive(false);
                 end.SetActive(false);
+                leaderboard.SetActive(false);
+                options.SetActive(false);
+                controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
@@ -57,6 +69,9 @@ public class MenuManager : MonoBehaviour
                 start.SetActive(false);
                 play.SetActive(true);
                 end.SetActive(false);
+                leaderboard.SetActive(false);
+                options.SetActive(false);
+                controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 break;
@@ -64,6 +79,39 @@ public class MenuManager : MonoBehaviour
                 start.SetActive(false);
                 play.SetActive(false);
                 end.SetActive(true);
+                leaderboard.SetActive(false);
+                options.SetActive(false);
+                controls.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+            case GameState.Leaderboard:
+                start.SetActive(false);
+                play.SetActive(false);
+                end.SetActive(false);
+                leaderboard.SetActive(true);
+                options.SetActive(false);
+                controls.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+            case GameState.Options:
+                start.SetActive(false);
+                play.SetActive(false);
+                end.SetActive(false);
+                leaderboard.SetActive(false);
+                options.SetActive(true);
+                controls.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+            case GameState.Controls:
+                start.SetActive(false);
+                play.SetActive(false);
+                end.SetActive(false);
+                leaderboard.SetActive(false);
+                options.SetActive(false);
+                controls.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
@@ -73,6 +121,30 @@ public class MenuManager : MonoBehaviour
     public void MainMenu()
     {
         gameState = GameState.Start;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        world.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    public void LeaderboardMenu()
+    {
+        gameState = GameState.Leaderboard;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        world.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    public void OptionsMenu()
+    {
+        gameState = GameState.Options;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        world.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    public void ControlsMenu()
+    {
+        gameState = GameState.Controls;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().velocity = Vector3.zero;
