@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChunkStitcher : MonoBehaviour
@@ -15,6 +16,8 @@ public class ChunkStitcher : MonoBehaviour
 
     //Allows the current generated chunks to be interacted with such as resetting of the position.
     private static List<GameObject> generatedChunks = new List<GameObject>();
+
+    [SerializeField] public GameObject spawnTube;
 
     private void Start()
     {
@@ -48,6 +51,11 @@ public class ChunkStitcher : MonoBehaviour
     {
         //This is for the special case where we don't have a previous generated chunk. Will only be run once.
         GameObject generated = Instantiate(prefabArray[0], GameObject.Find("World").transform);
+
+        GameObject entrance = Instantiate(spawnTube, generated.transform);
+
+        spawnTube.transform.localPosition = new Vector3(-0.15f, 0, 0);
+        spawnTube.transform.localScale = Vector3.one * 0.01f;
 
         Vector3 entry = generated.transform.Find("Entry").position;
 
