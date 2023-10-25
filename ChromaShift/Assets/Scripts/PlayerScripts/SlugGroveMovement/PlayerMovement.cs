@@ -566,6 +566,7 @@ public class PlayerMovement : MonoBehaviour
             //we are now in the air
             SetInAir();
         }
+        AudioManager.instance.PlaySound("jump");
     }
 
     //increase our fov at high speed and reduce it at low speed
