@@ -25,6 +25,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject controls;
 
+    [SerializeField] private Leaderboard leaderboardValues;
+
+    private bool submitted;
+
     private GameObject player;
     private PlayerHealthBarScript playerHealthScript;
     private GameObject world;
@@ -76,6 +80,7 @@ public class MenuManager : MonoBehaviour
                 Cursor.visible = false;
                 break;
             case GameState.End:
+                //leaderboardValues.AddHighscoreEntry(Score.score, Time.time,)
                 start.SetActive(false);
                 play.SetActive(false);
                 end.SetActive(true);
@@ -86,6 +91,8 @@ public class MenuManager : MonoBehaviour
                 Cursor.visible = true;
                 break;
             case GameState.Leaderboard:
+                leaderboardValues.ClearScores();
+                leaderboardValues.LoadScores();
                 start.SetActive(false);
                 play.SetActive(false);
                 end.SetActive(false);

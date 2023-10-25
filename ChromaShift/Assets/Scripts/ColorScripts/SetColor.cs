@@ -42,7 +42,7 @@ public class SetColor : MonoBehaviour
             //Debug.Log(mat.name);
             if (mat.name == "Laser (Instance)")
             {
-                mat.SetColor("_EmissionColor", ColorDictionary.StringToColorConversion[transform.tag] * 20);
+                mat.SetColor("_EmissionColor", ColorDictionary.StringToColorConversion[transform.tag] * 75);
             }
             else
             {

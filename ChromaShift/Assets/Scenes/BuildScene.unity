@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 14936152}
   - component: {fileID: 14936151}
   - component: {fileID: 14936154}
-  - component: {fileID: 14936155}
   - component: {fileID: 14936156}
   m_Layer: 5
   m_Name: Exit
@@ -284,18 +283,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 14936149}
   m_CullTransparentMesh: 1
 --- !u!114 &14936154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14936149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a32c23943e21b4e94d8d8f02c4ae56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &14936155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1774,7 +1761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &636743549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2766,7 +2753,7 @@ MonoBehaviour:
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 3
     m_MaxSize: 70
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -2774,7 +2761,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: aaa
+  m_Text: is a lsr
 --- !u!222 &783147299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3090,7 +3077,6 @@ GameObject:
   - component: {fileID: 842634937}
   - component: {fileID: 842634936}
   - component: {fileID: 842634935}
-  - component: {fileID: 842634939}
   - component: {fileID: 842634940}
   m_Layer: 5
   m_Name: HighScore
@@ -3225,18 +3211,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842634933}
   m_CullTransparentMesh: 1
---- !u!114 &842634939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842634933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a32c23943e21b4e94d8d8f02c4ae56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &842634940
 Animator:
   serializedVersion: 5
@@ -5151,6 +5125,7 @@ MonoBehaviour:
   leaderboard: {fileID: 1730053738}
   options: {fileID: 167962854}
   controls: {fileID: 285997576}
+  leaderboardValues: {fileID: 1442084977}
   cam: {fileID: 2134440561}
   worldPrefab: {fileID: 410167009}
 --- !u!114 &1442084977
@@ -5831,7 +5806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1730053739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7104,7 +7079,6 @@ GameObject:
   - component: {fileID: 2116300059}
   - component: {fileID: 2116300058}
   - component: {fileID: 2116300061}
-  - component: {fileID: 2116300062}
   - component: {fileID: 2116300063}
   m_Layer: 5
   m_Name: Retry
@@ -7252,18 +7226,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 2116300056}
   m_CullTransparentMesh: 1
 --- !u!114 &2116300061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2116300056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a32c23943e21b4e94d8d8f02c4ae56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2116300062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

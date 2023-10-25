@@ -1996,6 +1996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel Number
       objectReference: {fileID: 0}
+    - target: {fileID: 5600919457646645480, guid: d0a683680dc831f429d70194ad7becda, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6475147888397945811, guid: d0a683680dc831f429d70194ad7becda, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

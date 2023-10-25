@@ -14,11 +14,50 @@ public class Leaderboard : MonoBehaviour
     {
         entryTemplate.gameObject.SetActive(false);
 
+        highscoreTransforms = new List<Transform>();
+    }
+
+    public void ClearScores()
+    {
+        foreach (Transform t in highscoreTransforms)
+        {
+            Destroy(t.gameObject);
+        }
+        highscoreTransforms.Clear();
+    }
+
+    private void ClearLeaderboard()
+    {
+        Highscores highscores = new Highscores
+        {
+            highscoresList = new List<HighscoreEntry>
+            {
+                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
+                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
+                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
+                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
+                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f }
+            }
+        };
+
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadScores()
+    {
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
-        //AddHighscoreEntry(21, );
+        foreach (HighscoreEntry entry in highscores.highscoresList)
+        {
+            CreateHigscoreEntry(entry, entryContainer, highscoreTransforms);
+        }
+    }
 
+    private void Sort(Highscores highscores)
+    {
         for (int i = 0; i < highscores.highscoresList.Count; i++)
         {
             for (int j = 0; j < highscores.highscoresList.Count; j++)
@@ -40,18 +79,11 @@ public class Leaderboard : MonoBehaviour
                 }
             }
         }
-
-        highscoreTransforms = new List<Transform>();
-
-        foreach(HighscoreEntry entry in highscores.highscoresList )
-        {
-            CreateHigscoreEntry(entry, entryContainer, highscoreTransforms);
-        }
     }
-
+    
     private void CreateHigscoreEntry(HighscoreEntry highScore, Transform container, List<Transform> transformList)
     {
-        float templateHeight = 125f;
+        float templateHeight = 75f;
 
         Transform entryTransform = Instantiate(entryTemplate, container);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
@@ -78,19 +110,12 @@ public class Leaderboard : MonoBehaviour
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
-        
-        if (highscores.highscoresList[4].score < score || (highscores.highscoresList[5].score == score && highscores.highscoresList[4].time < time ))
+        if (highscores.highscoresList[4].score < score || (highscores.highscoresList[4].score == score && highscores.highscoresList[4].time < time ))
         {
             highscores.highscoresList.Add(highscoreEntry);
         }
 
-        if (highscores.highscoresList.Count > 5)
-        {
-            for (int h = highscores.highscoresList.Count; h > 5; h--)
-            {
-                highscores.highscoresList.RemoveAt(5);
-            }
-        }
+        Sort(highscores);
 
         string json = JsonUtility.ToJson(highscores);
         PlayerPrefs.SetString("highscoreTable", json);
@@ -100,6 +125,11 @@ public class Leaderboard : MonoBehaviour
     private class Highscores
     {
         public List<HighscoreEntry> highscoresList;
+    }
+
+    public void GetLastScore()
+    {
+
     }
 
     [System.Serializable] private class HighscoreEntry
