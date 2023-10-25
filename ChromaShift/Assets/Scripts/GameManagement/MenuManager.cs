@@ -176,13 +176,14 @@ public class MenuManager : MonoBehaviour
     public void Reload()
     {
         ReloadWorld();
-        player.transform.position = new Vector3(1.5f, 1, 0);
+        player.transform.position = new Vector3(-9.5f, 15, 0);
     }
 
     private void ReloadWorld()
     {
         ChunkStitcher.EmptyGeneratedChunks();
         world.transform.position = Vector3.zero;
+        GameObject entrance = world.GetComponent<ChunkStitcher>().spawnTube;
         Destroy(world.GetComponent<ChunkStitcher>());
         List<GameObject> toDelete = new List<GameObject>();
         foreach (Transform child in world.GetComponentsInChildren<Transform>())
@@ -196,6 +197,6 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(obj);
         }
-        world.AddComponent<ChunkStitcher>();
+        world.AddComponent<ChunkStitcher>().spawnTube = entrance;
     }
 }
