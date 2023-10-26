@@ -9,6 +9,6 @@ public class DisplayScore : MonoBehaviour
 
     private void Update()
     {
-        score.text = "Labs Completed:\n" + Score.score;
+        score.text = "Labs: " + Score.score;
     }
 }

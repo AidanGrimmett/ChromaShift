@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -87,7 +88,7 @@ public class Leaderboard : MonoBehaviour
 
         Transform entryTransform = Instantiate(entryTemplate, container);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
-        entryRectTransform.anchoredPosition = new Vector3(0, -templateHeight * transformList.Count);
+        entryRectTransform.anchoredPosition = new Vector3(0, 150 -templateHeight * transformList.Count);
         entryTransform.gameObject.SetActive(true);
 
         Transform[] children = entryTransform.GetComponentsInChildren<Transform>(); 
