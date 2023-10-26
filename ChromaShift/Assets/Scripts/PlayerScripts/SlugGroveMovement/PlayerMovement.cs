@@ -20,6 +20,13 @@ public class PlayerMovement : MonoBehaviour
     private float XMove;
     private float YMove;
 
+    //Audio variables
+    [Header("Audio")]
+    public float minInterval = 0.15f;
+    public float maxInterval = 0.8f;
+    private float currentInterval;
+    private float stepTimer = 0.05f;
+
     [Header("Physics")]
     public float maxSpeed; //how fast we run forward
     public float speedCap;
@@ -141,6 +148,22 @@ public class PlayerMovement : MonoBehaviour
 
         currentTiltAngle = Mathf.Lerp(currentTiltAngle, targetAngle, Time.deltaTime * tiltLerpTime);
 
+        if (ActSpeed >= 0.5f && (CurrentState == PlayerStates.Grounded || CurrentState == PlayerStates.OnWalls))
+        {
+            float t = Mathf.InverseLerp(maxSpeed, 0.5f, ActSpeed);
+
+            currentInterval = Mathf.Lerp(minInterval, maxInterval, t);
+
+            Debug.Log("step interval: " + currentInterval);
+
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0f)
+            {
+                AudioManager.instance.PlayRandom("footsteps");
+                stepTimer = currentInterval;
+            }
+        }
+
         if (CurrentState == PlayerStates.Grounded)
         {
             if (new Vector2(XMove, YMove).magnitude == 0) //Rigid.velocity.magnitude <= Mathf.Abs(1f) && 
@@ -152,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 gravityController.SetGravityScale(defaultGravity);
             }
-
+            
             //if we press jump
             if (Input.GetButtonDown("Jump"))
             {
@@ -566,6 +589,7 @@ public class PlayerMovement : MonoBehaviour
             //we are now in the air
             SetInAir();
         }
+        AudioManager.instance.PlaySound("jump");
     }
 
     //increase our fov at high speed and reduce it at low speed

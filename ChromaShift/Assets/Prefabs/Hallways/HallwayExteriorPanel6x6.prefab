@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5003786932065277936}
   - component: {fileID: 363715997305389428}
   - component: {fileID: 1121994670897522592}
-  - component: {fileID: 8737685965616597890}
+  - component: {fileID: 7067729098379754659}
   m_Layer: 7
   m_Name: HallwayExteriorPanel6x6
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8737685965616597890
+--- !u!65 &7067729098379754659
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +105,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.059999995, y: 0.0038142523, z: 0.060000014}
-  m_Center: {x: 0, y: 0.0040928754, z: 0.030000007}
+  m_Center: {x: 0, y: 0.0019071297, z: 0.029500006}
 --- !u!1 &6209542665853708172
 GameObject:
   m_ObjectHideFlags: 0
