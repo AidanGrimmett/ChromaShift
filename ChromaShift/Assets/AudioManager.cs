@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public Sound[] sounds;
+    public MultiSound[] multiSounds;
 
     private void Awake()
     {
@@ -27,6 +28,13 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
+        }
+
+        foreach (MultiSound ms in multiSounds)
+        {
+            ms.source = gameObject.AddComponent<AudioSource>();
+            ms.source.volume = ms.volume;
+            ms.source.loop = ms.loop;
         }
     }
 
@@ -48,20 +56,46 @@ public class AudioManager : MonoBehaviour
 
     public void PlayPositional(string soundName, Vector3 position)
     {
+        //Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        //if (s == null)
+        //{
+        //    Debug.LogWarning("Cannot find a sound called + " + soundName + "!");
+        //    return;
+        //}
+        //s.source.spatialBlend = 1;
+        //s.source.transform.position = position;
+        //s.source.Play();
+
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
         {
-            Debug.LogWarning("Cannot find a sound called + " + soundName + "!");
+            Debug.LogWarning("Cannot find a sound called " + soundName + "!");
             return;
         }
-        s.source.transform.position = position;
+
+        GameObject soundObject = new GameObject("AudioSource: " + soundName);
+        soundObject.transform.position = position;
+
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.clip = s.clip;
+        audioSource.spatialBlend = 1f; // 3D sound
+        audioSource.Play();
+
+        // Automatically destroy the GameObject and the AudioSource component when the sound finishes playing
+        Destroy(soundObject, audioSource.clip.length);
+    }
+
+    public void PlayRandom(string soundsName)
+    {
+        MultiSound s = Array.Find(multiSounds, multiSound => multiSound.name == soundsName);
+        if (s == null)
+        {
+            Debug.LogWarning("Cannot find a multi sound called + " + soundsName + "!");
+            return;
+        }
+        int clipToPlay = UnityEngine.Random.Range(0, s.clips.Length - 1);
+        s.source.clip = s.clips[clipToPlay];
+        s.source.pitch = 1 + UnityEngine.Random.Range(-s.pitchRange, s.pitchRange);
         s.source.Play();
     }
-    //public void Play3DSound(AudioClip clip, Vector3 position)
-    //{
-    //    audioSource.spatialBlend = 1;
-    //    audioSource.transform.position = position;
-    //    audioSource.clip = clip;
-    //    audioSource.Play();
-    //}
 }

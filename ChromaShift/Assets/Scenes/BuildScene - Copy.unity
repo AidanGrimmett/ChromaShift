@@ -5151,6 +5151,7 @@ MonoBehaviour:
   leaderboard: {fileID: 1730053738}
   options: {fileID: 167962854}
   controls: {fileID: 285997576}
+  leaderboardValues: {fileID: 0}
   cam: {fileID: 2134440561}
   worldPrefab: {fileID: 410167009}
 --- !u!114 &1442084977
@@ -6649,21 +6650,25 @@ MonoBehaviour:
   sounds:
   - name: music
     clip: {fileID: 8300000, guid: 48c9f77f07890e440b3ff491bacd4175, type: 3}
-    volume: 0.013
+    volume: 0.082
     loop: 1
-    soundPosition: {x: 0, y: 0, z: 0}
     source: {fileID: 0}
   - name: jump
     clip: {fileID: 8300000, guid: 999179efb2486ea4e860c6f76a392d89, type: 3}
     volume: 0.734
     loop: 0
-    soundPosition: {x: 0, y: 0, z: 0}
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
+  multiSounds:
+  - name: footsteps
+    clips:
+    - {fileID: 8300000, guid: 3c62bdf2c23a2fb42bf1a5bc37739af2, type: 3}
+    - {fileID: 8300000, guid: aa605eaa9aef0f147a18794f8d0c1f9d, type: 3}
+    - {fileID: 8300000, guid: c120124e48bb21f468102e8a0c08bd2e, type: 3}
+    - {fileID: 8300000, guid: 7f85c1ac4fb3ec14495a1175b3dbc67a, type: 3}
+    - {fileID: 8300000, guid: 36aa8befc8331674a806c73a39866cc4, type: 3}
+    volume: 0.161
     loop: 0
-    soundPosition: {x: 0, y: 0, z: 0}
+    pitchRange: 0.05
     source: {fileID: 0}
 --- !u!4 &2028654574
 Transform:
