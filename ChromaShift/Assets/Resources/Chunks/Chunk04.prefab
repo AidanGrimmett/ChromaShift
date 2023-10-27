@@ -481,6 +481,7 @@ Transform:
   - {fileID: 1260790288046444213}
   - {fileID: 4212787899283264381}
   - {fileID: 6662157769511943918}
+  - {fileID: 8242287739679679994}
   m_Father: {fileID: 4754194144460390859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2547544760318130092
@@ -2112,6 +2113,80 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8836654620586164531, guid: a9ffa54b5bc5bd142b899110d12db85d, type: 3}
   m_PrefabInstance: {fileID: 566840603799064162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &630617784110310601
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3680373328448039010}
+    m_Modifications:
+    - target: {fileID: 6209542665853708172, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_Name
+      value: HallwayPanel12x12Dual
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 47.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+--- !u!4 &8242287739679679994 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8836654620586164531, guid: 3bbc811fbb7c30543beb4e32939c5a58, type: 3}
+  m_PrefabInstance: {fileID: 630617784110310601}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &817722426746339376
 PrefabInstance:
@@ -6276,6 +6351,10 @@ PrefabInstance:
     - target: {fileID: 370130764180862065, guid: 2fae7377529d0ee46be83704d2c7c5c4, type: 3}
       propertyPath: m_Name
       value: HallwayPlatformSceiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 382023820511131367, guid: 2fae7377529d0ee46be83704d2c7c5c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8216550448969646309, guid: 2fae7377529d0ee46be83704d2c7c5c4, type: 3}
       propertyPath: m_LocalScale.x
