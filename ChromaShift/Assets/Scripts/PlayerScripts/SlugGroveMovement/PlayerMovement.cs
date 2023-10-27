@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
         currentTiltAngle = Mathf.Lerp(currentTiltAngle, targetAngle, Time.deltaTime * tiltLerpTime);
 
-        if (ActSpeed >= 0.5f && (CurrentState == PlayerStates.Grounded || CurrentState == PlayerStates.OnWalls))
+        if (ActSpeed >= 0.5f && (CurrentState == PlayerStates.Grounded || CurrentState == PlayerStates.OnWalls) && (lastSlide - Time.time < -SlideTimer))
         {
             float t = Mathf.InverseLerp(maxSpeed, 0.5f, ActSpeed);
 
