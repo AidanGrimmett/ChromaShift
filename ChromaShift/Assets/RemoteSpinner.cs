@@ -30,6 +30,7 @@ public class RemoteSpinner : MonoBehaviour
             {
                 targetRotation = Quaternion.Euler(-90, positionList[cc.GetColorInt()], 0);
                 isRotating = true;
+                AudioManager.instance.PlaySound("remotespin");
             }
         }
 

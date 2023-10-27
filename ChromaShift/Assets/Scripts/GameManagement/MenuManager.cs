@@ -78,6 +78,7 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                AudioManager.instance.PlaySound("start");
                 break;
             case GameState.End:
                 //leaderboardValues.AddHighscoreEntry(Score.score, Time.time,)
@@ -99,6 +100,7 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                AudioManager.instance.PlaySound("nav");
                 break;
             case GameState.Options:
                 start.SetActive(false);
@@ -109,6 +111,7 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                AudioManager.instance.PlaySound("start");
                 break;
             case GameState.Controls:
                 start.SetActive(false);
@@ -119,6 +122,7 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                AudioManager.instance.PlaySound("start");
                 break;
         }
     }

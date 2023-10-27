@@ -615,6 +615,7 @@ public class PlayerMovement : MonoBehaviour
             //slide in direction
             Rigid.AddForce(-transform.forward * SlideAmt, ForceMode.Impulse);
             lastSlide = Time.time;
+            AudioManager.instance.PlaySound("slide");
         }
     }
 
