@@ -41,10 +41,6 @@ public class Leaderboard : MonoBehaviour
         {
             highscoresList = new List<HighscoreEntry>
             {
-                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
-                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
-                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
-                new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f },
                 new HighscoreEntry{ name = "AAA", score = 0, time = 00.00f }
             }
         };
