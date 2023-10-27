@@ -11,10 +11,6 @@ public class Trigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         onTrigger.Invoke();
-    }
-
-    public void Delete()
-    {
         Destroy(gameObject);
     }
 }
