@@ -59,6 +59,8 @@ public class Leaderboard : MonoBehaviour
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
+        Sort(highscores);
+
         foreach (HighscoreEntry entry in highscores.highscoresList)
         {
             CreateHigscoreEntry(entry, entryContainer, highscoreTransforms);
@@ -86,7 +88,7 @@ public class Leaderboard : MonoBehaviour
                 }
                 if (highscores.highscoresList[j].score == highscores.highscoresList[i].score)
                 {
-                    if (highscores.highscoresList[j].time < highscores.highscoresList[i].time)
+                    if (highscores.highscoresList[j].time > highscores.highscoresList[i].time)
                     {
                         HighscoreEntry temp = highscores.highscoresList[i];
                         highscores.highscoresList[i] = highscores.highscoresList[j];
