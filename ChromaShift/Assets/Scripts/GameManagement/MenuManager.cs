@@ -49,8 +49,11 @@ public class MenuManager : MonoBehaviour
         playerHealthScript = player.GetComponent<PlayerHealthBarScript>();
         world = GameObject.Find("World");
 
-        unFrozenPlayer = player.GetComponent<Rigidbody>().constraints;
-        unFrozenWorld = world.GetComponent<Rigidbody>().constraints;
+        unFrozenPlayer = new RigidbodyConstraints();
+        unFrozenPlayer = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+        unFrozenWorld = new RigidbodyConstraints();
+        unFrozenWorld = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
 
         MainMenu();
     }
@@ -82,7 +85,6 @@ public class MenuManager : MonoBehaviour
                 Cursor.visible = false;
                 break;
             case GameState.End:
-                //leaderboardValues.AddHighscoreEntry(Score.score, Time.time,)
                 start.SetActive(false);
                 play.SetActive(false);
                 end.SetActive(true);
