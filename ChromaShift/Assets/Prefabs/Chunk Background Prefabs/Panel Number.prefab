@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6475147888397945811}
+  - component: {fileID: 8981184862734671705}
   m_Layer: 7
   m_Name: Panel Number
   m_TagString: Untagged
@@ -66,6 +67,21 @@ Transform:
   - {fileID: 5098346617421139454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8981184862734671705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561732247129027828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af4c30effb0994d80096f292cc8c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Style1: {fileID: 179973562700164374}
+  Style2: {fileID: 3700471314430472036}
+  Style3: {fileID: 2727208100183967358}
 --- !u!1 &1077858660973773192
 GameObject:
   m_ObjectHideFlags: 0

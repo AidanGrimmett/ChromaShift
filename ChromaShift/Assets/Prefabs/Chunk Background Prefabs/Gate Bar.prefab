@@ -420,6 +420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1823636095231142071}
+  - component: {fileID: -952701027135206822}
   m_Layer: 0
   m_Name: Gate Bar
   m_TagString: Untagged
@@ -445,3 +446,18 @@ Transform:
   - {fileID: 1228517523828688566}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-952701027135206822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913530821253674866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af4c30effb0994d80096f292cc8c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Style1: {fileID: 6164184942246575544}
+  Style2: {fileID: 5444561478241432437}
+  Style3: {fileID: 2532904793062196859}

@@ -1130,16 +1130,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305860124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1730053739}
+  m_Father: {fileID: 1028463847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: 150}
+  m_AnchoredPosition: {x: 500, y: 303}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305860126
@@ -2550,7 +2550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &777750415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2761,7 +2761,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: is a lsr
+  m_Text: YOOOOO
 --- !u!222 &783147299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3251,7 +3251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &846695939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3780,7 +3780,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 305860125}
   m_Father: {fileID: 2120473428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6031,7 +6032,6 @@ RectTransform:
   - {fileID: 1496926801}
   - {fileID: 777750415}
   - {fileID: 1874775993}
-  - {fileID: 305860125}
   - {fileID: 676094885}
   - {fileID: 2120473428}
   m_Father: {fileID: 1442084975}
@@ -6416,9 +6416,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782006077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e24fcb879ef6123498bb928ea406da06, type: 3}
+  m_Script: {fileID: 11500000, guid: f0a2db15bbf7ac344a423f67a8998aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  submitted: 0
+  mainInputField: {fileID: 1782006079}
+  leaderboard: {fileID: 1442084977}
 --- !u!1 &1823644818
 GameObject:
   m_ObjectHideFlags: 0

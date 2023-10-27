@@ -91,8 +91,6 @@ public class MenuManager : MonoBehaviour
                 Cursor.visible = true;
                 break;
             case GameState.Leaderboard:
-                leaderboardValues.ClearScores();
-                leaderboardValues.LoadScores();
                 start.SetActive(false);
                 play.SetActive(false);
                 end.SetActive(false);
@@ -125,6 +123,12 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void LoadLeaderboard()
+    {
+        leaderboardValues.ClearScores();
+        leaderboardValues.LoadScores();
+    }
+
     public void MainMenu()
     {
         gameState = GameState.Start;
@@ -139,6 +143,7 @@ public class MenuManager : MonoBehaviour
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        LoadLeaderboard();
     }
 
     public void OptionsMenu()

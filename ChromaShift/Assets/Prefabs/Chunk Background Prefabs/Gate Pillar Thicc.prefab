@@ -315,6 +315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6080792939028820080}
+  - component: {fileID: 6575383064402353181}
   m_Layer: 7
   m_Name: Gate Pillar Thicc
   m_TagString: Untagged
@@ -340,6 +341,21 @@ Transform:
   - {fileID: 930571498273188076}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6575383064402353181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443518410766668488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af4c30effb0994d80096f292cc8c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Style1: {fileID: 6736150571479857002}
+  Style2: {fileID: 939278618472816723}
+  Style3: {fileID: 6325502231190896261}
 --- !u!1 &8818542369620950671
 GameObject:
   m_ObjectHideFlags: 0

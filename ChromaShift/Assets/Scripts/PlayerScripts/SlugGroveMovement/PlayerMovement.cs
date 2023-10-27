@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
             stepTimer -= Time.deltaTime;
             if (stepTimer <= 0f)
             {
-                AudioManager.instance.PlayRandom("footsteps");
+                //AudioManager.instance.PlayRandom("footsteps");
                 stepTimer = currentInterval;
             }
         }

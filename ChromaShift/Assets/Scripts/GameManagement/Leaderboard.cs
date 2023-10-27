@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Leaderboard : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class Leaderboard : MonoBehaviour
         entryTemplate.gameObject.SetActive(false);
 
         highscoreTransforms = new List<Transform>();
+
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+        if (highscores == null)
+        {
+            ClearLeaderboard();
+        }
     }
 
     public void ClearScores()
@@ -55,6 +63,13 @@ public class Leaderboard : MonoBehaviour
         {
             CreateHigscoreEntry(entry, entryContainer, highscoreTransforms);
         }
+        entryContainer.GetComponent<RectTransform>().sizeDelta = new Vector2(0, highscoreTransforms.Count * 100);
+        entryContainer.GetComponent<RectTransform>().localPosition -= new Vector3(0, highscoreTransforms.Count * 50 - 250, 0);
+
+        foreach (Transform entry in highscoreTransforms)
+        {
+            entry.GetComponent<RectTransform>().localPosition += new Vector3(0, highscoreTransforms.Count * 50 - 250, 0);
+        }
     }
 
     private void Sort(Highscores highscores)
@@ -71,7 +86,7 @@ public class Leaderboard : MonoBehaviour
                 }
                 if (highscores.highscoresList[j].score == highscores.highscoresList[i].score)
                 {
-                    if (highscores.highscoresList[j].score < highscores.highscoresList[i].score)
+                    if (highscores.highscoresList[j].time < highscores.highscoresList[i].time)
                     {
                         HighscoreEntry temp = highscores.highscoresList[i];
                         highscores.highscoresList[i] = highscores.highscoresList[j];
@@ -126,11 +141,6 @@ public class Leaderboard : MonoBehaviour
     private class Highscores
     {
         public List<HighscoreEntry> highscoresList;
-    }
-
-    public void GetLastScore()
-    {
-
     }
 
     [System.Serializable] private class HighscoreEntry
