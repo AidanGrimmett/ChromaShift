@@ -7,5 +7,6 @@ public class PlayerDeath : MonoBehaviour
     public static void KillPlayer()
     {
         GameObject.Find("Screens").GetComponent<MenuManager>().gameState = GameState.End;
+        AudioManager.instance.PlaySound("laser");
     }
 }
