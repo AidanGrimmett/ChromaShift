@@ -50,7 +50,7 @@ public class MenuManager : MonoBehaviour
         world = GameObject.Find("World");
 
         unFrozenPlayer = new RigidbodyConstraints();
-        unFrozenPlayer = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        unFrozenPlayer = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 
         unFrozenWorld = new RigidbodyConstraints();
         unFrozenWorld = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;

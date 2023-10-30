@@ -27,6 +27,9 @@ public class ColorObjectManager : MonoBehaviour
 
     private void SetActive(bool state)
     {
-        coloredObject.SetActive(state);
+        if (coloredObject != null)
+        {
+            coloredObject.SetActive(state);
+        }
     }
 }
