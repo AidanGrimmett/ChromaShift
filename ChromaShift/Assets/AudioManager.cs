@@ -51,6 +51,9 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Cannot find a sound called + " + soundName + "!");
             return;
         }
+
+        ChangeVolume(s);
+
         s.source.Play();
     }
 
@@ -79,6 +82,9 @@ public class AudioManager : MonoBehaviour
         AudioSource audioSource = soundObject.AddComponent<AudioSource>();
         audioSource.clip = s.clip;
         audioSource.spatialBlend = 1f; // 3D sound
+
+        ChangeVolume(s);
+
         audioSource.Play();
 
         // Automatically destroy the GameObject and the AudioSource component when the sound finishes playing
@@ -96,6 +102,32 @@ public class AudioManager : MonoBehaviour
         int clipToPlay = UnityEngine.Random.Range(0, s.clips.Length - 1);
         s.source.clip = s.clips[clipToPlay];
         s.source.pitch = 1 + UnityEngine.Random.Range(-s.pitchRange, s.pitchRange);
+
+        ChangeVolume(s);
+
         s.source.Play();
+    }
+
+    public void ChangeVolume(Sound s)
+    {
+        if (s.name == "music")
+        {
+            s.source.volume = s.volume * PlayerPrefs.GetFloat("MusicVolume");
+        }
+        else
+        {
+            s.source.volume = s.volume * PlayerPrefs.GetFloat("SoundVolume");
+        }
+    }
+    public void ChangeVolume(MultiSound s)
+    {
+        if (s.name == "music")
+        {
+            s.source.volume = s.volume * PlayerPrefs.GetFloat("MusicVolume");
+        }
+        else
+        {
+            s.source.volume = s.volume * PlayerPrefs.GetFloat("SoundVolume");
+        }
     }
 }

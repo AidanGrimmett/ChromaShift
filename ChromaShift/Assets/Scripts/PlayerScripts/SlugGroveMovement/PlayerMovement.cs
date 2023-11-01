@@ -139,6 +139,11 @@ public class PlayerMovement : MonoBehaviour
         if (CurrentState == PlayerStates.OnWalls)
             targetAngle = Coli.CheckLeftWall() ? -cameraTiltAmount : Coli.CheckRightWall() ? cameraTiltAmount : 0f;
 
+        if (MenuManager.gameState == GameState.End)
+        {
+            targetAngle = 30;
+        }
+
         if (Mathf.Approximately(ActSpeed, 0)) ActSpeed = 0;
 
         if (ActSpeed > speedCap)

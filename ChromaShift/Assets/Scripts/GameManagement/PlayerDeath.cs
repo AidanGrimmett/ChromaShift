@@ -6,7 +6,10 @@ public class PlayerDeath : MonoBehaviour
 {
     public static void KillPlayer()
     {
-        GameObject.Find("Screens").GetComponent<MenuManager>().gameState = GameState.End;
+        GameObject.Find("GameplayUI").GetComponent<ScreenFlashAnimation>().FlashDeath();
         AudioManager.instance.PlaySound("laser");
+        MenuManager screens = GameObject.Find("Screens").GetComponent<MenuManager>();
+        screens.StartCoroutine(screens.screenSwitchDelay());
+        MenuManager.gameState = GameState.End;
     }
 }

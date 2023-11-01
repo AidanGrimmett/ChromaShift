@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        if (menuManager.GetComponent<MenuManager>().gameState == GameState.Play)
+        if (MenuManager.gameState == GameState.Play)
         {
             time += Time.deltaTime;
         }

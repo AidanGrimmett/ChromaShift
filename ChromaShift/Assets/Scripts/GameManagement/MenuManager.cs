@@ -16,7 +16,7 @@ public enum GameState
 
 public class MenuManager : MonoBehaviour
 {
-    public GameState gameState;
+    public static GameState gameState;
 
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject play;
@@ -56,6 +56,30 @@ public class MenuManager : MonoBehaviour
         unFrozenWorld = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
 
         MainMenu();
+
+        if (!PlayerPrefs.HasKey("MusicVolume"))
+        {
+            PlayerPrefs.SetFloat("MusicVolume", 1);
+        }
+        if (!PlayerPrefs.HasKey("SoundVolume"))
+        {
+            PlayerPrefs.SetFloat("SoundVolume", 1);
+        }
+        if (!PlayerPrefs.HasKey("Fullscreen"))
+        {
+            PlayerPrefs.SetInt("Fullscreen", 1);
+        }
+        else
+        {
+            if (PlayerPrefs.GetInt("Fullscreen") == 0)
+            {
+                Screen.fullScreen = false;
+            }
+            else
+            {
+                Screen.fullScreen = true;
+            }
+        }
     }
 
     public void Update()
@@ -85,12 +109,6 @@ public class MenuManager : MonoBehaviour
                 Cursor.visible = false;
                 break;
             case GameState.End:
-                start.SetActive(false);
-                play.SetActive(false);
-                end.SetActive(true);
-                leaderboard.SetActive(false);
-                options.SetActive(false);
-                controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
@@ -217,5 +235,17 @@ public class MenuManager : MonoBehaviour
             Destroy(obj);
         }
         world.AddComponent<ChunkStitcher>().spawnTube = entrance;
+    }
+
+    public IEnumerator screenSwitchDelay()
+    {
+        world.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        yield return new WaitForSeconds(0.5f);
+        start.SetActive(false);
+        play.SetActive(false);
+        end.SetActive(true);
+        leaderboard.SetActive(false);
+        options.SetActive(false);
+        controls.SetActive(false);
     }
 }
