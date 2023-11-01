@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4437241135754970292
+--- !u!1 &370130764180862065
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,79 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5003786932065277936}
-  - component: {fileID: 363715997305389428}
-  - component: {fileID: 1121994670897522592}
-  - component: {fileID: 5396794592651973380}
+  - component: {fileID: 8216550448969646309}
   m_Layer: 7
-  m_Name: HallwayPanel6x18
+  m_Name: HallwayPlatformSceilingOff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5003786932065277936
+--- !u!4 &8216550448969646309
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4437241135754970292}
+  m_GameObject: {fileID: 370130764180862065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9192808139422184435}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3991946938864289334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9192808139422184435}
+  - component: {fileID: 1188991190033516128}
+  - component: {fileID: 8620328695797457386}
+  - component: {fileID: 5847138499515600510}
+  m_Layer: 7
+  m_Name: HallwayPlatformSceiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9192808139422184435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991946938864289334}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8836654620586164531}
+  m_Father: {fileID: 8216550448969646309}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!33 &363715997305389428
+--- !u!33 &1188991190033516128
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4437241135754970292}
-  m_Mesh: {fileID: -4589605319105265697, guid: 97c58524f178be14180d529c6bee2259, type: 3}
---- !u!23 &1121994670897522592
+  m_GameObject: {fileID: 3991946938864289334}
+  m_Mesh: {fileID: -6299383747271116998, guid: 97c58524f178be14180d529c6bee2259, type: 3}
+--- !u!23 &8620328695797457386
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4437241135754970292}
+  m_GameObject: {fileID: 3991946938864289334}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +95,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1ca3d639d617ff0449fc381602f6d742, type: 2}
-  - {fileID: 2100000, guid: a8800e96c65b66746b175c33d62b9dd4, type: 2}
+  - {fileID: 2100000, guid: 1ca3d639d617ff0449fc381602f6d742, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +117,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5396794592651973380
+--- !u!65 &5847138499515600510
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4437241135754970292}
+  m_GameObject: {fileID: 3991946938864289334}
   m_Material: {fileID: 13400000, guid: 02948ebda63c7d94ebdb22566b0c53b5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -102,39 +134,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.060000002, y: 0.0020155495, z: 0.18000004}
-  m_Center: {x: -9.313226e-10, y: 0.0010077729, z: 0}
---- !u!1 &6209542665853708172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8836654620586164531}
-  m_Layer: 7
-  m_Name: HallwayPanel6x18
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8836654620586164531
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6209542665853708172}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.55, y: -0, z: -89.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5003786932065277936}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.06, y: 0.07, z: 0.0025192657}
+  m_Center: {x: 0.000000007450581, y: -0.00000011920929, z: 0.0029922852}
