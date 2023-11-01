@@ -180,8 +180,8 @@ GameObject:
   - component: {fileID: 3927890172203864644}
   - component: {fileID: 1960448141692910683}
   - component: {fileID: 8983105466729564616}
-  - component: {fileID: 1835018662200923433}
-  m_Layer: 7
+  - component: {fileID: 3565538246884036175}
+  m_Layer: 0
   m_Name: Gate Pillar Thicc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,13 +196,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6393302159341078535}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -6, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 300, z: 24}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6913261260341966597}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &1960448141692910683
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6393302159341078535}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4046545082268268933, guid: 02bc44908f1b68f4fbd22bd6a72e0f8c, type: 3}
 --- !u!23 &8983105466729564616
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -253,8 +253,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1835018662200923433
-BoxCollider:
+--- !u!64 &3565538246884036175
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -270,10 +270,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4046545082268268933, guid: 02bc44908f1b68f4fbd22bd6a72e0f8c, type: 3}
 --- !u!1 &6736150571479857002
 GameObject:
   m_ObjectHideFlags: 0
