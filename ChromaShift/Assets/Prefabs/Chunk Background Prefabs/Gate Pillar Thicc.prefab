@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6832265213947671437}
   - component: {fileID: 4577900010562702053}
   - component: {fileID: 6699033737185667128}
-  - component: {fileID: 7167067693482638193}
-  m_Layer: 7
+  - component: {fileID: 1672128554430588294}
+  m_Layer: 0
   m_Name: Gate Pillar Thicc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277977547347462283}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -6, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 300, z: 24}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8065543808231596381}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &4577900010562702053
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277977547347462283}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 201036269481175394, guid: 02bc44908f1b68f4fbd22bd6a72e0f8c, type: 3}
 --- !u!23 &6699033737185667128
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40239b030b9a491479f31b84acdf1fea, type: 2}
+  - {fileID: 2100000, guid: 591d166219768f84db90ce295997b078, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,14 +84,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7167067693482638193
-BoxCollider:
+--- !u!64 &1672128554430588294
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277977547347462283}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02948ebda63c7d94ebdb22566b0c53b5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -101,10 +101,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 201036269481175394, guid: 02bc44908f1b68f4fbd22bd6a72e0f8c, type: 3}
 --- !u!1 &939278618472816723
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8065543808231596381
 Transform:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6080792939028820080}
   - component: {fileID: 6575383064402353181}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gate Pillar Thicc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +370,7 @@ GameObject:
   - component: {fileID: 2906556777438425854}
   - component: {fileID: 3916369242731525963}
   - component: {fileID: 812896704803340779}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gate Pillar Thicc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
