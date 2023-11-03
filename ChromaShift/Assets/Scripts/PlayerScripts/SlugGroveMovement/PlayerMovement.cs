@@ -159,8 +159,6 @@ public class PlayerMovement : MonoBehaviour
 
             currentInterval = Mathf.Lerp(minInterval, maxInterval, t);
 
-            Debug.Log("step interval: " + currentInterval);
-
             stepTimer -= Time.deltaTime;
             if (stepTimer <= 0f)
             {
