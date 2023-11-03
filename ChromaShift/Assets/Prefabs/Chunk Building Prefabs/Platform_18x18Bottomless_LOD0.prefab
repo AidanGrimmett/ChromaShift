@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 4700770254748880834, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 8723722963823717807, guid: 97c58524f178be14180d529c6bee2259, type: 3}
+      objectReference: {fileID: -1983686389896168204, guid: 97c58524f178be14180d529c6bee2259, type: 3}
     - target: {fileID: 6079334703898793781, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Size
       value: 18.000006
@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 383082471586095186}
     - target: {fileID: 6341793529788510248, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Name
-      value: Platform_18x18_LOD0
+      value: Platform_18x18Bottomless_LOD0
       objectReference: {fileID: 0}
     - target: {fileID: 7425798138770921110, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7425798138770921110, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -45,12 +45,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a8800e96c65b66746b175c33d62b9dd4, type: 2}
     - target: {fileID: 7425798138770921110, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec56c135d38521040a5a62e1da5c8c82, type: 2}
+    - target: {fileID: 7425798138770921110, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 591d166219768f84db90ce295997b078, type: 2}
     - target: {fileID: 8198623294099337447, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_Name
-      value: Platform_18x18 Variant
+      value: Platform_18x18Bottomless_LOD0
       objectReference: {fileID: 0}
     - target: {fileID: 8851578897662958278, guid: 9e50cea4d91d07544b7e5f1a3dd66f54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -133,4 +137,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8723722963823717807, guid: 97c58524f178be14180d529c6bee2259, type: 3}
+  m_Mesh: {fileID: -1983686389896168204, guid: 97c58524f178be14180d529c6bee2259, type: 3}
