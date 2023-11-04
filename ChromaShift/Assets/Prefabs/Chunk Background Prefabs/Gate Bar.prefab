@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2449753573354517530}
   - component: {fileID: 8069153061320524802}
   - component: {fileID: 6471595433762487301}
-  - component: {fileID: 987572844990563506}
+  - component: {fileID: 6990630637731823614}
   m_Layer: 0
   m_Name: GateBar
   m_TagString: Untagged
@@ -223,8 +223,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &987572844990563506
-MeshCollider:
+--- !u!65 &6990630637731823614
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -241,10 +241,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5621505897431254073, guid: 02bc44908f1b68f4fbd22bd6a72e0f8c, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.12688345, y: 0.68138987, z: 0.20348611}
+  m_Center: {x: -0.0034417866, y: -5.0828753e-17, z: 0.09782173}
 --- !u!1 &5444561478241432437
 GameObject:
   m_ObjectHideFlags: 0
