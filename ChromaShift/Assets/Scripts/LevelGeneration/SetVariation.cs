@@ -10,7 +10,7 @@ public class SetVariation : MonoBehaviour
 
     private void Start()
     {
-        if (Score.score > 8 )
+        if (Score.score > 0 )
         {
             Style1.SetActive(false);
             Style2.SetActive(false);
