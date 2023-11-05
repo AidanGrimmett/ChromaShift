@@ -11,5 +11,6 @@ public class PlayerDeath : MonoBehaviour
         MenuManager screens = GameObject.Find("Screens").GetComponent<MenuManager>();
         screens.StartCoroutine(screens.screenSwitchDelay());
         MenuManager.gameState = GameState.End;
+        AudioManager.instance.StopSound("music");
     }
 }

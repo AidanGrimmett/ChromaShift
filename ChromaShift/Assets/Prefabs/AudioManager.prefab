@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: music
+  - name: music_single
     clip: {fileID: 8300000, guid: be01fa24fbc4a3a42b2b32de390215f4, type: 3}
-    volume: 0.073
+    volume: 0.15
     loop: 1
     source: {fileID: 0}
   - name: jump
@@ -57,7 +57,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: laser
     clip: {fileID: 8300000, guid: 6f1247ea8e0e05943a9e40ad443d4d53, type: 3}
-    volume: 0.723
+    volume: 0.623
     loop: 0
     source: {fileID: 0}
   - name: slide
@@ -66,7 +66,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: nav
-    clip: {fileID: 8300000, guid: f0f3fe9b08f826949b2465d641e7a8fb, type: 3}
+    clip: {fileID: 8300000, guid: 7a5ce50392978ce44833f044aa1e270e, type: 3}
     volume: 0.182
     loop: 0
     source: {fileID: 0}
@@ -92,12 +92,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: laserbuzz
     clip: {fileID: 8300000, guid: e3f39e129a4566e48a3ccbea56434186, type: 3}
-    volume: 0.036
-    loop: 1
+    volume: 0.021
+    loop: 0
     source: {fileID: 0}
   - name: laserbuzzB
     clip: {fileID: 8300000, guid: b2dbc717e5b1bbc47ab11a42900e09a2, type: 3}
-    volume: 0.182
+    volume: 0.034
     loop: 1
     source: {fileID: 0}
   multiSounds:
@@ -108,6 +108,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c120124e48bb21f468102e8a0c08bd2e, type: 3}
     - {fileID: 8300000, guid: 7f85c1ac4fb3ec14495a1175b3dbc67a, type: 3}
     - {fileID: 8300000, guid: 36aa8befc8331674a806c73a39866cc4, type: 3}
+    clipIndex: 0
     volume: 0.161
     loop: 0
     pitchRange: 0.05
@@ -115,7 +116,28 @@ MonoBehaviour:
   - name: footsteps
     clips:
     - {fileID: 8300000, guid: e22f8feb98100b64eb65ba9d62b50e76, type: 3}
-    volume: 0.32
+    clipIndex: 0
+    volume: 0.072
     loop: 0
     pitchRange: 0.05
+    source: {fileID: 0}
+  - name: music
+    clips:
+    - {fileID: 8300000, guid: cae455e513e0fe94f94a9555a9607226, type: 3}
+    - {fileID: 8300000, guid: be01fa24fbc4a3a42b2b32de390215f4, type: 3}
+    - {fileID: 8300000, guid: ce8d7d329322d2546917f53beb628a7d, type: 3}
+    clipIndex: 0
+    volume: 0.017
+    loop: 0
+    pitchRange: 0
+    source: {fileID: 0}
+  - name: musicB
+    clips:
+    - {fileID: 8300000, guid: f75649acab12e9b4bb42ecbc39e76b2c, type: 3}
+    - {fileID: 8300000, guid: db1dfbc420a8c2e4982f401a94743386, type: 3}
+    - {fileID: 8300000, guid: 0376d778c0f88cc4bb781905629d55cf, type: 3}
+    clipIndex: 0
+    volume: 0.072
+    loop: 1
+    pitchRange: 0
     source: {fileID: 0}

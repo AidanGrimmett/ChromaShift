@@ -127,6 +127,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MenuManager.gameState != GameState.Play)
+            return;
         XMove = Input.GetAxisRaw("Horizontal");
         YMove = Input.GetAxisRaw("Vertical");
 
