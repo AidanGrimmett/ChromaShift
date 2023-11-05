@@ -1497,6 +1497,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 98270178535503396}
     m_Modifications:
+    - target: {fileID: 4361858424988312532, guid: 6588563e620c94747a5a1cfdcd67858c, type: 3}
+      propertyPath: groundBoost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6766053182503877486, guid: 6588563e620c94747a5a1cfdcd67858c, type: 3}
       propertyPath: m_Name
       value: Holoframe_Static
