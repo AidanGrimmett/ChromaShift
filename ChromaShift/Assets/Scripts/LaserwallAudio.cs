@@ -12,7 +12,7 @@ public class LaserwallAudio : MonoBehaviour
 
     private void OnEnable()
     {
-        AudioManager.instance.PlayPositional("laserbuzz", transform.position);
+        //AudioManager.instance.PlayPositional("laserbuzz", transform.position);
     }
 
     private void OnDisable()

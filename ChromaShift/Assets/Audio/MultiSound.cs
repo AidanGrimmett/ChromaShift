@@ -10,6 +10,8 @@ public class MultiSound
 
     public AudioClip[] clips;
 
+    public int clipIndex;
+
     [Range(0f, 1f)]
     public float volume;
 

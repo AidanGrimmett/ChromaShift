@@ -6833,6 +6833,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3400063363467167884}
     m_Modifications:
+    - target: {fileID: 5003786932065277936, guid: aab5afd0497d9a44fa612946dd973262, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003786932065277936, guid: aab5afd0497d9a44fa612946dd973262, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003786932065277936, guid: aab5afd0497d9a44fa612946dd973262, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 6209542665853708172, guid: aab5afd0497d9a44fa612946dd973262, type: 3}
       propertyPath: m_Name
       value: HallwayPanel18x54 (1)

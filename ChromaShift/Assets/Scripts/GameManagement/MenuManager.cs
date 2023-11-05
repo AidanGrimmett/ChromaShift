@@ -84,6 +84,11 @@ public class MenuManager : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameOver();
+        }
+
         switch (gameState)
         {
             case GameState.Start:
@@ -95,10 +100,8 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                AudioManager.instance.PlaySound("nav");
                 break;
             case GameState.Play:
-                AudioManager.instance.PlaySound("start");
                 start.SetActive(false);
                 play.SetActive(true);
                 end.SetActive(false);
@@ -110,6 +113,8 @@ public class MenuManager : MonoBehaviour
                 break;
             case GameState.End:
                 Cursor.lockState = CursorLockMode.None;
+                end.SetActive(true);
+                leaderboard.SetActive(false);
                 Cursor.visible = true;
                 break;
             case GameState.Leaderboard:
@@ -121,7 +126,6 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                AudioManager.instance.PlaySound("nav");
                 break;
             case GameState.Options:
                 start.SetActive(false);
@@ -132,7 +136,6 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                AudioManager.instance.PlaySound("nav");
                 break;
             case GameState.Controls:
                 start.SetActive(false);
@@ -143,19 +146,22 @@ public class MenuManager : MonoBehaviour
                 controls.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                AudioManager.instance.PlaySound("nav");
                 break;
         }
     }
 
     public void LoadLeaderboard()
     {
+        AudioManager.instance.PlaySound("nav");
         leaderboardValues.ClearScores();
         leaderboardValues.LoadScores();
     }
 
     public void MainMenu()
     {
+        if (Time.realtimeSinceStartup > 0.1f)
+            AudioManager.instance.PlaySound("nav");
+        AudioManager.instance.PlaySound("menumusic");
         gameState = GameState.Start;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -164,6 +170,7 @@ public class MenuManager : MonoBehaviour
 
     public void LeaderboardMenu()
     {
+        AudioManager.instance.PlaySound("nav");
         gameState = GameState.Leaderboard;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -173,6 +180,7 @@ public class MenuManager : MonoBehaviour
 
     public void OptionsMenu()
     {
+        AudioManager.instance.PlaySound("nav");
         gameState = GameState.Options;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -181,6 +189,7 @@ public class MenuManager : MonoBehaviour
 
     public void ControlsMenu()
     {
+        AudioManager.instance.PlaySound("nav");
         gameState = GameState.Controls;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -189,11 +198,14 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.instance.StopSound("menumusic");
+        AudioManager.instance.PlaySound("start");
         gameState = GameState.Play;
         playerHealthScript.SetHealth(float.MaxValue);
         player.GetComponent<Rigidbody>().constraints = unFrozenPlayer;
         world.GetComponent<Rigidbody>().constraints = unFrozenWorld;
         player.transform.rotation = Quaternion.identity;
+        AudioManager.instance.PlayRandom("music");
     }
 
     public void GameOver()
@@ -202,11 +214,11 @@ public class MenuManager : MonoBehaviour
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         world.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
     }
 
     public void Quit()
     {
+        AudioManager.instance.PlaySound("nav");
         Application.Quit();
     }
 

@@ -33,7 +33,8 @@ public class PlayerHealthBarScript : MonoBehaviour
         delay -= Time.deltaTime;
         if (delay > 0) return;
 
-        currentHealth += -decayRate * Time.deltaTime;
+        if (currentHealth > 0)
+            currentHealth += -decayRate * Time.deltaTime;
         hbs.SetHealth(currentHealth);
     }
 

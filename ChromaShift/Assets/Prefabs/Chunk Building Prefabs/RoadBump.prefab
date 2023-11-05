@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1940630021636644618}
   - component: {fileID: 3776129822233760505}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RoadBump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 2379550974593239566}
   - component: {fileID: 519071422306685786}
   - component: {fileID: 7290862200201153853}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RoadBump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
