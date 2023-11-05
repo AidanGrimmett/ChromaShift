@@ -248,4 +248,15 @@ public class MenuManager : MonoBehaviour
         options.SetActive(false);
         controls.SetActive(false);
     }
+
+    public void screenSwitchNoDelay()
+    {
+        world.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        start.SetActive(false);
+        play.SetActive(false);
+        end.SetActive(true);
+        leaderboard.SetActive(false);
+        options.SetActive(false);
+        controls.SetActive(false);
+    }
 }
