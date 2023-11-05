@@ -47,13 +47,58 @@ MonoBehaviour:
   sounds:
   - name: music
     clip: {fileID: 8300000, guid: be01fa24fbc4a3a42b2b32de390215f4, type: 3}
-    volume: 0
+    volume: 0.073
     loop: 1
     source: {fileID: 0}
   - name: jump
     clip: {fileID: 8300000, guid: c2474a45169f6e84d9cc0968cf68b37a, type: 3}
-    volume: 0
+    volume: 0.329
     loop: 0
+    source: {fileID: 0}
+  - name: laser
+    clip: {fileID: 8300000, guid: 6f1247ea8e0e05943a9e40ad443d4d53, type: 3}
+    volume: 0.723
+    loop: 0
+    source: {fileID: 0}
+  - name: slide
+    clip: {fileID: 8300000, guid: 909130ce6ca1ac74bba57da763e1956c, type: 3}
+    volume: 0.871
+    loop: 0
+    source: {fileID: 0}
+  - name: nav
+    clip: {fileID: 8300000, guid: f0f3fe9b08f826949b2465d641e7a8fb, type: 3}
+    volume: 0.182
+    loop: 0
+    source: {fileID: 0}
+  - name: retry
+    clip: {fileID: 8300000, guid: 90f71835b6afff249a46a1e9bb12e31e, type: 3}
+    volume: 0.182
+    loop: 0
+    source: {fileID: 0}
+  - name: start
+    clip: {fileID: 8300000, guid: 62b4356ac1199d74484f185ed1a443c0, type: 3}
+    volume: 0.182
+    loop: 0
+    source: {fileID: 0}
+  - name: remotespin
+    clip: {fileID: 8300000, guid: b7e3f5244515e114eb645339ae53a3da, type: 3}
+    volume: 0.182
+    loop: 0
+    source: {fileID: 0}
+  - name: start
+    clip: {fileID: 8300000, guid: 62b4356ac1199d74484f185ed1a443c0, type: 3}
+    volume: 0.182
+    loop: 0
+    source: {fileID: 0}
+  - name: laserbuzz
+    clip: {fileID: 8300000, guid: e3f39e129a4566e48a3ccbea56434186, type: 3}
+    volume: 0.036
+    loop: 1
+    source: {fileID: 0}
+  - name: laserbuzzB
+    clip: {fileID: 8300000, guid: b2dbc717e5b1bbc47ab11a42900e09a2, type: 3}
+    volume: 0.182
+    loop: 1
     source: {fileID: 0}
   multiSounds:
   - name: ducks

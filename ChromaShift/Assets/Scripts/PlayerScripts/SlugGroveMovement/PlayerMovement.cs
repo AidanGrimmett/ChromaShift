@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public enum PlayerStates
     {
-        Grounded,//on the ground
+        Grounded, //on the ground
         InAir, //in the air
         OnWalls, //running on the walls
     }
@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
         YMove = Input.GetAxisRaw("Vertical");
 
 
-        DebugControls();
+        //DebugControls();
 
         //tilt head
         Transform camTrans = Head.transform;
@@ -569,7 +569,6 @@ public class PlayerMovement : MonoBehaviour
         {
             //reduce our velocity on the y axis so our jump force can be added
             Vector3 VelAmt = PlayerRB.velocity;
-            //Vector3 flatVelNorm = new Vector3(PlayerRB.velocity.x, 0, PlayerRB.velocity.z).normalized;
             VelAmt.y = 0;
             PlayerRB.velocity = VelAmt;
             //add our jump force

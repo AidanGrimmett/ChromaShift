@@ -102,6 +102,23 @@ public class AudioManager : MonoBehaviour
         Destroy(soundObject, audioSource.clip.length);
     }
 
+    public void PlayRandom(string soundsName)
+    {
+        MultiSound s = Array.Find(multiSounds, multiSound => multiSound.name == soundsName);
+        if (s == null)
+        {
+            Debug.LogWarning("Cannot find a multi sound called + " + soundsName + "!");
+            return;
+        }
+        int clipToPlay = UnityEngine.Random.Range(0, s.clips.Length - 1);
+        s.source.clip = s.clips[clipToPlay];
+        s.source.pitch = 1 + UnityEngine.Random.Range(-s.pitchRange, s.pitchRange);
+
+        ChangeVolume(s);
+
+        s.source.Play();
+    }
+
     public void PlayPositionalRepeat(string soundName, Vector3 position, string repeatName)
     {
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
@@ -123,23 +140,6 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
 
         repeatedSounds.Add(audioSource, repeatName);
-    }
-
-    public void PlayRandom(string soundsName)
-    {
-        MultiSound s = Array.Find(multiSounds, multiSound => multiSound.name == soundsName);
-        if (s == null)
-        {
-            Debug.LogWarning("Cannot find a multi sound called + " + soundsName + "!");
-            return;
-        }
-        int clipToPlay = UnityEngine.Random.Range(0, s.clips.Length - 1);
-        s.source.clip = s.clips[clipToPlay];
-        s.source.pitch = 1 + UnityEngine.Random.Range(-s.pitchRange, s.pitchRange);
-
-        ChangeVolume(s);
-
-        s.source.Play();
     }
 
     public void RemoveRepeat(string name)
