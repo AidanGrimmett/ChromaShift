@@ -124,10 +124,7 @@ public class Leaderboard : MonoBehaviour
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
-        if (highscores.highscoresList[4].score < score || (highscores.highscoresList[4].score == score && highscores.highscoresList[4].time < time ))
-        {
-            highscores.highscoresList.Add(highscoreEntry);
-        }
+         highscores.highscoresList.Add(highscoreEntry);
 
         Sort(highscores);
 
