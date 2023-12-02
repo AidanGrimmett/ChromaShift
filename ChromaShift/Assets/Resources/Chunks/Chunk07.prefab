@@ -2262,6 +2262,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c792bf4896a52414f84af601f4627d8e, type: 2}
+    - target: {fileID: 5443049747984716245, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443049747984716245, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.013464536
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443049747984716245, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.0008424403
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443049747984716245, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.00028081343
+      objectReference: {fileID: 0}
     - target: {fileID: 6830198411228219778, guid: 65edd47ec8b8ac24498d4121deae5350, type: 3}
       propertyPath: m_Name
       value: Chunk_Wall
