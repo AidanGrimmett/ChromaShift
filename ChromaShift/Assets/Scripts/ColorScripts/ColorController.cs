@@ -41,7 +41,7 @@ public class ColorController : MonoBehaviour
         colorInput = Input.GetAxisRaw("Color");
 
         //When the positive input is pressed, cycle to the next color in the list.
-        if (!inputPressed && colorInput > 0.05)
+        if (!inputPressed && colorInput < -0.05)
         {
             inputPressed = true;
 
@@ -56,7 +56,7 @@ public class ColorController : MonoBehaviour
         }
 
         //When the negative input is pressed, cycle to the previous color in the list.
-        if (!inputPressed && colorInput < -0.05)
+        if (!inputPressed && colorInput > 0.05)
         {
             inputPressed = true;
 

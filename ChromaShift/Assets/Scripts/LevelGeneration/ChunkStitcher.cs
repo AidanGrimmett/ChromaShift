@@ -19,13 +19,18 @@ public class ChunkStitcher : MonoBehaviour
 
     [SerializeField] public GameObject spawnTube;
 
+    public int chunksGenerated = 3;
+
     private void Start()
     {
         prefabArray = Resources.LoadAll<GameObject>(directory);
 
         //Generates the first 3 chunks of the game.
         GenerateChunk(Vector3.zero);
-        GenerateChunk();
+        for (int i = 0; i < chunksGenerated - 1; i++)
+        {
+           GenerateChunk();
+        }
     }
 
     public void GenerateChunk()

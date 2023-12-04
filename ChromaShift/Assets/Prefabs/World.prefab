@@ -75,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directory: Chunks
   spawnTube: {fileID: 2898922684886797708, guid: 2955ed5c859958b48aee5896e07e88cc, type: 3}
+  chunksGenerated: 4
 --- !u!114 &4115565134326735886
 MonoBehaviour:
   m_ObjectHideFlags: 0
